@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Traverser la vague</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F7F6;--ink:#16302E;--card:#FFFFFF;--mut:#51706C;--line:#D2E3E0;--c1:#1F7F70;--c2:#B63F6B;--c3:#A86400;--c4:#3A63CC;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A1C;--ink:#E8F4F2;--card:#132829;--mut:#9CBDB8;--line:#254443;--c1:#5ED6C2;--c2:#FF8FB3;--c3:#FFC83D;--c4:#8FB0FF;--on:#0B1A1C}}
+:root[data-theme="dark"]{--bg:#0B1A1C;--ink:#E8F4F2;--card:#132829;--mut:#9CBDB8;--line:#254443;--c1:#5ED6C2;--c2:#FF8FB3;--c3:#FFC83D;--c4:#8FB0FF;--on:#0B1A1C}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Figtree",system-ui,sans-serif;font-weight:500;font-size:17px;line-height:1.5}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-weight:800;line-height:1.15;margin:0}
+h1{font-size:2.2rem}
+h2{font-size:1.15rem;margin-bottom:10px}
+p{margin:0 0 12px}
+.sub{color:var(--mut)}
+.bar2{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.88rem;margin-bottom:12px;text-align:center}
+.bar2 a{color:var(--c2);font-weight:800;text-decoration:none}
+.tabs{display:flex;gap:4px;margin:2px 0 16px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{flex:1;font:inherit;font-weight:700;font-size:.9rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 4px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--z);color:var(--on)}
+.dots{display:flex;gap:4px;margin:6px 0 22px}
+.dots i{flex:1;height:7px;border-radius:8px;background:var(--line)}
+.dots i.on{background:var(--z)}
+.hero{font-size:3.2rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-weight:700;font-size:.95rem;text-align:left;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:18px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on)}
+textarea,input[type=date]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical}
+textarea{min-height:70px}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.x:focus-visible,.call:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:12px;margin-top:8px}
+.btn{font:inherit;font-weight:800;font-size:1.05rem;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;background:var(--z);color:var(--on);flex:1}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);flex:0 0 auto}
+.slider{text-align:center}
+.wx{font-size:3rem;line-height:1.1}
+.lab{font-weight:800;font-size:1.1rem}
+input[type=range]{width:100%;accent-color:var(--z);margin:10px 0 4px}
+.alert{background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0 16px;text-align:left;font-size:.95rem}
+.calls{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.call{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:10px 14px}
+.call b{font-size:1.3rem;color:var(--c2)}
+.call span{display:block;font-size:.88rem;color:var(--mut)}
+.stage{display:flex;flex-direction:column;align-items:center;padding:10px 0}
+.orb{width:180px;height:180px;border-radius:50%;background:var(--z);opacity:.85;transform:scale(.6);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.bmsg{margin:16px 0 14px;min-height:3em;text-align:center;font-weight:700}
+.note{font-size:.92rem;color:var(--mut);border-left:4px solid var(--c1);padding-left:12px;margin:18px 0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.8rem}
+.row .t{flex:1;font-size:.95rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.92rem}
+.bar span{flex:0 0 48%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+@media (prefers-reduced-motion:reduce){.orb{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const W=[["🌤️","Légère"],["⛅","Un peu lourde"],["☁️","Lourde"],["🌧️","Très lourde"],["⛈️","Écrasante"]],wi=v=>Math.min(4,Math.floor(v/2.2));
+const CALM=["🌬️ Respirer lentement","🚶 Marcher dehors","🎧 Écouter de la musique","🚿 Prendre une douche chaude","✍️ Écrire ce que je ressens","🎨 Dessiner, créer","📺 Un film ou une série réconfortante","🐾 Câliner un animal","🧹 Ranger, cuisiner, m’occuper les mains","🏃 Bouger doucement","🧸 Me mettre sous une couverture","📵 Poser mon téléphone un moment"];
+const PS=[{id:"intro"},
+{id:"sig",e:"🚨",n:"1. Mes signaux d’alerte",c:"var(--c2)",i:"Les idées noires viennent souvent par vagues, avec des signes avant-coureurs. Les repérer tôt permet d’agir plus tôt.",secs:[{t:"chips",k:"sig",q:"Ce qui me met en alerte",items:["😶 Je m’isole","🌀 Pensées en boucle","😴 Je dors très mal","😞 Je me sens nul","🪨 Plus envie de rien","🔥 Colère qui déborde","💬 Après une dispute","📱 Après un message ou un post","📝 Après un échec ou un rejet","🌙 Le soir ou la nuit","⚖️ Je me sens un fardeau"],x:"sigT",ph:"Mon tout premier signe, c’est…"}]},
+{id:"calm",e:"🧘",n:"2. Ce que je peux faire seul",c:"var(--c1)",i:"Des gestes simples qui apaisent sans te mettre en danger. Ils ne règlent pas tout : ils aident à traverser la vague.",secs:[{t:"chips",k:"calm",q:"Ce qui m’apaise",items:CALM,x:"calmT",ph:"Mon plan pour les 10 prochaines minutes…"}]},
+{id:"resp"},
+{id:"place",e:"🌳",n:"3. Être avec d’autres, ailleurs",c:"var(--c4)",i:"Se changer les idées ne veut pas dire parler de ce qui ne va pas. Être entouré aide souvent à passer la vague.",secs:[{t:"chips",k:"place",q:"Où je peux aller, avec qui",items:["🛋️ Rejoindre ma famille dans une pièce commune","🌳 Un parc, la nature","📚 Un lieu public (médiathèque, café)","🏠 Chez un ami ou un proche","🏟️ Mon sport, mon activité","🐾 Avec mon animal"],x:"placeT",ph:"Un lieu ou une personne précise…"}]},
+{id:"help",e:"🤝",n:"4. Les personnes qui peuvent m’aider",c:"var(--c2)",i:"Demander de l’aide n’est pas un échec. Choisis des personnes à qui tu peux dire : « ça ne va pas ».",secs:[{t:"text",x:"p1",q:"Personne 1 et comment la joindre",ph:"Prénom + numéro ou appli"},{t:"text",x:"p2",q:"Personne 2 et comment la joindre",ph:"Prénom + numéro ou appli"},{t:"text",x:"p3",q:"Un adulte de mon école ou de mon quartier",ph:"Infirmier scolaire, CPE, psy de l’école, éducateur…"},{t:"chips",k:"say",q:"Des phrases que je pourrais dire",items:["« Ça ne va pas du tout, j’ai besoin que tu m’écoutes. »","« J’ai des idées noires. »","« Reste avec moi, s’il te plaît. »","« Je ne me sens pas en sécurité ce soir. »"]}]},
+{id:"pro",e:"🧑‍⚕️",n:"5. Les professionnels",c:"var(--c4)",i:"Ces lignes sont gratuites, tenues par des professionnels formés. Tu peux appeler même si tu n’es pas sûr que « ce soit assez grave ».",secs:[{t:"calls"},{t:"text",x:"doc",q:"Mon médecin, mon psy ou mon centre de soins",ph:"Nom + numéro (ou « à demander à mes parents »)"}]},
+{id:"safe",e:"🔒",n:"6. Rendre mon environnement plus sûr",c:"var(--c3)",i:"Quand la vague est forte, mieux vaut que ce qui pourrait te faire du mal soit hors de portée. Ça se prépare avec un adulte de confiance, avant que ça monte.",secs:[{t:"chips",k:"safe",q:"Ce que je peux faire",items:["📞 J’en parle à un adulte de confiance","🗝️ Je demande que certains objets ou médicaments soient rangés hors de ma portée","🚪 Je ne reste pas seul quand ça monte","🤝 Je choisis quelqu’un à prévenir"],x:"safeT",ph:"Ce que je demande, et à qui…"}]},
+{id:"why",e:"🌅",n:"7. Mes raisons de tenir",c:"var(--c1)",i:"Quand la douleur est forte, on oublie ce qui compte. Écris-le maintenant pour t’en souvenir plus tard.",secs:[{t:"chips",k:"why",q:"Ce qui compte pour moi",items:["👨‍👩‍👧 Des personnes que j’aime","🐾 Mon animal","🎯 Un projet","🎵 Ce que j’aime faire","🌅 Voir comment ça va évoluer","🤝 Un ami","✨ Ce que je n’ai pas encore vécu"],x:"whyT",ph:"Ce que j’aimerais encore vivre…"}]},
+{id:"final"}];
+const KA=["sig","calm","place","say","safe","why"],KT=["sigT","calmT","placeT","p1","p2","p3","doc","safeT","whyT"];
+const TH=["🌧️ Des idées noires","💭 Des pensées suicidaires","💔 Envie de me faire du mal","😶 Envie que tout s’arrête","✅ Rien de tout ça"];
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const ld=k=>new Date(k+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}),sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,step=0,tab="p",bt=[],jd=iso(new Date()),cur;
+try{S=JSON.parse(localStorage.getItem("ado_vague")||"null")}catch(e){}
+S=S||{};KA.forEach(k=>S[k]=S[k]||[]);KT.forEach(k=>S[k]=S[k]||"");S.J=S.J||{};
+const save=()=>{try{localStorage.setItem("ado_vague",JSON.stringify(S))}catch(e){}};
+const stopB=()=>{bt.forEach(clearTimeout);bt=[]};
+const blank=()=>({lvl:4,th:[],help:[],good:"",note:""});
+const load=()=>{cur=Object.assign(blank(),JSON.parse(JSON.stringify(S.J[jd]||{})))};load();
+const risk=x=>x.th.some(t=>t[0]!=="✅");
+const calls=()=>`<div class="calls"><a class="call" href="tel:3114"><b>📞 3114</b><span>Prévention du suicide · gratuit · 24h/24, 7j/7</span></a><a class="call" href="tel:112"><b>📞 112</b><span>Danger immédiat (ou le 15, le SAMU)</span></a><a class="call" href="tel:0800235236"><b>📞 0 800 235 236</b><span>Fil Santé Jeunes · 12-25 ans · anonyme · 9h-23h</span></a></div>`;
+const tabs=()=>`<div class="bar2">Besoin de parler maintenant ? <a href="tel:3114">3114</a> (24h/24) · <a href="tel:112">112</a> si danger immédiat</div><div class="tabs" role="tablist">${["p","j","e"].map((k,i)=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${["🌊 Mon plan","📓 Journal","📈 Évolution"][i]}</button>`).join("")}</div>`;
+const nav=l=>`<div class="nav">${step?`<button class="btn ghost" data-go="-1">Retour</button>`:""}${l?`<button class="btn" data-go="1">${l}</button>`:""}</div>`;
+const ta=(x,ph,m)=>`<textarea data-x="${x}" placeholder="${ph}"${m?` style="min-height:${m}px"`:""}>${esc(S[x])}</textarea>`;
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+function sec(s){
+ if(s.t==="calls")return `<section class="card">${calls()}<p class="sub" style="margin:0">Harcèlement en ligne : 3018. Enfance en danger : 119.</p></section>`;
+ if(s.t==="text")return `<section class="card"><h2>${s.q}</h2>${ta(s.x,s.ph,60)}</section>`;
+ return `<section class="card"><h2>${s.q}</h2><div class="chips">${s.items.map(c=>`<button class="chip" data-k="${s.k}" data-c="${esc(c)}" aria-pressed="${S[s.k].includes(c)}">${c}</button>`).join("")}</div>${s.x?ta(s.x,s.ph):""}</section>`;
+}
+function recap(){
+ const j=(a,t)=>[...a,t].filter(x=>x&&x.trim()).join(" / ");
+ return `🌊 MON PLAN POUR TRAVERSER LA VAGUE\n\n1. Mes signaux d’alerte : ${j(S.sig,S.sigT)}\n2. Ce que je peux faire seul : ${j(S.calm,S.calmT)}\n3. Avec d’autres, ailleurs : ${j(S.place,S.placeT)}\n4. Personnes qui peuvent m’aider :\n   - ${S.p1}\n   - ${S.p2}\n   - ${S.p3}\n   Ce que je peux dire : ${S.say.join(" ")}\n5. Professionnels : 3114 (24h/24), 112 ou 15 (urgence), Fil Santé Jeunes 0 800 235 236 (9h-23h). ${S.doc}\n6. Environnement plus sûr : ${j(S.safe,S.safeT)}\n7. Mes raisons de tenir : ${j(S.why,S.whyT)}`;
+}
+function P(){
+ const s=PS[step];let h=`<div class="dots">${PS.map((_,i)=>`<i class="${i<=step?"on":""}"></i>`).join("")}</div>`;
+ if(step===0)return h+`<div class="pop"><div class="hero">🌊</div><h1>Traverser la vague</h1>
+ <section class="card" style="margin-top:14px"><h2>Si ça ne va pas du tout, là, maintenant</h2><p style="margin:0">Si tu as envie de te faire du mal ou de mourir, ou si tu ne te sens pas en sécurité : appelle maintenant, ou va voir un adulte tout de suite. Tu n’as pas à rester seul avec ça.</p>${calls()}</section>
+ <p>Les idées noires viennent souvent par vagues, et les vagues finissent par retomber. Un plan de sécurité, c’est une feuille que tu prépares pour la retrouver quand ça se creuse : tes signaux, ce qui t’apaise, qui appeler.</p>
+ <p class="sub">Idéalement, fais-le avec un adulte de confiance ou un professionnel. Cet outil ne remplace pas une aide : il aide à en demander. Rien n’est envoyé : tout reste sur ton appareil. Tu peux t’arrêter quand tu veux.</p></div>${nav("Commencer mon plan")}`;
+ if(s.id==="resp")return h+`<div class="pop"><div class="hero">🌬️</div><h1 style="font-size:1.8rem;margin-bottom:12px">Je me pose 2 minutes</h1><p class="sub">Expirer plus longtemps qu’on inspire aide le corps à ralentir. Cinq cycles, c’est environ une minute. Ça ne règle pas tout, mais ça peut faire baisser un peu la vague.</p>
+ <section class="card"><div class="stage"><div class="orb" id="orb" aria-hidden="true">🌬️</div></div><div class="bmsg" id="bmsg" aria-live="polite">Installe-toi, épaules détendues, puis lance.</div><div class="nav"><button class="btn" id="bstart">Commencer</button></div></section>
+ <section class="card"><h2>Ancrage 5-4-3-2-1</h2><p class="sub">Ramène l’attention sur ce qui t’entoure. Touche chaque étape quand c’est fait.</p><div class="chips">${["👀 5 choses que je vois","✋ 4 choses que je touche","👂 3 sons que j’entends","👃 2 odeurs","👅 1 goût"].map(c=>`<button class="chip" data-g="1" aria-pressed="false">${c}</button>`).join("")}</div></section></div>${nav("Suite")}`;
+ if(s.id==="final")return h+`<div class="pop"><div class="hero">🗺️</div><h1 style="font-size:1.8rem;margin-bottom:12px">Mon plan est prêt</h1><p class="sub">Fais une capture d’écran ou copie-le, et montre-le à une personne de confiance : un plan connu de quelqu’un d’autre est bien plus efficace.</p>
+ <section class="card"><textarea id="recap" readonly style="min-height:240px">${esc(recap())}</textarea><div class="nav"><button class="btn" id="copy" data-src="recap">Copier mon plan</button></div><p class="sub" id="msg" style="margin:8px 0 0"></p></section>
+ <section class="card"><h2>Si la vague devient trop forte</h2>${calls()}</section>
+ <div class="nav"><button class="btn" data-tab="j">📓 Ouvrir mon journal</button></div>
+ <div class="nav"><button class="btn ghost" data-go="-1">Retour</button><button class="btn ghost" id="reset">Effacer mon plan</button></div></div>`;
+ return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.8rem;margin-bottom:8px">${s.n}</h1><p class="sub">${s.i}</p>${s.secs.map(sec).join("")}</div>${nav("Suite")}`;
+}
+const cj=(k,items)=>items.map(c=>`<button class="chip" data-j="${k}" data-c="${esc(c)}" aria-pressed="${cur[k].includes(c)}">${c}</button>`).join("");
+function J(){
+ const t=iso(new Date());
+ const list=Object.keys(S.J).sort().reverse().slice(0,7).map(k=>{const x=S.J[k];return `<div class="row"><span class="e">${W[wi(x.lvl)][0]}</span><div class="t"><b>${ld(k)}</b> · ${x.lvl}/10<br><span class="sub">${esc((x.th||[]).join(" "))}${x.good?" — "+esc(x.good.slice(0,70)):""}</span></div><button class="x" data-del="${k}" aria-label="Supprimer le ${ld(k)}">✕</button></div>`}).join("")||`<p class="sub" style="margin:0">Pas encore de jour noté.</p>`;
+ return `<div class="pop"><h1 style="font-size:1.8rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">Une minute par jour, sans te juger. Ça aide à voir que la vague monte et descend, et à repérer ce qui aide.</p>
+ <section class="card"><h2>Quel jour ?</h2><input type="date" id="jdate" value="${jd}" max="${t}" aria-label="Date"><p class="sub" style="margin:8px 0 0">${ld(jd)}</p></section>
+ <section class="card slider"><h2>Cette journée était…</h2>${wxs("jw",cur.lvl)}<input type="range" id="jl" min="0" max="10" value="${cur.lvl}" aria-label="Poids de la journée de 0 à 10"><p class="sub" style="margin:0">0 = légère · 10 = écrasante</p></section>
+ <section class="card"><h2>Ce jour-là, j’ai eu…</h2><div class="chips">${cj("th",TH)}</div>${risk(cur)?`<div class="alert"><b>Merci de l’avoir noté.</b> Tu n’as pas à porter ça seul. Parles-en aujourd’hui à une personne de confiance, ou appelle :${calls()}</div>`:""}</section>
+ <section class="card"><h2>Ce qui m’a aidé</h2><div class="chips">${cj("help",CALM)}</div><textarea id="jg" placeholder="Un moment qui a été un peu plus léger…">${esc(cur.good)}</textarea></section>
+ <div class="nav"><button class="btn" id="jsave">Enregistrer cette journée</button></div><p class="sub" id="jm" style="margin:8px 0 16px"></p>
+ <section class="card"><h2>Mes derniers jours</h2>${list}</section></div>`;
+}
+function E(){
+ const es=Object.keys(S.J).sort().slice(-14).map(k=>({d:k,...blank(),...S.J[k]})),n=es.length;
+ const h=`<div class="pop"><h1 style="font-size:1.8rem;margin-bottom:6px">📈 Mon évolution</h1>`;
+ if(n<2)return h+`<section class="card"><p>Note au moins 2 jours dans ton journal pour voir ta courbe. Tu en as ${n} pour l’instant.</p><div class="nav"><button class="btn" data-tab="j">Aller au journal</button></div></section></div>`;
+ const avg=a=>a.reduce((s,x)=>s+x.lvl,0)/a.length,m=Math.floor(n/2);
+ const tr=n<4?"":(d=>d<=-1?"Sur la période, tes journées sont plutôt devenues plus légères. Repère ce qui t’a aidé.":d>=1?"Sur la période, tes journées sont plutôt devenues plus lourdes. Ne reste pas seul avec ça : montre ce bilan à quelqu’un.":"Sur la période, le poids de tes journées est plutôt stable.")(avg(es.slice(m))-avg(es.slice(0,m)));
+ const top=k=>{const o={};es.forEach(e=>e[k].forEach(c=>{if(c[0]!=="✅")o[c]=(o[c]||0)+1}));return Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,3)};
+ const bars=a=>a.length?a.map(([c,v])=>`<div class="bar"><span>${c}</span><div class="bt"><i style="width:${Math.round(v/n*100)}%"></i></div><b>${v}</b></div>`).join(""):`<p class="sub" style="margin:0">Rien noté pour l’instant.</p>`;
+ const Wd=360,H=170,p=28,x=i=>p+i*(Wd-2*p)/(n-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Courbe du poids des journées">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ sv+=`<polyline fill="none" stroke="var(--z)" stroke-width="3" stroke-linejoin="round" points="${es.map((e,i)=>x(i)+","+y(e.lvl)).join(" ")}"/>`;
+ es.forEach((e,i)=>sv+=`<circle cx="${x(i)}" cy="${y(e.lvl)}" r="5" fill="${risk(e)?"var(--c2)":"var(--z)"}"/>`);
+ sv+=`<text x="${p}" y="${H-6}" font-size="11" fill="var(--mut)">${sd(es[0].d)}</text><text x="${Wd-p}" y="${H-6}" font-size="11" fill="var(--mut)" text-anchor="end">${sd(es[n-1].d)}</text></svg>`;
+ const rd=es.filter(risk).length,light=es.filter(e=>e.lvl<=4).length;
+ const hi=es.slice(-2).some(risk)||(n>=3&&es.slice(-3).every(e=>e.lvl>=8));
+ const txt=`🌊 Bilan sur ${n} jours\nPoids moyen des journées : ${avg(es).toFixed(1)}/10\nJours avec des pensées difficiles : ${rd}\nJours plus légers (4 ou moins) : ${light}\n${tr}\nCe qui m’aide le plus : ${top("help").map(a=>a[0]+" ("+a[1]+")").join(", ")}`;
+ return h+(hi?`<div class="alert"><b>Ces derniers jours ont été lourds.</b> Ne reste pas seul avec ça : parles-en aujourd’hui à un adulte de confiance, un médecin ou un professionnel, ou appelle :${calls()}</div>`:"")+`<section class="card"><h2>Le poids de mes journées</h2>${sv}<p class="sub" style="margin:8px 0 0">Les points roses = un jour où tu as noté des pensées difficiles.</p>${tr?`<p style="margin:10px 0 0"><b>${tr}</b></p>`:""}</section>
+ <section class="card"><h2>En un coup d’œil</h2><p style="margin:0">🌤️ ${light} jour${light>1?"s":""} plus léger${light>1?"s":""} sur ${n}<br>🌧️ ${rd} jour${rd>1?"s":""} avec des pensées difficiles sur ${n}</p></section>
+ <section class="card"><h2>Ce qui m’aide le plus</h2>${bars(top("help"))}</section>
+ <section class="card"><h2>Mon bilan à partager</h2><textarea id="bilan" readonly style="min-height:130px">${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy" data-src="bilan">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">Montre-le à un médecin, un psy ou un adulte de confiance : il aide à voir comment tu vas vraiment.</p></section>
+ <div class="nav"><button class="btn" data-tab="j">📓 Ajouter un jour</button><button class="btn ghost" id="jreset">Effacer le journal</button></div></div>`;
+}
+function render(keep){
+ stopB();$("#app").style.setProperty("--z",tab==="p"?(PS[step].c||"var(--c1)"):"var(--c1)");
+ $("#app").innerHTML=tabs()+(tab==="p"?P():tab==="j"?J():E());if(!keep)window.scrollTo(0,0);
+}
+function startB(){
+ stopB();const o=$("#orb"),m=$("#bmsg"),b=$("#bstart");let n=0;b.textContent="Arrêter";b.dataset.on="1";
+ const cyc=()=>{
+  if(n>=5){m.textContent="Bien joué ✅ Comment te sens-tu maintenant ?";o.style.transform="scale(.6)";b.textContent="Recommencer";b.dataset.on="";return}
+  m.textContent=`Cycle ${n+1}/5 · Inspire par le nez… (4 s)`;o.style.transition="transform 4s ease-in-out";o.style.transform="scale(1)";
+  bt.push(setTimeout(()=>{m.textContent=`Cycle ${n+1}/5 · Souffle doucement par la bouche… (6 s)`;o.style.transition="transform 6s ease-in-out";o.style.transform="scale(.6)"},4000));
+  bt.push(setTimeout(()=>{n++;cyc()},10000));
+ };cyc();
+}
+const toggle=(a,c)=>{const i=a.indexOf(c);if(i>=0)a.splice(i,1);else a.push(c);return i<0};
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ if(t.dataset.tab){tab=t.dataset.tab;render();return}
+ if(t.dataset.go){step=Math.max(0,Math.min(PS.length-1,step+ +t.dataset.go));render();return}
+ if(t.dataset.k){t.setAttribute("aria-pressed",toggle(S[t.dataset.k],t.dataset.c));save();return}
+ if(t.dataset.j==="th"){const c=t.dataset.c,none=c[0]==="✅",had=cur.th.includes(c);cur.th=cur.th.filter(x=>none?false:x[0]!=="✅");if(!had)cur.th.push(c);else if(!none)cur.th=cur.th.filter(x=>x!==c);render(true);return}
+ if(t.dataset.j){t.setAttribute("aria-pressed",toggle(cur[t.dataset.j],t.dataset.c));return}
+ if(t.dataset.g){t.setAttribute("aria-pressed",t.getAttribute("aria-pressed")!=="true");return}
+ if(t.dataset.del){delete S.J[t.dataset.del];save();load();render(true);return}
+ if(t.id==="bstart"){if(t.dataset.on){stopB();render(true)}else startB();return}
+ if(t.id==="jsave"){S.J[jd]=JSON.parse(JSON.stringify(cur));save();render(true);$("#jm").textContent="Enregistré ✅ Merci d’avoir pris ce temps pour toi.";return}
+ if(t.id==="copy"){const r=$("#"+t.dataset.src),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};
+  try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer ton plan (le journal est conservé) ?")){KA.forEach(k=>S[k]=[]);KT.forEach(k=>S[k]="");save();step=0;render()}
+ if(t.id==="jreset"&&confirm("Effacer tout ton journal ?")){S.J={};save();load();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset&&t.dataset.x){S[t.dataset.x]=t.value;save();const r=$("#recap");if(r)r.value=recap()}
+ if(t.id==="jl"){cur.lvl=+t.value;const w=W[wi(cur.lvl)];$("#jwX").textContent=w[0];$("#jwL").textContent=w[1]+" · "+cur.lvl+"/10"}
+ if(t.id==="jg")cur.good=t.value;
+ if(t.id==="jdate"){jd=t.value||iso(new Date());load();render(true)}
+});
+render();
+</script>
+</body>
+</html>

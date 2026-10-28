@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon cap</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F5FA;--ink:#14182E;--card:#FFFFFF;--mut:#5A6485;--line:#D5DAEA;--c1:#3D5AFE;--c2:#D93A52;--c3:#B86E00;--c4:#0E9F8E;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1124;--ink:#EEF1FF;--card:#191E3A;--mut:#A3AED6;--line:#2E3668;--c1:#8FA2FF;--c2:#FF7C9B;--c3:#FFC83D;--c4:#4FE3CF}}
+:root[data-theme="dark"]{--bg:#0E1124;--ink:#EEF1FF;--card:#191E3A;--mut:#A3AED6;--line:#2E3668;--c1:#8FA2FF;--c2:#FF7C9B;--c3:#FFC83D;--c4:#4FE3CF}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:17px;line-height:1.5}
+main{max-width:560px;margin:0 auto;padding:16px 18px 40px}
+h1,h2,h3{font-family:"Space Grotesk","DM Sans",system-ui,sans-serif;font-weight:600;line-height:1.15;margin:0}
+h1{font-size:2.4rem}
+h2{font-size:1.25rem;margin-bottom:10px}
+p{margin:0 0 12px}
+.dots{display:flex;gap:8px;margin:6px 0 22px}
+.dots i{flex:1;height:8px;border-radius:8px;background:var(--line)}
+.dots i.on{background:var(--z,var(--c1))}
+.hero{font-size:4.2rem;line-height:1;margin:6px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.zone{--z:var(--c1)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-weight:700;font-size:.95rem;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:#fff}
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0E1124}
+@media (prefers-color-scheme:light){.chip[aria-pressed="true"]{color:#fff}}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical}
+textarea{min-height:76px}
+textarea:focus,input:focus,.chip:focus-visible,.btn:focus-visible{outline:3px solid var(--z,var(--c1));outline-offset:2px}
+.nav{display:flex;gap:12px;margin-top:8px}
+.btn{font:inherit;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.05rem;border:0;border-radius:999px;padding:14px 22px;cursor:pointer;background:var(--z,var(--c1));color:#fff;flex:1}
+:root:not([data-theme="light"]) .btn{color:#0E1124}
+@media (prefers-color-scheme:light){.btn{color:#fff}}
+.btn.ghost{background:transparent;color:var(--ink)!important;border:2px solid var(--line);flex:0 0 auto}
+.sub{color:var(--mut)}
+.map{width:100%;height:auto;display:block;border-radius:22px;background:var(--card);border:2px solid var(--line);margin-bottom:16px}
+.map text{font-family:"Space Grotesk",sans-serif}
+.note{font-size:.92rem;color:var(--mut);border-left:4px solid var(--c4);padding-left:12px;margin:18px 0}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const Z=[
+{k:"moi",e:"🧭",n:"Moi",c:"var(--c1)",
+ plus:["💡 Lucide sur moi","🔥 Je me motive pour ce qui compte","🤝 Fiable","🎨 Créatif","🧠 Esprit d’analyse","💬 À l’aise à l’oral","🦾 Je rebondis","🌱 Je progresse"],
+ minus:["🌀 Je procrastine","😰 Stress, anxiété","🪞 Je me compare aux autres","📱 Écrans et réseaux","😴 Mon sommeil","🧊 Je garde mes émotions","🎯 Peur de me tromper","🔋 Je m’épuise vite"],
+ q:["Mes forces","Mes points faibles","Ce que je voudrais changer chez moi","Mon prochain pas 👣"],
+ ph:["Ce dont je suis le plus fier récemment…","Ce qui me freine ou me coûte de l’énergie…","Si je pouvais faire évoluer une chose chez moi…","Une habitude concrète à tester…"]},
+{k:"fam",e:"🏠",n:"Ma famille",c:"var(--c2)",
+ plus:["🤗 Je me sens soutenu","🗣️ On peut se parler","🔑 On me fait confiance","🍽️ Nos moments ensemble","🧭 Ils respectent mes choix","😄 On rit ensemble"],
+ minus:["⚡ Tensions, disputes","🙉 Je me sens incompris","📏 Règles et horaires","🎓 Attentes sur mes études","💶 Questions d’argent","🦅 Je veux plus d’autonomie"],
+ q:["Ce qui fonctionne","Ce qui est compliqué","Ce que je voudrais voir changer","Ce que je peux faire de mon côté 👣"],
+ ph:["Ce que ma famille m’apporte…","Ce que j’aimerais qu’ils comprennent de moi…","Dans notre fonctionnement, je changerais…","Une conversation ou un geste à initier…"]},
+{k:"amis",e:"🎈",n:"Amis et relations",c:"var(--c4)",
+ plus:["🤝 Des amitiés solides","🛟 Ils sont là quand ça va mal","😂 On se marre","🌟 Ils me tirent vers le haut","🧠 On se comprend","💞 Une relation saine"],
+ minus:["🎭 Je ne suis pas moi-même","👀 Pression du groupe","💬 Conflits par messages","🥀 Une amitié qui s’éloigne","🍻 Pression en soirée","💔 Relation amoureuse compliquée","🪑 Je me sens seul parfois"],
+ q:["Ce qui me fait du bien","Ce qui me pèse","Ce que je voudrais voir changer","Ce que je peux tenter de mon côté 👣"],
+ ph:["Ce que mes relations m’apportent…","Ce qui m’épuise ou me blesse parfois…","Dans mes relations, je changerais…","Un message, une limite à poser, un pas vers quelqu’un…"]},
+{k:"ecole",e:"🎓",n:"Études et avenir",c:"var(--c3)",
+ plus:["📚 Des matières qui me plaisent","🎯 Une idée de ce que je veux faire","🏆 Mes réussites","👩‍🏫 Des profs qui aident","🛠️ Je sais m’organiser","🌍 Des projets (stage, voyage, job)"],
+ minus:["📝 Stress des examens","🌫️ Orientation floue","💼 Peur de l’après","⏳ Je repousse tout","💸 Contraintes financières","🧱 Pression pour réussir","🏫 Je ne me sens pas à ma place"],
+ q:["Ce qui marche pour moi","Ce qui me bloque","Dans 5 ans, j’aimerais…","Mon prochain pas concret 👣"],
+ ph:["Une matière, une réussite, une envie…","Ce qui m’angoisse ou me démotive…","Là où je me vois, ce que je fais, avec qui…","Parler à un conseiller, tester un métier, demander de l’aide…"]}
+];
+let S=null,step=0;
+try{S=JSON.parse(localStorage.getItem("ado_cap_16_18")||"null")}catch(e){}
+S=S||{};
+Z.forEach(z=>{S[z.k]=S[z.k]||{plus:[],minus:[],t:["","","",""]}});
+S.mission=S.mission||"";
+const save=()=>{try{localStorage.setItem("ado_cap_16_18",JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const $=s=>document.querySelector(s);
+
+function dots(){return `<div class="dots" style="--z:${step?Z[Math.min(step,Z.length)-1].c:"var(--c1)"}">${[0,1,2,3,4,5].map(i=>`<i class="${i<=step?"on":""}"></i>`).join("")}</div>`}
+function nav(next,label){return `<div class="nav">${step?`<button class="btn ghost" data-go="-1">Retour</button>`:""}<button class="btn" data-go="1">${label}</button></div>`}
+
+function render(){
+ let h="";
+ if(step===0){
+  h=`${dots()}<div class="pop"><div class="hero">🧭</div><h1>Mon cap</h1>
+  <p style="margin-top:12px">Quatre domaines de ta vie : toi, ta famille, tes relations, tes études et ton avenir. Fais le point sur ce qui te porte, ce qui te pèse et ce que tu veux faire bouger. Sur chacune, tu notes ce qui brille, ce qui coince, et ce que tu changerais.</p>
+  <p class="sub">Aucune réponse n’est bonne ou mauvaise. Touche les bulles qui te correspondent, écris si tu veux. Rien n’est envoyé : tout reste sur ton appareil.</p></div>${nav(1,"C’est parti")}`;
+ } else if(step<=Z.length){
+  const z=Z[step-1],d=S[z.k];
+  h=`${dots()}<div class="zone pop" style="--z:${z.c}"><div class="hero" style="font-size:3rem">${z.e}</div><h1 style="font-size:1.9rem;margin-bottom:16px">${z.n}</h1>`;
+  [0,1,2,3].forEach(i=>{
+   const key=["plus","minus"][i];
+   h+=`<section class="card"><h2>${z.q[i]}</h2>`;
+   if(key)h+=`<div class="chips">${z[key].map((c,j)=>`<button class="chip" data-k="${key}" data-c="${esc(c)}" aria-pressed="${d[key].includes(c)}">${c}</button>`).join("")}</div>`;
+   h+=`<textarea data-t="${i}" placeholder="${z.ph[i]}">${esc(d.t[i])}</textarea></section>`;
+  });
+  h+=`</div>${nav(1,step<Z.length?"Domaine suivant":"Voir ma carte")}`;
+ } else {
+  h=`${dots()}<div class="pop"><h1 style="margin-bottom:6px">Ma carte</h1><p class="sub">Chaque étoile, c’est un truc que tu as noté. ⭐ ce qui te porte · 🔸 ce qui te pèse · ✨ ce que tu veux changer</p>${mapSvg()}`;
+  h+=`<section class="card"><h2>Mon plan d’action</h2><p class="sub">Un seul engagement concret et réaliste, à tenir cette semaine.</p><input type="text" id="mission" value="${esc(S.mission)}" placeholder="Cette semaine, je m’engage à…"></section>`;
+  h+=`<section class="card"><h2>Mon récap</h2><textarea id="recap" readonly style="min-height:160px">${esc(recap())}</textarea><div class="nav"><button class="btn" id="copy">Copier mon récap</button></div><p class="sub" id="msg" style="margin:8px 0 0"></p></section>
+  <p class="sub">Tu peux t’en servir pour lancer une discussion avec quelqu’un en qui tu as confiance : un parent, un ami, un prof, un conseiller d’orientation, l’infirmier scolaire.</p>
+  <p class="note">Si un sujet te pèse vraiment, parles-en à un adulte de confiance. En France : le 3114 (détresse, 24h/24), le 119 (enfance en danger) et le 3018 (harcèlement et cyberharcèlement) sont gratuits.</p>
+  <div class="nav"><button class="btn ghost" data-go="-1">Retour</button><button class="btn ghost" id="reset">Tout effacer</button></div></div>`;
+ }
+ $("#app").innerHTML=h;window.scrollTo(0,0);
+}
+
+function mapSvg(){
+ const pos={moi:[80,85],fam:[280,85],amis:[80,225],ecole:[280,225]};
+ let s=`<svg class="map" viewBox="0 0 360 320" role="img" aria-label="Carte de mon cap"><g stroke="var(--line)" stroke-width="2" stroke-dasharray="4 6" fill="none"><path d="M80 85L280 85L280 225L80 225Z"/></g>`;
+ Z.forEach(z=>{
+  const [x,y]=pos[z.k],d=S[z.k];
+  const st=[];
+  d.plus.forEach(()=>st.push("⭐"));d.minus.forEach(()=>st.push("🔸"));
+  if(d.t[0].trim())st.push("⭐");if(d.t[1].trim())st.push("🔸");if(d.t[2].trim())st.push("✨");if(d.t[3].trim())st.push("✨");
+  s+=`<circle cx="${x}" cy="${y}" r="26" fill="${z.c}" opacity=".25"/><text x="${x}" y="${y+10}" font-size="30" text-anchor="middle">${z.e}</text>`;
+  st.forEach((t,i)=>{const a=(i*47)*Math.PI/180,r=40+(i%3)*9;s+=`<text x="${(x+Math.cos(a)*r).toFixed(1)}" y="${(y+5+Math.sin(a)*r).toFixed(1)}" font-size="13" text-anchor="middle">${t}</text>`});
+  s+=`<text x="${x}" y="${y+72}" font-size="14" text-anchor="middle" fill="var(--ink)">${z.n}</text>`;
+ });
+ return s+"</svg>";
+}
+
+function recap(){
+ const L=["Ce qui me porte","Ce qui me pèse","Ce que je voudrais changer","Mon prochain pas"];
+ let o=Z.map(z=>{const d=S[z.k];let r=z.e+" "+z.n.toUpperCase()+"\n";
+  r+="Ce qui me porte : "+[...d.plus,d.t[0]].filter(x=>x&&x.trim()).join(" / ")+"\n";
+  r+="Ce qui me pèse : "+[...d.minus,d.t[1]].filter(x=>x&&x.trim()).join(" / ")+"\n";
+  r+="Je voudrais changer : "+(d.t[2]||"")+"\n";
+  r+="Mon prochain pas : "+(d.t[3]||"");return r}).join("\n\n");
+ return o+"\n\n🎯 Mon plan d’action : "+S.mission;
+}
+
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ if(t.dataset.go){step=Math.max(0,Math.min(Z.length+1,step+ +t.dataset.go));render();return}
+ if(t.classList.contains("chip")){
+  const z=Z[step-1],arr=S[z.k][t.dataset.k],c=t.dataset.c,i=arr.indexOf(c);
+  if(i>=0)arr.splice(i,1);else arr.push(c);
+  t.setAttribute("aria-pressed",i<0);save();return}
+ if(t.id==="copy"){
+  const ta=$("#recap"),m=$("#msg");
+  try{navigator.clipboard.writeText(ta.value).then(()=>m.textContent="Copié ✅",()=>{ta.select();m.textContent="Sélectionné : copie-le à la main."})}
+  catch(x){ta.select();m.textContent="Sélectionné : copie-le à la main."}return}
+ if(t.id==="reset"){
+  if(confirm("Tout effacer et recommencer ?")){Z.forEach(z=>{S[z.k]={plus:[],minus:[],t:["","","",""]}});S.mission="";save();step=0;render()}}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset&&t.dataset.t!==undefined){S[Z[step-1].k].t[+t.dataset.t]=t.value;save()}
+ if(t.id==="mission"){S.mission=t.value;save();const r=$("#recap");if(r)r.value=recap()}
+});
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon baromètre émotionnel (16-18 ans)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F5FA;--ink:#14182E;--card:#FFFFFF;--mut:#5A6485;--line:#D5DAEA;--c1:#3D5AFE;--c2:#D93A52;--c3:#B86E00;--c4:#0E8F83;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1124;--ink:#EEF1FF;--card:#191E3A;--mut:#A3AED6;--line:#2E3668;--c1:#8FA2FF;--c2:#FF7C9B;--c3:#FFC83D;--c4:#4FE3CF;--on:#0E1124}}
+:root[data-theme="dark"]{--bg:#0E1124;--ink:#EEF1FF;--card:#191E3A;--mut:#A3AED6;--line:#2E3668;--c1:#8FA2FF;--c2:#FF7C9B;--c3:#FFC83D;--c4:#4FE3CF;--on:#0E1124}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:17px;line-height:1.5}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-family:"Space Grotesk","DM Sans",system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0}
+h1{font-size:2.3rem}
+h2{font-size:1.2rem;margin-bottom:10px}
+p{margin:0 0 12px}
+.sub{color:var(--mut)}
+.tabs{display:flex;gap:4px;margin:2px 0 16px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{flex:1;font:inherit;font-weight:700;font-size:.9rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 4px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--z);color:var(--on)}
+.dots{display:flex;gap:6px;margin:6px 0 22px}
+.dots i{flex:1;height:8px;border-radius:8px;background:var(--line)}
+.dots i.on{background:var(--z)}
+.hero{font-size:3.4rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-weight:700;font-size:.95rem;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on)}
+textarea,input[type=date]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical}
+textarea{min-height:76px}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.x:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:12px;margin-top:8px}
+.btn{font:inherit;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.05rem;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;background:var(--z);color:var(--on);flex:1}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);flex:0 0 auto}
+.slider{text-align:center}
+.wx{font-size:3rem;line-height:1.1}
+.lab{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.1rem}
+input[type=range]{width:100%;accent-color:var(--z);margin:10px 0 4px}
+.alert{background:var(--bg);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0;text-align:left;font-size:.95rem}
+.stage{display:flex;flex-direction:column;align-items:center;padding:10px 0}
+.orb{width:180px;height:180px;border-radius:50%;background:var(--z);opacity:.85;transform:scale(.6);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.bmsg{margin:16px 0 14px;min-height:3em;text-align:center;font-weight:700}
+.note{font-size:.92rem;color:var(--mut);border-left:4px solid var(--c4);padding-left:12px;margin:18px 0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.8rem}
+.row .t{flex:1;font-size:.95rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.92rem}
+.bar span{flex:0 0 48%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+@media (prefers-reduced-motion:reduce){.orb{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const C={"key": "ado_emotions_16_18", "name": "Mon baromètre émotionnel", "hero": "🌡️", "p1": "Stress, colère, tristesse, joie… Comprendre ses émotions, c’est apprendre à les repérer, les accepter et y répondre sans être débordé. Fais le point, construis ton plan, puis suis ton évolution dans un journal au fil des jours.", "p2": "Rien n’est envoyé : tout reste sur ton appareil.", "tabs": ["🧭 Explorer", "📓 Journal", "📈 Évolution"], "w": [["☀️", "Calme"], ["🌤️", "Tendu"], ["⛅", "Sous pression"], ["🌧️", "Intense"], ["⛈️", "Débordant"]], "alert": "C’est une intensité élevée, et elle peut être épuisante. Prends 2 minutes pour la pause respiration, et parles-en à quelqu’un de confiance.", "note": "Ressentir des émotions fortes est normal. Mais si tu te sens mal depuis longtemps, ou si tu as des idées noires, parles-en vite à un adulte de confiance ou à un professionnel. En France : le 3114 (détresse, 24h/24), le 119 (enfance en danger) et le 3018 (harcèlement et cyberharcèlement) sont gratuits.", "emos": ["😊 Joie", "😢 Tristesse", "😡 Colère", "😰 Anxiété", "😳 Honte", "😒 Jalousie", "🥱 Ennui", "😴 Épuisement", "🌟 Fierté", "🫂 Solitude", "😖 Culpabilité", "🤯 Surcharge", "😶 Vide", "🥰 Amour", "😤 Frustration", "🪨 Découragement"], "body": ["🫨 Boule au ventre", "💓 Palpitations", "✊ Mâchoire ou poings serrés", "😮‍💨 Gorge nouée", "🥵 Chaleur", "🧱 Tensions (épaules, dos)", "🌀 Pensées en boucle", "🔋 Plus d’énergie", "😵 Difficulté à dormir", "🫥 Je ne sens rien"], "trig": ["💬 Un conflit", "📝 Examens, notes", "🧭 L’orientation, l’avenir", "📱 Un message ou un silence", "🎞️ Les réseaux sociaux", "👀 Le regard des autres", "💞 Une relation", "🏋️ La pression de réussir", "😴 Manque de sommeil", "💶 L’argent", "🏠 Une tension familiale", "🪑 La solitude"], "help": ["🌬️ Respiration lente", "🚶 Marcher dehors", "🏃 Sport, mouvement", "✍️ Écrire", "🎧 Musique", "🗣️ En parler", "🎨 Créer", "📵 Couper les écrans", "🛋️ Un moment au calme", "🧹 M’organiser (to-do)", "😴 Dormir davantage"], "worse": ["🔁 Ressasser", "📱 Scroller sans fin", "🤐 Tout garder pour moi", "🌋 Exploser sur les autres", "🚪 M’isoler trop longtemps", "🙈 Faire comme si de rien", "🌙 Veiller tard", "⏳ Tout repousser"], "i": {"meteo": "Aucune émotion n’est un défaut : chacune donne une information. Fais le point sur ce qui est là en ce moment.", "corps": "Le corps réagit souvent avant la tête. Repérer ces signaux aide à comprendre ce qui se passe.", "decl": "Identifier ce qui fait monter une émotion permet de l’anticiper, et de choisir sa réponse.", "outils": "Fais l’inventaire de ce qui t’aide vraiment à redescendre, et de ce qui aggrave les choses."}, "ph": {"emoT": "Aujourd’hui, je ressens surtout…", "bodyT": "Où et comment ça se manifeste dans mon corps ?", "trigT": "Une situation récente où ça a monté…", "trigT2": "Les pensées qui m’ont traversé à ce moment-là…", "toolT": "Une habitude à tester cette semaine…", "sig": "Les premiers signes que je repère (corps, pensées, comportement)…", "act": "Respirer, marcher, musique, m’éloigner un instant…", "per": "Un parent, un ami, un prof, un conseiller, l’infirmier scolaire… et ce que je pourrais dire.", "phr": "Une phrase bienveillante, comme à un ami…"}, "j": {"intro": "Une minute par jour. Quelques jours de suivi suffisent pour repérer ce qui revient.", "q": "Mon état ce jour-là", "h": "Ce qui m’a aidé ce jour-là", "n": "Un mot sur ma journée (facultatif)…"}, "e": {"few": "Il faut au moins 2 jours dans ton journal pour afficher une courbe.", "down": "Sur la période, l’intensité de tes émotions a plutôt baissé. Repère ce qui t’a aidé.", "up": "Sur la période, l’intensité a plutôt augmenté. Identifie ce qui a changé, et parles-en si ça pèse.", "flat": "Sur la période, ton intensité émotionnelle est plutôt stable.", "hi": "Plusieurs jours de suite avec une intensité très élevée : ne reste pas seul avec ça. Parles-en à un adulte de confiance ou à un professionnel. En France, le 3114 est gratuit et joignable 24h/24.", "share": "Tu peux partager ce bilan avec un proche, un conseiller ou un professionnel pour en discuter."}},W=C.w,wi=v=>Math.min(4,Math.floor(v/2.2));
+const ST=[{id:"intro"},
+{id:"meteo",e:"🌦️",n:"Ma météo du moment",c:"var(--c1)",i:C.i.meteo,secs:[{t:"chips",k:"emo",q:"Ce que je ressens",items:C.emos},{t:"slider"},{t:"text",x:"emoT",q:"Je le dis avec mes mots",ph:C.ph.emoT}]},
+{id:"corps",e:"🫀",n:"Mon corps me parle",c:"var(--c2)",i:C.i.corps,secs:[{t:"chips",k:"body",q:"Ce que je remarque",items:C.body,x:"bodyT",ph:C.ph.bodyT}]},
+{id:"decl",e:"⚡",n:"Ce qui déclenche",c:"var(--c3)",i:C.i.decl,secs:[{t:"chips",k:"trig",q:"Ce qui me fait monter",items:C.trig,x:"trigT",ph:C.ph.trigT},{t:"text",x:"trigT2",q:"Ce que je me suis dit dans ma tête",ph:C.ph.trigT2}]},
+{id:"outils",e:"🧰",n:"Ma boîte à outils",c:"var(--c4)",i:C.i.outils,secs:[{t:"chips",k:"help",q:"Ce qui m’aide à redescendre",items:C.help},{t:"chips",k:"worse",q:"Ce qui aggrave les choses",items:C.worse,x:"toolT",ph:C.ph.toolT}]},
+{id:"resp",e:"🌬️",n:"Je me pose 2 minutes",c:"var(--c1)"},
+{id:"plan",e:"🗺️",n:"Mon plan « quand ça monte »",c:"var(--c2)"}];
+const KA=["emo","body","trig","help","worse"],KT=["emoT","bodyT","trigT","trigT2","toolT","sig","act","per","phr"];
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const ld=k=>new Date(k+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"});
+const sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,step=0,tab="p",bt=[],jd=iso(new Date()),cur;
+try{S=JSON.parse(localStorage.getItem(C.key)||"null")}catch(e){}
+S=S||{};KA.forEach(k=>S[k]=S[k]||[]);KT.forEach(k=>S[k]=S[k]||"");S.lvl=S.lvl==null?4:S.lvl;S.J=S.J||{};
+const save=()=>{try{localStorage.setItem(C.key,JSON.stringify(S))}catch(e){}};
+const stopB=()=>{bt.forEach(clearTimeout);bt=[]};
+const blank=()=>({emo:[],lvl:4,help:[],note:""});
+const load=()=>{cur=JSON.parse(JSON.stringify(S.J[jd]||blank()))};load();
+
+const tabs=()=>`<div class="tabs" role="tablist">${["p","j","e"].map((k,i)=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${C.tabs[i]}</button>`).join("")}</div>`;
+const nav=l=>`<div class="nav">${step?`<button class="btn ghost" data-go="-1">Retour</button>`:""}${l?`<button class="btn" data-go="1">${l}</button>`:""}</div>`;
+const ta=(x,ph,m)=>`<textarea data-x="${x}" placeholder="${ph}"${m?` style="min-height:${m}px"`:""}>${esc(S[x])}</textarea>`;
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+function sec(s){
+ if(s.t==="slider")return `<section class="card slider"><h2>Intensité en ce moment</h2>${wxs("lv",S.lvl)}<input type="range" id="lvl" min="0" max="10" value="${S.lvl}" aria-label="Intensité de 0 à 10"><div class="alert" id="al" ${S.lvl>=8?"":"hidden"}>${C.alert}</div></section>`;
+ if(s.t==="text")return `<section class="card"><h2>${s.q}</h2>${ta(s.x,s.ph)}</section>`;
+ return `<section class="card"><h2>${s.q}</h2><div class="chips">${s.items.map(c=>`<button class="chip" data-k="${s.k}" data-c="${esc(c)}" aria-pressed="${S[s.k].includes(c)}">${c}</button>`).join("")}</div>${s.x?ta(s.x,s.ph):""}</section>`;
+}
+function P(){
+ const s=ST[step];let h=`<div class="dots">${ST.map((_,i)=>`<i class="${i<=step?"on":""}"></i>`).join("")}</div>`;
+ if(step===0)return h+`<div class="pop"><div class="hero">${C.hero}</div><h1>${C.name}</h1><p style="margin-top:12px">${C.p1}</p><p class="sub">${C.p2}</p></div>${nav("C’est parti")}`;
+ if(s.id==="resp")return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.8rem;margin-bottom:12px">${s.n}</h1><p class="sub">Expirer plus longtemps qu’on inspire aide le corps à ralentir. Cinq cycles, c’est environ une minute.</p>
+ <section class="card"><div class="stage"><div class="orb" id="orb" aria-hidden="true">🌬️</div></div><div class="bmsg" id="bmsg" aria-live="polite">Installe-toi, épaules détendues, puis lance.</div><div class="nav"><button class="btn" id="bstart">Commencer</button></div></section>
+ <section class="card"><h2>Ancrage 5-4-3-2-1</h2><p class="sub">Si ça tourne dans ta tête, ramène l’attention sur ce qui t’entoure. Touche chaque étape quand c’est fait.</p><div class="chips">${["👀 5 choses que je vois","✋ 4 choses que je touche","👂 3 sons que j’entends","👃 2 odeurs","👅 1 goût"].map(c=>`<button class="chip" data-g="1" aria-pressed="false">${c}</button>`).join("")}</div></section></div>${nav("Faire mon plan")}`;
+ if(s.id==="plan"){
+  const emo=S.emo.length?S.emo.map(x=>`<span class="chip" style="cursor:default" aria-pressed="true">${x}</span>`).join(" "):`<span class="sub">Aucune émotion choisie</span>`;
+  return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.8rem;margin-bottom:12px">${s.n}</h1>
+  <section class="card" style="text-align:center"><div class="wx">${W[wi(S.lvl)][0]}</div><p class="sub" style="margin-bottom:8px">Mon bulletin du moment</p><div class="chips" style="justify-content:center;margin:0">${emo}</div></section>
+  <section class="card"><h2>1. Mon signal d’alerte</h2>${ta("sig",C.ph.sig)}</section>
+  <section class="card"><h2>2. Mon action pendant 2 minutes</h2>${ta("act",C.ph.act)}</section>
+  <section class="card"><h2>3. La personne à qui je peux parler</h2>${ta("per",C.ph.per,60)}</section>
+  <section class="card"><h2>4. Ce que je peux me dire</h2>${ta("phr",C.ph.phr,60)}</section>
+  <section class="card"><h2>Mon récap</h2><textarea id="recap" readonly style="min-height:170px">${esc(recap())}</textarea><div class="nav"><button class="btn" id="copy" data-src="recap">Copier mon récap</button></div><p class="sub" id="msg" style="margin:8px 0 0"></p></section>
+  <div class="nav"><button class="btn" data-tab="j">📓 Ouvrir mon journal</button></div>
+  <p class="note">${C.note}</p>
+  <div class="nav"><button class="btn ghost" data-go="-1">Retour</button><button class="btn ghost" id="reset">Effacer mon parcours</button></div></div>`}
+ return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.8rem;margin-bottom:8px">${s.n}</h1><p class="sub">${s.i}</p>${s.secs.map(sec).join("")}</div>${nav("Suite")}`;
+}
+function recap(){
+ const j=(a,t)=>[...a,t].filter(x=>x&&x.trim()).join(" / ");
+ return `🌦️ MA MÉTÉO : ${j(S.emo,S.emoT)} (intensité ${S.lvl}/10)\n🫀 MON CORPS : ${j(S.body,S.bodyT)}\n⚡ CE QUI DÉCLENCHE : ${j(S.trig,S.trigT)}\n💭 MES PENSÉES : ${S.trigT2}\n\n✅ CE QUI M’AIDE : ${j(S.help,S.toolT)}\n⚠️ CE QUI AGGRAVE : ${j(S.worse,"")}\n\n🗺️ QUAND ÇA MONTE\n1. Mon signal : ${S.sig}\n2. Mon action : ${S.act}\n3. Je peux parler à : ${S.per}\n4. Je me dis : ${S.phr}`;
+}
+const cj=(k,items)=>items.map(c=>`<button class="chip" data-j="${k}" data-c="${esc(c)}" aria-pressed="${cur[k].includes(c)}">${c}</button>`).join("");
+function J(){
+ const t=iso(new Date());
+ const list=Object.keys(S.J).sort().reverse().slice(0,7).map(k=>{const x=S.J[k];return `<div class="row"><span class="e">${W[wi(x.lvl)][0]}</span><div class="t"><b>${ld(k)}</b> · ${x.lvl}/10<br><span class="sub">${esc(x.emo.join(" "))}${x.note?" — "+esc(x.note.slice(0,80)):""}</span></div><button class="x" data-del="${k}" aria-label="Supprimer le ${ld(k)}">✕</button></div>`}).join("")||`<p class="sub" style="margin:0">Pas encore de jour noté.</p>`;
+ return `<div class="pop"><h1 style="font-size:1.8rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">${C.j.intro}</p>
+ <section class="card"><h2>Quel jour ?</h2><input type="date" id="jdate" value="${jd}" max="${t}" aria-label="Date"><p class="sub" style="margin:8px 0 0">${ld(jd)}</p></section>
+ <section class="card slider" style="text-align:left"><h2>${C.j.q}</h2><div class="chips">${cj("emo",C.emos)}</div><div style="text-align:center">${wxs("jw",cur.lvl)}<input type="range" id="jl" min="0" max="10" value="${cur.lvl}" aria-label="Intensité de 0 à 10"></div></section>
+ <section class="card"><h2>${C.j.h}</h2><div class="chips">${cj("help",C.help)}</div><textarea id="jn" placeholder="${C.j.n}">${esc(cur.note)}</textarea></section>
+ <div class="nav"><button class="btn" id="jsave">Enregistrer cette journée</button></div><p class="sub" id="jm" style="margin:8px 0 16px"></p>
+ <section class="card"><h2>Mes derniers jours</h2>${list}</section></div>`;
+}
+function E(){
+ const es=Object.keys(S.J).sort().slice(-14).map(k=>({d:k,...S.J[k]})),n=es.length;
+ let h=`<div class="pop"><h1 style="font-size:1.8rem;margin-bottom:6px">📈 Mon évolution</h1>`;
+ if(n<2)return h+`<section class="card"><p>${C.e.few} Tu as noté ${n} jour${n>1?"s":""} pour l’instant.</p><div class="nav"><button class="btn" data-tab="j">Aller au journal</button></div></section></div>`;
+ const avg=a=>a.reduce((s,x)=>s+x.lvl,0)/a.length,m=Math.floor(n/2);
+ const tr=n<4?"":(d=>d<=-1?C.e.down:d>=1?C.e.up:C.e.flat)(avg(es.slice(m))-avg(es.slice(0,m)));
+ const top=k=>{const o={};es.forEach(e=>e[k].forEach(c=>o[c]=(o[c]||0)+1));return Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,3)};
+ const bars=a=>a.length?a.map(([c,v])=>`<div class="bar"><span>${c}</span><div class="bt"><i style="width:${Math.round(v/n*100)}%"></i></div><b>${v}</b></div>`).join(""):`<p class="sub" style="margin:0">Rien noté pour l’instant.</p>`;
+ const Wd=360,H=170,p=28,x=i=>p+i*(Wd-2*p)/(n-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Courbe de l’intensité jour après jour">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ sv+=`<polyline fill="none" stroke="var(--z)" stroke-width="3" stroke-linejoin="round" points="${es.map((e,i)=>x(i)+","+y(e.lvl)).join(" ")}"/>`;
+ es.forEach((e,i)=>sv+=`<circle cx="${x(i)}" cy="${y(e.lvl)}" r="5" fill="var(--z)"/>`);
+ sv+=`<text x="${p}" y="${H-6}" font-size="11" fill="var(--mut)" text-anchor="start">${sd(es[0].d)}</text><text x="${Wd-p}" y="${H-6}" font-size="11" fill="var(--mut)" text-anchor="end">${sd(es[n-1].d)}</text></svg>`;
+ const hi=n>=3&&es.slice(-3).every(e=>e.lvl>=8);
+ const txt=`${C.name} · bilan sur ${n} jours\nIntensité moyenne : ${avg(es).toFixed(1)}/10\n${tr}\nÉmotions les plus présentes : ${top("emo").map(a=>a[0]+" ("+a[1]+")").join(", ")}\nCe qui m’aide le plus : ${top("help").map(a=>a[0]+" ("+a[1]+")").join(", ")}`;
+ return h+(hi?`<div class="alert">${C.e.hi}</div>`:"")+`<section class="card"><h2>Mon intensité, jour après jour</h2>${sv}<p class="sub" style="margin:8px 0 0">Moyenne : ${avg(es).toFixed(1)}/10 sur ${n} jours.</p>${tr?`<p style="margin:10px 0 0"><b>${tr}</b></p>`:""}</section>
+ <section class="card"><h2>Mes émotions les plus présentes</h2>${bars(top("emo"))}</section>
+ <section class="card"><h2>Ce qui m’aide le plus</h2>${bars(top("help"))}</section>
+ <section class="card"><h2>Mon bilan</h2><textarea id="bilan" readonly style="min-height:130px">${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy" data-src="bilan">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">${C.e.share}</p></section>
+ <div class="nav"><button class="btn" data-tab="j">📓 Ajouter un jour</button><button class="btn ghost" id="jreset">Effacer le journal</button></div></div>`;
+}
+function render(keep){
+ stopB();$("#app").style.setProperty("--z",tab==="p"?(ST[step].c||"var(--c1)"):"var(--c1)");
+ $("#app").innerHTML=tabs()+(tab==="p"?P():tab==="j"?J():E());if(!keep)window.scrollTo(0,0);
+}
+function startB(){
+ stopB();const o=$("#orb"),m=$("#bmsg"),b=$("#bstart");let n=0;b.textContent="Arrêter";b.dataset.on="1";
+ const cyc=()=>{
+  if(n>=5){m.textContent="Bien joué ✅ Comment te sens-tu maintenant ?";o.style.transform="scale(.6)";b.textContent="Recommencer";b.dataset.on="";return}
+  m.textContent=`Cycle ${n+1}/5 · Inspire par le nez… (4 s)`;o.style.transition="transform 4s ease-in-out";o.style.transform="scale(1)";
+  bt.push(setTimeout(()=>{m.textContent=`Cycle ${n+1}/5 · Souffle doucement par la bouche… (6 s)`;o.style.transition="transform 6s ease-in-out";o.style.transform="scale(.6)"},4000));
+  bt.push(setTimeout(()=>{n++;cyc()},10000));
+ };cyc();
+}
+const toggle=(a,c)=>{const i=a.indexOf(c);if(i>=0)a.splice(i,1);else a.push(c);return i<0};
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ if(t.dataset.tab){tab=t.dataset.tab;render();return}
+ if(t.dataset.go){step=Math.max(0,Math.min(ST.length-1,step+ +t.dataset.go));render();return}
+ if(t.dataset.k){t.setAttribute("aria-pressed",toggle(S[t.dataset.k],t.dataset.c));save();return}
+ if(t.dataset.j){t.setAttribute("aria-pressed",toggle(cur[t.dataset.j],t.dataset.c));return}
+ if(t.dataset.g){t.setAttribute("aria-pressed",t.getAttribute("aria-pressed")!=="true");return}
+ if(t.dataset.del){delete S.J[t.dataset.del];save();load();render(true);return}
+ if(t.id==="bstart"){if(t.dataset.on){stopB();render(true)}else startB();return}
+ if(t.id==="jsave"){S.J[jd]=JSON.parse(JSON.stringify(cur));save();render(true);$("#jm").textContent="Enregistré ✅ Reviens demain pour suivre ton évolution.";return}
+ if(t.id==="copy"){const r=$("#"+t.dataset.src),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};
+  try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer ton parcours (le journal est conservé) ?")){KA.forEach(k=>S[k]=[]);KT.forEach(k=>S[k]="");S.lvl=4;save();step=0;render()}
+ if(t.id==="jreset"&&confirm("Effacer tout ton journal ?")){S.J={};save();load();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset&&t.dataset.x){S[t.dataset.x]=t.value;save();const r=$("#recap");if(r)r.value=recap()}
+ const upd=(id,v)=>{const w=W[wi(v)];$("#"+id+"X").textContent=w[0];$("#"+id+"L").textContent=w[1]+" · "+v+"/10"};
+ if(t.id==="lvl"){S.lvl=+t.value;save();upd("lv",S.lvl);$("#al").hidden=S.lvl<8}
+ if(t.id==="jl"){cur.lvl=+t.value;upd("jw",cur.lvl)}
+ if(t.id==="jn")cur.note=t.value;
+ if(t.id==="jdate"){jd=t.value||iso(new Date());load();render(true)}
+});
+render();
+</script>
+</body>
+</html>

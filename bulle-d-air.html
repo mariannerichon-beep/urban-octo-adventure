@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ma bulle d’air</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F4FF;--ink:#241B4D;--card:#FFFFFF;--mut:#5E5690;--line:#DAD3F5;--c1:#5B3FD6;--c2:#B83A74;--c3:#A86400;--c4:#17707F;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14102B;--ink:#EFEBFF;--card:#1F1A40;--mut:#B2A9E3;--line:#352E6B;--c1:#A998FF;--c2:#FF8FB8;--c3:#FFC83D;--c4:#5ED6E6;--on:#14102B}}
+:root[data-theme="dark"]{--bg:#14102B;--ink:#EFEBFF;--card:#1F1A40;--mut:#B2A9E3;--line:#352E6B;--c1:#A998FF;--c2:#FF8FB8;--c3:#FFC83D;--c4:#5ED6E6;--on:#14102B}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Lexend",system-ui,sans-serif;font-weight:400;font-size:16.5px;line-height:1.55}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-weight:700;line-height:1.2;margin:0}
+h1{font-size:2rem}
+h2{font-size:1.08rem;margin-bottom:10px}
+p{margin:0 0 12px}
+b{font-weight:700}
+.sub{color:var(--mut)}
+.bar2{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.82rem;margin-bottom:12px;text-align:center}
+.bar2 a{color:var(--c2);font-weight:700;text-decoration:none}
+.tabs{display:flex;gap:3px;margin:2px 0 16px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{flex:1;font:inherit;font-weight:500;font-size:.78rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 2px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--z);color:var(--on);font-weight:700}
+.dots{display:flex;gap:5px;margin:6px 0 22px}
+.dots i{flex:1;height:7px;border-radius:8px;background:var(--line)}
+.dots i.on{background:var(--z)}
+.hero{font-size:3rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-weight:500;font-size:.9rem;text-align:left;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:18px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on);font-weight:700}
+textarea,input[type=date]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical}
+textarea{min-height:70px}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.x:focus-visible,.call:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:12px;margin-top:8px}
+.btn{font:inherit;font-weight:700;font-size:1rem;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;background:var(--z);color:var(--on);flex:1}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);flex:0 0 auto}
+.slider{text-align:center}
+.wx{font-size:3rem;line-height:1.1}
+.lab{font-weight:700;font-size:1.05rem}
+input[type=range]{width:100%;accent-color:var(--z);margin:10px 0 4px}
+.alert{background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0 16px;text-align:left;font-size:.92rem}
+.calls{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.call{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:10px 14px}
+.call b{font-size:1.2rem;color:var(--c2)}
+.call span{display:block;font-size:.85rem;color:var(--mut)}
+.stage{display:flex;flex-direction:column;align-items:center;padding:10px 0}
+.orb{width:170px;height:170px;border-radius:50%;background:var(--z);opacity:.8;transform:scale(.6);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.bmsg{margin:14px 0;min-height:3em;text-align:center;font-weight:700}
+.big{font-size:1.2rem;font-weight:700;line-height:1.4;min-height:3.6em}
+.note{font-size:.88rem;color:var(--mut);border-left:4px solid var(--c4);padding-left:12px;margin:18px 0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.8rem}
+.row .t{flex:1;font-size:.92rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.88rem}
+.bar span{flex:0 0 52%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+@media (prefers-reduced-motion:reduce){.orb{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const W=[["🌤️","Calme"],["🌥️","Un peu tendu"],["☁️","Anxieux"],["🌧️","Très anxieux"],["⛈️","Envahissant"]],wi=v=>Math.min(4,Math.floor(v/2.2));
+const TH=["🔥 Et si je faisais une crise devant les autres ?","🫀 Et si j’avais un problème grave ?","🌀 Et si je perdais le contrôle ?","📝 Et si je ratais tout ?","👥 Tout le monde me juge","🏠 Peur pour mes proches","🔁 Je rejoue une situation en boucle","❓ Ça tourne sans raison"];
+const TOOLS=["🌬️ Respirer lentement","🖐️ Ancrage 5-4-3-2-1","🚶 Marcher","💆 Relâcher épaules et mâchoire","🎧 Musique","🥛 Boire de l’eau doucement","📞 Appeler un proche","✍️ Écrire la pensée","🗣️ Me dire « ça va passer »","📵 Pause d’écran"];
+const CR=["🌤️ Aucune","🌥️ Une petite montée","⛈️ Une crise","🌪️ Plusieurs crises"],EF=["✅ Ça a baissé","🔸 Un peu","❌ Pas vraiment"];
+const PHR=["Ça ressemble à de l’angoisse. C’est désagréable, mais pas dangereux. Ça va passer.","Mon corps déclenche son alarme, même s’il n’y a pas de danger réel.","Cette pensée est une pensée, pas un fait.","Je n’ai pas besoin de lutter contre la vague. Je la laisse monter et redescendre.","Je ne suis pas ma pensée. Je peux la regarder passer comme un nuage.","J’ai déjà traversé ça. Je peux le traverser encore, une respiration à la fois."];
+const GR=[["👀","5 choses que tu vois","Regarde autour de toi et nomme-les, à voix basse ou dans ta tête."],["✋","4 choses que tu touches","Sens la matière : ton pull, la table, le sol sous tes pieds."],["👂","3 sons que tu entends","Même les plus discrets."],["👃","2 odeurs","Ou 2 choses que tu aimes sentir."],["👅","1 goût","Ou une petite gorgée d’eau."]];
+const PS=[{id:"intro"},
+{id:"corps",e:"🫀",n:"1. Ce que mon corps fait",c:"var(--c2)",i:"Une crise d’angoisse, c’est l’alarme du corps qui se déclenche trop fort. C’est très désagréable, mais pas dangereux. Repère tes signes.",secs:[{t:"chips",k:"body",q:"Ce que je ressens",items:["💓 Cœur qui s’emballe","😮‍💨 Souffle court","🌀 Vertiges","🤲 Mains qui tremblent","🥶 Chaud ou froid d’un coup","🧱 Boule dans la gorge","🫥 Sensation d’irréalité","🤢 Nausée, ventre noué"],x:"bodyT",ph:"Comment ça se passe pour moi…"}]},
+{id:"pens",e:"💭",n:"2. Mes pensées envahissantes",c:"var(--c1)",i:"Quand l’alarme sonne, l’esprit fabrique des scénarios catastrophes (« Et si… »). Ce sont des pensées, pas des faits.",secs:[{t:"chips",k:"pens",q:"Celles qui reviennent",items:TH,x:"pensT",ph:"La pensée qui revient le plus souvent…"}]},
+{id:"decl",e:"⚡",n:"3. Ce qui déclenche",c:"var(--c3)",i:"Repérer ce qui fait monter l’anxiété aide à s’y préparer.",secs:[{t:"chips",k:"trig",q:"Ce qui fait monter",items:["🎤 Un oral, un contrôle","👥 La foule, la classe","🚌 Les transports","🌙 Le soir, la nuit","😴 Manque de sommeil","☕ Café, boissons énergisantes","📱 Les réseaux, les infos","💬 Une dispute","🔄 Un changement","🩺 Une sensation dans mon corps"],x:"trigT",ph:"Une situation récente où ça a monté…"}]},
+{id:"def",e:"☁️",n:"4. Prendre du recul",c:"var(--c4)",i:"On ne peut pas empêcher une pensée de venir. On peut changer la façon dont on la regarde.",secs:[{t:"defuse"}]},
+{id:"out",e:"🧰",n:"5. Mes outils",c:"var(--c1)",i:"Ce qui aide, et ce qui entretient l’angoisse sans qu’on s’en rende compte.",secs:[{t:"chips",k:"help",q:"Ce qui m’aide",items:TOOLS},{t:"chips",k:"worse",q:"Ce qui entretient l’angoisse",items:["⚔️ Lutter contre la crise","🔎 Vérifier sans cesse mon pouls ou ma santé","🌐 Chercher des réponses sur internet","🚪 Éviter les lieux ou situations","😤 Retenir mon souffle","🤐 Tout garder pour moi"],x:"toolT",ph:"Un outil à tester cette semaine…"}]},
+{id:"plan",e:"🗺️",n:"6. Mon plan quand ça monte",c:"var(--c2)"}];
+const KA=["body","pens","trig","help","worse"],KT=["bodyT","pensT","trigT","toolT","dt","dtf","dtc","sig","phr","exo","per"];
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const ld=k=>new Date(k+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}),sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,step=0,tab="c",bt=[],jd=iso(new Date()),cur,gi=0,pi=0;
+try{S=JSON.parse(localStorage.getItem("ado_bulle")||"null")}catch(e){}
+S=S||{};KA.forEach(k=>S[k]=S[k]||[]);KT.forEach(k=>S[k]=S[k]||"");S.J=S.J||{};
+const save=()=>{try{localStorage.setItem("ado_bulle",JSON.stringify(S))}catch(e){}};
+const stopB=()=>{bt.forEach(clearTimeout);bt=[]};
+const blank=()=>({lvl:4,crisis:"",th:[],tried:[],eff:"",note:""});
+const load=()=>{cur=Object.assign(blank(),JSON.parse(JSON.stringify(S.J[jd]||{})))};load();
+const isCr=e=>/crise/.test(e.crisis||"");
+const calls=()=>`<div class="calls"><a class="call" href="tel:15"><b>📞 15 ou 112</b><span>Douleur à la poitrine, difficulté à respirer, malaise</span></a><a class="call" href="tel:3114"><b>📞 3114</b><span>Idées noires, envie de se faire du mal · gratuit · 24h/24</span></a><a class="call" href="tel:0800235236"><b>📞 0 800 235 236</b><span>Fil Santé Jeunes · 12-25 ans · anonyme · 9h-23h</span></a></div>`;
+const tabs=()=>`<div class="bar2">Malaise inhabituel : <a href="tel:15">15</a> / <a href="tel:112">112</a> · Idées noires : <a href="tel:3114">3114</a></div><div class="tabs" role="tablist">${["c","p","j","e"].map((k,i)=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${["🫧 Crise","🧭 Plan","📓 Journal","📈 Suivi"][i]}</button>`).join("")}</div>`;
+const nav=l=>`<div class="nav">${step?`<button class="btn ghost" data-go="-1">Retour</button>`:""}${l?`<button class="btn" data-go="1">${l}</button>`:""}</div>`;
+const ta=(x,ph,m)=>`<textarea data-x="${x}" placeholder="${ph}"${m?` style="min-height:${m}px"`:""}>${esc(S[x])}</textarea>`;
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+const grH=()=>gi<5?`<div style="font-size:2.2rem">${GR[gi][0]}</div><p class="big" style="min-height:0;margin:6px 0">${GR[gi][1]}</p><p class="sub">${GR[gi][2]}</p><div class="nav"><button class="btn" data-gn="1">Fait, suivant (${gi+1}/5)</button></div>`:`<p class="big" style="min-height:0">Bien joué ✅</p><p class="sub">Tu as ramené ton attention ici et maintenant. Respire tranquillement.</p><div class="nav"><button class="btn ghost" data-gn="0">Recommencer</button></div>`;
+const defH=t=>`<div class="alert" style="border-color:var(--c1)"><p><b>Je remarque que j’ai la pensée que « ${esc(t)} ».</b></p><p>C’est une pensée de mon esprit anxieux. Ce n’est pas un fait, et je n’ai pas à lui obéir.</p><p style="margin:0">Je la laisse passer comme un nuage, et je reviens à ma respiration.</p></div>`;
+function C0(){return `<div class="pop"><div class="hero">🫧</div><h1>En pleine crise ?</h1>
+<section class="card" style="margin-top:14px"><p style="margin:0"><b>Ce qui t’arrive est une crise d’angoisse.</b> C’est très désagréable, mais ce n’est pas dangereux : le pic passe, en général en quelques minutes. Tu n’as pas besoin de lutter. Suis les étapes, une à la fois.</p></section>
+<section class="card"><h2>1. Respire avec moi</h2><div class="stage"><div class="orb" id="orb" aria-hidden="true">🌬️</div></div><div class="bmsg" id="bmsg" aria-live="polite">Inspire par le nez, souffle longtemps par la bouche.</div><div class="nav"><button class="btn" id="bstart">Commencer</button></div></section>
+<section class="card"><h2>2. Reviens à ce qui t’entoure</h2><div id="gr">${grH()}</div></section>
+<section class="card"><h2>3. Une phrase pour toi</h2><p class="big" id="ph">${PHR[pi]}</p><button class="chip" data-ph="1">Une autre phrase</button></section>
+<section class="card"><h2>4. Ma pensée envahissante</h2><textarea id="ct" placeholder="Écris la pensée qui tourne…"></textarea><div class="nav"><button class="btn" id="cdef">La regarder avec du recul</button></div><div id="cdr" style="margin-top:12px"></div></section>
+<p class="note">Appelle le 15 ou le 112 si tu as une douleur forte dans la poitrine, une gêne à respirer qui ne passe pas, un malaise, ou si c’est la toute première fois. Si tu as des idées noires ou envie de te faire du mal, appelle le 3114.</p>${calls()}</div>`}
+function sec(s){
+ if(s.t==="defuse")return `<section class="card"><h2>Une pensée qui m’envahit</h2>${ta("dt","Ma pensée telle qu’elle vient (ex : « Je vais perdre le contrôle »)…",60)}</section>
+ <section class="card"><h2>Je la regarde autrement</h2><p class="sub">Je remarque que j’ai la pensée que…</p><p id="dpre" style="font-weight:700">« ${esc(S.dt)||"…"} »</p><h2 style="margin-top:14px">Est-ce un fait ou une prédiction ?</h2><div class="chips">${["📌 Un fait","🔮 Une prédiction","🤷 Je ne sais pas"].map(c=>`<button class="chip" data-ss="dtf" data-c="${esc(c)}" aria-pressed="${S.dtf===c}">${c}</button>`).join("")}</div><h2>Ce que je dirais à un ami qui pense ça</h2>${ta("dtc","Avec bienveillance, comme je le dirais à quelqu’un que j’aime…",60)}</section>`;
+ return `<section class="card"><h2>${s.q}</h2><div class="chips">${s.items.map(c=>`<button class="chip" data-k="${s.k}" data-c="${esc(c)}" aria-pressed="${S[s.k].includes(c)}">${c}</button>`).join("")}</div>${s.x?ta(s.x,s.ph):""}</section>`;
+}
+function recap(){
+ const j=(a,t)=>[...a,t].filter(x=>x&&x.trim()).join(" / ");
+ return `🫧 MON PLAN QUAND L’ANGOISSE MONTE\n\nMon premier signe : ${S.sig}\nMes pensées qui reviennent : ${j(S.pens,S.pensT)}\nQuand je les regarde avec recul : ${S.dtf?S.dtf+" · ":""}${S.dtc}\n\nMa phrase : ${S.phr}\nMon exercice : ${S.exo}\nCe qui m’aide : ${j(S.help,S.toolT)}\nCe qui entretient l’angoisse : ${S.worse.join(" / ")}\nLa personne à prévenir : ${S.per}\n\nSi douleur à la poitrine ou malaise : 15 / 112. Idées noires : 3114.`;
+}
+function P(){
+ const s=PS[step];let h=`<div class="dots">${PS.map((_,i)=>`<i class="${i<=step?"on":""}"></i>`).join("")}</div>`;
+ if(step===0)return h+`<div class="pop"><div class="hero">🧭</div><h1>Mon plan anti-angoisse</h1><p style="margin-top:12px">Quand l’angoisse s’emballe, les pensées tournent en boucle : « et si… ». Ici, tu prépares, au calme, ce qui t’aidera à garder le cap pendant une crise.</p><p class="sub">Tu repères ce que ton corps fait, tes pensées, tes déclencheurs, tu t’entraînes à prendre du recul, puis tu rédiges ton plan. Rien n’est envoyé : tout reste sur ton appareil.</p>
+ <div class="nav"><button class="btn" data-tab="c" style="background:var(--c2)">🫧 Je suis en crise, là</button></div></div>${nav("Commencer mon plan")}`;
+ if(s.id==="plan")return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.7rem;margin-bottom:12px">${s.n}</h1>
+ <section class="card"><h2>Mon premier signe</h2>${ta("sig","Ce que je remarque en premier (corps, pensées)…",60)}</section>
+ <section class="card"><h2>Ma phrase pour me calmer</h2>${ta("phr","Ex : « Ça ressemble à de l’angoisse, ça va passer. »",60)}</section>
+ <section class="card"><h2>Mon exercice</h2>${ta("exo","Ex : 5 cycles de respiration lente, puis le 5-4-3-2-1…",60)}</section>
+ <section class="card"><h2>La personne que je peux prévenir</h2>${ta("per","Prénom + comment la joindre…",60)}</section>
+ <section class="card"><h2>Mon récap</h2><textarea id="recap" readonly style="min-height:240px">${esc(recap())}</textarea><div class="nav"><button class="btn" id="copy" data-src="recap">Copier mon plan</button></div><p class="sub" id="msg" style="margin:8px 0 0"></p></section>
+ <p class="note">Si les crises reviennent souvent, ou si tu évites de plus en plus de choses (école, sorties, transports), parles-en à un médecin ou à un psychologue : les crises d’angoisse se soignent bien. Pas besoin d’attendre que ce soit « grave ».</p>${calls()}
+ <div class="nav"><button class="btn" data-tab="j">📓 Ouvrir mon journal</button></div>
+ <div class="nav"><button class="btn ghost" data-go="-1">Retour</button><button class="btn ghost" id="reset">Effacer mon plan</button></div></div>`;
+ return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.7rem;margin-bottom:8px">${s.n}</h1><p class="sub">${s.i}</p>${s.secs.map(sec).join("")}</div>${nav("Suite")}`;
+}
+const cj=(k,items)=>items.map(c=>`<button class="chip" data-j="${k}" data-c="${esc(c)}" aria-pressed="${cur[k].includes(c)}">${c}</button>`).join("");
+const cs=(k,items)=>items.map(c=>`<button class="chip" data-s="${k}" data-c="${esc(c)}" aria-pressed="${cur[k]===c}">${c}</button>`).join("");
+function J(){
+ const t=iso(new Date());
+ const list=Object.keys(S.J).sort().reverse().slice(0,7).map(k=>{const x=S.J[k];return `<div class="row"><span class="e">${W[wi(x.lvl)][0]}</span><div class="t"><b>${ld(k)}</b> · ${x.lvl}/10<br><span class="sub">${esc(x.crisis||"")}${x.note?" — "+esc(x.note.slice(0,60)):""}</span></div><button class="x" data-del="${k}" aria-label="Supprimer le ${ld(k)}">✕</button></div>`}).join("")||`<p class="sub" style="margin:0">Pas encore de jour noté.</p>`;
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">Une minute par jour, sans te juger. Pour voir si l’angoisse baisse et repérer ce qui aide vraiment.</p>
+ <section class="card"><h2>Quel jour ?</h2><input type="date" id="jdate" value="${jd}" max="${t}" aria-label="Date"><p class="sub" style="margin:8px 0 0">${ld(jd)}</p></section>
+ <section class="card slider"><h2>Mon niveau d’angoisse</h2>${wxs("jw",cur.lvl)}<input type="range" id="jl" min="0" max="10" value="${cur.lvl}" aria-label="Angoisse de 0 à 10"></section>
+ <section class="card"><h2>Ce jour-là, il y a eu…</h2><div class="chips">${cs("crisis",CR)}</div><h2>Les pensées qui m’ont envahi</h2><div class="chips">${cj("th",TH)}</div></section>
+ <section class="card"><h2>Ce que j’ai essayé</h2><div class="chips">${cj("tried",TOOLS)}</div><h2>Est-ce que ça a aidé ?</h2><div class="chips">${cs("eff",EF)}</div><textarea id="jn" placeholder="Un mot sur ma journée (facultatif)…">${esc(cur.note)}</textarea></section>
+ <div class="nav"><button class="btn" id="jsave">Enregistrer cette journée</button></div><p class="sub" id="jm" style="margin:8px 0 16px"></p>
+ <section class="card"><h2>Mes derniers jours</h2>${list}</section></div>`;
+}
+function E(){
+ const es=Object.keys(S.J).sort().slice(-14).map(k=>({d:k,...blank(),...S.J[k]})),n=es.length;
+ const h=`<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📈 Mon suivi</h1>`;
+ if(n<2)return h+`<section class="card"><p>Note au moins 2 jours dans ton journal pour voir ta courbe. Tu en as ${n} pour l’instant.</p><div class="nav"><button class="btn" data-tab="j">Aller au journal</button></div></section></div>`;
+ const avg=a=>a.reduce((s,x)=>s+x.lvl,0)/a.length,m=Math.floor(n/2);
+ const tr=n<4?"":(d=>d<=-1?"Sur la période, ton angoisse a plutôt baissé. Repère ce qui t’a aidé 🌤️":d>=1?"Sur la période, ton angoisse a plutôt augmenté. Ce n’est pas un échec : montre ce bilan à un médecin ou un psy.":"Sur la période, ton angoisse est plutôt stable.")(avg(es.slice(m))-avg(es.slice(0,m)));
+ const cnt=(arr)=>{const o={};arr.forEach(c=>o[c]=(o[c]||0)+1);return Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,3)};
+ const topTh=cnt(es.flatMap(e=>e.th)),topOk=cnt(es.filter(e=>e.eff[0]==="✅"||e.eff[0]==="🔸").flatMap(e=>e.tried));
+ const bars=a=>a.length?a.map(([c,v])=>`<div class="bar"><span>${c}</span><div class="bt"><i style="width:${Math.round(v/n*100)}%"></i></div><b>${v}</b></div>`).join(""):`<p class="sub" style="margin:0">Rien noté pour l’instant.</p>`;
+ const Wd=360,H=170,p=28,x=i=>p+i*(Wd-2*p)/(n-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Courbe du niveau d’angoisse">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ sv+=`<polyline fill="none" stroke="var(--z)" stroke-width="3" stroke-linejoin="round" points="${es.map((e,i)=>x(i)+","+y(e.lvl)).join(" ")}"/>`;
+ es.forEach((e,i)=>sv+=`<circle cx="${x(i)}" cy="${y(e.lvl)}" r="5" fill="${isCr(e)?"var(--c2)":"var(--z)"}"/>`);
+ sv+=`<text x="${p}" y="${H-6}" font-size="11" fill="var(--mut)">${sd(es[0].d)}</text><text x="${Wd-p}" y="${H-6}" font-size="11" fill="var(--mut)" text-anchor="end">${sd(es[n-1].d)}</text></svg>`;
+ const cr=es.filter(isCr).length,fr=cr>=3&&cr/n>=.4;
+ const txt=`🫧 Bilan sur ${n} jours\nAngoisse moyenne : ${avg(es).toFixed(1)}/10\nJours avec crise : ${cr} sur ${n}\n${tr}\nPensées fréquentes : ${topTh.map(a=>a[0]+" ("+a[1]+")").join(", ")}\nCe qui m’a aidé : ${topOk.map(a=>a[0]+" ("+a[1]+")").join(", ")}`;
+ return h+(fr?`<div class="alert"><b>Les crises reviennent souvent.</b> En parler à un médecin ou à un psychologue peut vraiment aider : les crises d’angoisse se soignent bien. Tu peux aussi appeler le Fil Santé Jeunes, 0 800 235 236 (9h-23h).</div>`:"")+`<section class="card"><h2>Mon niveau d’angoisse</h2>${sv}<p class="sub" style="margin:8px 0 0">Points roses = jours avec une crise.</p>${tr?`<p style="margin:10px 0 0"><b>${tr}</b></p>`:""}</section>
+ <section class="card"><h2>En un coup d’œil</h2><p style="margin:0">🌪️ ${cr} jour${cr>1?"s":""} avec crise sur ${n}<br>🌤️ ${es.filter(e=>e.lvl<=3).length} jour${es.filter(e=>e.lvl<=3).length>1?"s":""} plutôt calme${es.filter(e=>e.lvl<=3).length>1?"s":""}</p></section>
+ <section class="card"><h2>Les pensées qui reviennent</h2>${bars(topTh)}</section>
+ <section class="card"><h2>Ce qui m’a le plus aidé</h2>${bars(topOk)}</section>
+ <section class="card"><h2>Mon bilan à partager</h2><textarea id="bilan" readonly style="min-height:130px">${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy" data-src="bilan">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">Montre-le à un médecin ou un psy : il aide à comprendre comment ça se passe vraiment.</p></section>
+ <div class="nav"><button class="btn" data-tab="j">📓 Ajouter un jour</button><button class="btn ghost" id="jreset">Effacer le journal</button></div></div>`;
+}
+function render(keep){
+ stopB();$("#app").style.setProperty("--z",tab==="p"?(PS[step].c||"var(--c1)"):"var(--c1)");
+ $("#app").innerHTML=tabs()+(tab==="c"?C0():tab==="p"?P():tab==="j"?J():E());if(!keep)window.scrollTo(0,0);
+}
+function startB(){
+ stopB();const o=$("#orb"),m=$("#bmsg"),b=$("#bstart");let n=0;b.textContent="Arrêter";b.dataset.on="1";
+ const cyc=()=>{
+  m.textContent=`Cycle ${n+1} · Inspire par le nez… (4 s)`;o.style.transition="transform 4s ease-in-out";o.style.transform="scale(1)";
+  bt.push(setTimeout(()=>{m.textContent=`Cycle ${n+1} · Souffle doucement par la bouche… (6 s)`;o.style.transition="transform 6s ease-in-out";o.style.transform="scale(.6)"},4000));
+  bt.push(setTimeout(()=>{n++;cyc()},10000));
+ };cyc();
+}
+const toggle=(a,c)=>{const i=a.indexOf(c);if(i>=0)a.splice(i,1);else a.push(c);return i<0};
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ if(t.dataset.tab){tab=t.dataset.tab;render();return}
+ if(t.dataset.go){step=Math.max(0,Math.min(PS.length-1,step+ +t.dataset.go));render();return}
+ if(t.dataset.k){t.setAttribute("aria-pressed",toggle(S[t.dataset.k],t.dataset.c));save();return}
+ if(t.dataset.j){t.setAttribute("aria-pressed",toggle(cur[t.dataset.j],t.dataset.c));return}
+ if(t.dataset.s||t.dataset.ss){const o=t.dataset.s?cur:S,k=t.dataset.s||t.dataset.ss,was=o[k]===t.dataset.c;o[k]=was?"":t.dataset.c;if(!t.dataset.s)save();document.querySelectorAll(`[data-${t.dataset.s?"s":"ss"}="${k}"]`).forEach(b=>b.setAttribute("aria-pressed",o[k]===b.dataset.c));return}
+ if(t.dataset.gn!==undefined){gi=t.dataset.gn==="0"?0:gi+1;$("#gr").innerHTML=grH();return}
+ if(t.dataset.ph){pi=(pi+1)%PHR.length;$("#ph").textContent=PHR[pi];return}
+ if(t.dataset.del){delete S.J[t.dataset.del];save();load();render(true);return}
+ if(t.id==="bstart"){if(t.dataset.on){stopB();render(true)}else startB();return}
+ if(t.id==="cdef"){const v=$("#ct").value.trim();$("#cdr").innerHTML=v?defH(v):`<p class="sub">Écris d’abord ta pensée, même en quelques mots.</p>`;return}
+ if(t.id==="jsave"){S.J[jd]=JSON.parse(JSON.stringify(cur));save();render(true);$("#jm").textContent="Enregistré ✅ Merci d’avoir pris ce temps pour toi.";return}
+ if(t.id==="copy"){const r=$("#"+t.dataset.src),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};
+  try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer ton plan (le journal est conservé) ?")){KA.forEach(k=>S[k]=[]);KT.forEach(k=>S[k]="");save();step=0;render()}
+ if(t.id==="jreset"&&confirm("Effacer tout ton journal ?")){S.J={};save();load();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset&&t.dataset.x){S[t.dataset.x]=t.value;save();const r=$("#recap");if(r)r.value=recap();if(t.dataset.x==="dt"){const d=$("#dpre");if(d)d.textContent="« "+(t.value||"…")+" »"}}
+ if(t.id==="jl"){cur.lvl=+t.value;const w=W[wi(cur.lvl)];$("#jwX").textContent=w[0];$("#jwL").textContent=w[1]+" · "+cur.lvl+"/10"}
+ if(t.id==="jn")cur.note=t.value;
+ if(t.id==="jdate"){jd=t.value||iso(new Date());load();render(true)}
+});
+render();
+</script>
+</body>
+</html>
