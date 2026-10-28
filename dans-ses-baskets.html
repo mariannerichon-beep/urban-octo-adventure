@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dans ses baskets · se comprendre entre parents et ados</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF5FF;--ink:#2A1B3D;--card:#FFFFFF;--mut:#6B5A85;--line:#E4D6F5;--c1:#7A3FC4;--c2:#0E7C86;--c3:#B3541E;--c4:#3F5FD0;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#170F26;--ink:#F3EBFF;--card:#231838;--mut:#B8A6D9;--line:#3A2A5C;--c1:#C7A2FF;--c2:#5ED6E6;--c3:#FFB38A;--c4:#9FB4FF;--on:#170F26}}
+:root[data-theme="dark"]{--bg:#170F26;--ink:#F3EBFF;--card:#231838;--mut:#B8A6D9;--line:#3A2A5C;--c1:#C7A2FF;--c2:#5ED6E6;--c3:#FFB38A;--c4:#9FB4FF;--on:#170F26}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:16.5px;line-height:1.55}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-weight:800;line-height:1.2;margin:0}
+h1{font-size:2.05rem}
+h2{font-size:1.1rem;margin-bottom:10px}
+p{margin:0 0 12px}
+b{font-weight:800}
+.sub{color:var(--mut)}
+.bar2{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.8rem;margin-bottom:12px;text-align:center}
+.bar2 a{color:var(--c2);font-weight:800;text-decoration:none}
+.tabs,.seg{display:flex;gap:3px;margin:2px 0 14px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button,.seg button{flex:1;font:inherit;font-weight:700;font-size:.78rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 2px;cursor:pointer}
+.tabs button[aria-selected="true"],.seg button[aria-pressed="true"]{background:var(--z);color:var(--on)}
+.seg button{font-size:.9rem}
+.dots{display:flex;gap:4px;margin:6px 0 22px}
+.dots i{flex:1;height:7px;border-radius:8px;background:var(--line)}
+.dots i.on{background:var(--z)}
+.hero{font-size:3rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-weight:700;font-size:.9rem;text-align:left;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:18px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on)}
+textarea,input[type=date]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical}
+textarea{min-height:70px}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.seg button:focus-visible,.x:focus-visible,.call:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:12px;margin-top:8px}
+.btn{font:inherit;font-weight:800;font-size:1rem;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;background:var(--z);color:var(--on);flex:1}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);flex:0 0 auto}
+.slider{text-align:center}
+.wx{font-size:2.8rem;line-height:1.1}
+.lab{font-weight:800;font-size:1.05rem}
+input[type=range]{width:100%;accent-color:var(--z);margin:10px 0 4px}
+.alert{background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0 16px;text-align:left;font-size:.93rem}
+.calls{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.call{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:10px 14px}
+.call b{font-size:1.1rem;color:var(--c2)}
+.call span{display:block;font-size:.84rem;color:var(--mut);font-weight:500}
+.big{font-size:1.12rem;font-weight:800;line-height:1.4;min-height:3.4em}
+.note{font-size:.88rem;color:var(--mut);border-left:4px solid var(--c3);padding-left:12px;margin:18px 0}
+.steps{margin:0;padding-left:1.2em}
+.steps li{margin-bottom:8px}
+.pair{border-top:2px solid var(--line);padding:10px 0}
+.pair:first-of-type{border-top:0}
+.no{color:var(--c2);font-weight:700}
+.yes{color:var(--c1);font-weight:700}
+.quote{background:var(--bg);border-left:4px solid var(--z);border-radius:12px;padding:10px 14px;font-weight:700;margin:8px 0 12px}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.8rem}
+.row .t{flex:1;font-size:.92rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.88rem}
+.bar span{flex:0 0 52%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+
+const pc=(a,p)=>`<ul class="steps">${(S.role==="ado"?a:p).map(x=>`<li>${x}</li>`).join("")}</ul>`;
+const C={key:"ado_baskets",name:"Dans ses baskets",tabs:["🧠 Comprendre","🧭 Mon côté","📓 Journal","📈 Suivi"],
+W:[["😶","Pas du tout"],["😕","Peu"],["🙂","Moyennement"],["😊","Bien"],["🥰","Vraiment"]],
+intro:{hero:"👟",h:"Dans ses baskets",p1:{ado:"Tes parents semblent parfois venir d’une autre planète, et toi de la leur. Ici, tu apprends à comprendre ce qui se passe de leur côté, et tu leur expliques ce qui se passe du tien.",parent:"Votre ado semble parfois venir d’une autre planète, et vous de la sienne. Ici, vous cherchez à comprendre ce qui se passe de son côté, et vous lui expliquez ce qui se passe du vôtre."},p2:"Choisissez votre rôle en haut. Chacun fait sa version, puis vous comparez : « Qu’est-ce qui te surprend ? ». Rien n’est envoyé : tout reste sur cet appareil."},
+car:{ask:{ado:["Quand tu avais mon âge, qu’est-ce qui t’inquiétait le plus ?","Qu’est-ce qui te préoccupe en ce moment, en dehors de moi ?","Qu’est-ce que tu as du mal à me dire ?","Qu’est-ce qui te rend fier de moi ?","Si tu pouvais changer une chose entre nous, ce serait quoi ?"],parent:["Qu’est-ce qui compte le plus pour toi en ce moment ?","Qu’est-ce que tu aimerais que je comprenne mieux ?","Qu’est-ce qui te met sous pression ?","Qu’est-ce qui t’a fait plaisir cette semaine ?","Quand tu es énervé, qu’est-ce qui t’aide le plus de ma part ?"]}},
+quiz:[{s:"Un ado qui s’enferme dans sa chambre ne veut plus de ses parents.",a:false,e:"Le plus souvent, c’est un besoin d’intimité et de calme, pas un rejet. Garder la porte ouverte, sans forcer, aide."},
+{s:"Les émotions d’un ado sont plus intenses : il ou elle ne fait pas que du cinéma.",a:true,e:"À cet âge, les émotions sont vécues plus fort. Les prendre au sérieux aide à les apaiser."},
+{s:"Les amis ont une influence énorme à l’adolescence.",a:true,e:"Le regard des autres jeunes compte beaucoup à cet âge, ce qui explique certains choix qui surprennent les adultes."},
+{s:"Quand un parent s’inquiète, c’est qu’il n’a pas confiance en son ado.",a:false,e:"L’inquiétude vient surtout de l’attachement. On peut faire confiance et s’inquiéter à la fois."},
+{s:"Un ado a besoin de moins de sommeil qu’un adulte.",a:false,e:"Il en a besoin de plus, souvent 8 à 10 heures, alors que son horloge interne se décale vers le tard."},
+{s:"Parler des sujets difficiles (mal-être, relations, drogues) donne de mauvaises idées.",a:false,e:"Parler ouvertement protège plutôt : un ado qui sait qu’il peut en parler se confie plus facilement en cas de problème."}],
+quick:()=>`<div class="pop"><div class="hero">👟</div><h1>Dans ses baskets</h1>
+<section class="card" style="margin-top:14px"><h2>${S.role==="ado"?"Ce qui se passe chez tes parents":"Ce qui se passe chez votre ado"}</h2>${pc(["Leur inquiétude est souvent leur façon d’aimer. Elle peut étouffer, mais ce n’est presque jamais de la méfiance.","Ils portent leurs propres soucis (travail, argent, fatigue, santé) qui jouent sur leur patience.","Te voir grandir est difficile : ils hésitent entre te protéger et te laisser plus de liberté.","Ils ne sont pas parfaits : ils se trompent, et regrettent parfois sans savoir comment le dire."],["Le cerveau continue de se construire jusqu’au milieu de la vingtaine, surtout les zones qui servent à anticiper et à freiner les impulsions. Les émotions sont vécues plus fort.","Le regard des amis prend une place énorme : être accepté par le groupe compte beaucoup.","Le rythme du sommeil se décale : s’endormir tard et se lever difficilement est fréquent, et un ado a besoin de beaucoup de sommeil.","Le besoin d’autonomie et d’intimité grandit : s’éloigner un peu est normal, ce n’est pas rejeter ses parents."])}</section>
+<section class="card"><h2>Mythe ou réalité ?</h2>${quizH()}</section>
+<section class="card"><h2>Une question à poser à l’autre</h2>${car("ask")}</section>
+<div class="nav"><button class="btn" data-tab="p">🧭 Faire ma version</button></div></div>`,
+steps:[{id:"intro"},
+{e:"📘",n:"1. Mon mode d’emploi",c:"var(--c1)",i:"Un mode d’emploi de toi, pour que l’autre sache comment te comprendre et te parler.",secs:[{t:"chips",k:"irr",q:"Ce qui m’énerve",items:{ado:["😤 Qu’on me fasse la leçon","🙄 Qu’on me compare","📏 Les ordres sans explication","🔁 Qu’on répète dix fois","👀 Qu’on fouille mes affaires","🤐 Qu’on ne me laisse pas finir"],parent:["😤 Qu’on me réponde sur ce ton","🔁 Devoir répéter","🧹 Le désordre","📱 Le téléphone à table","🤐 Le silence","🚪 Les portes qui claquent"]}},{t:"chips",k:"calm",q:"Ce qui m’apaise",items:{ado:["🎧 Être seul un moment","🗣️ Qu’on m’écoute sans conseil","🤗 Un câlin si je le demande","🚶 Bouger","😴 Dormir","🎮 M’occuper l’esprit"],parent:["🛋️ Un moment au calme","🗣️ En parler à quelqu’un","🚶 Marcher","😴 Dormir","🎧 La musique","🤗 Un geste gentil"]}},{t:"chips",k:"need",q:"Quand ça ne va pas, j’ai besoin qu’on…",items:{ado:["👂 M’écoute sans m’interrompre","⏳ Me laisse du temps","🤗 Me rassure","🎯 Ne me juge pas","🤝 Reste près de moi sans parler"],parent:["👂 Me dise ce qui ne va pas","⏳ Me laisse souffler","🙏 Me montre de la reconnaissance","🤝 M’aide à la maison"]},x:"mdT",ph:"Comment me parler quand ça chauffe…"}]},
+{e:"🌍",n:"2. Mon monde en ce moment",c:"var(--c4)",i:"Ce qui occupe ta tête explique beaucoup de réactions. Le dire aide l’autre à ne pas les prendre pour lui.",secs:[{t:"chips",k:"world",q:{ado:"Ce qui compte pour moi en ce moment",parent:"Ce qui occupe ma tête en ce moment"},items:{ado:["👥 Mes amis","🎓 Les notes, l’avenir","🪞 Mon apparence","📱 Les réseaux","🦅 Ma liberté","💞 Mes relations amoureuses","😴 Ma fatigue","🎯 Ce que j’aime faire"],parent:["💼 Mon travail","💶 L’argent","😴 La fatigue","🩺 Ma santé","💑 Mon couple, ma famille","😟 L’inquiétude pour mon ado","🧩 Tout organiser","🌟 Mes projets"]},x:"worldT",ph:"Ce qui pèse ou fait plaisir en ce moment…"}]},
+{e:"🔮",n:"3. Ce que je crois que l’autre ressent",c:"var(--c2)",i:"Ce sont des hypothèses : le but est de les comparer avec ce que l’autre dit vraiment.",secs:[{t:"chips",k:"guess",q:"Je pense qu’il ou elle ressent…",items:{ado:["😟 De l’inquiétude pour moi","😤 De la fatigue","💔 De la tristesse","😠 De la colère","🛡️ Le besoin de me protéger","😔 L’impression d’avoir échoué","🤗 De la fierté"],parent:["😡 Se sent contrôlé","🙉 Se sent incompris","😰 Sous pression","🏃 A besoin d’air","😢 Se sent seul parfois","🌟 Est fier de lui ou d’elle"]},x:"guessT",ph:"Ce que je pense qu’il ou elle ressent, et pourquoi…"}]},
+{e:"💌",n:"4. Ce que je voudrais qu’on comprenne",c:"var(--c3)",i:"Dis aussi ce qui va bien : la gratitude change le ton d’une discussion.",secs:[{t:"text",x:"u1",q:"Une chose que j’aimerais qu’il ou elle comprenne de moi",ph:"Sans reproche, avec mes mots…"},{t:"text",x:"u2",q:"Ce qui m’a blessé ou inquiété récemment",ph:"Un fait, et ce que j’ai ressenti…"},{t:"text",x:"u3",q:"Ce pour quoi je suis reconnaissant",ph:"Même un petit détail…"}]},
+{e:"💎",n:"5. Ce qui compte pour nous",c:"var(--c1)",i:"Beaucoup de désaccords viennent de valeurs différentes, pas d’un manque d’amour. Cherchez aussi ce qui vous rapproche.",secs:[{t:"chips",k:"vals",q:"Mes valeurs importantes",items:["🤝 Respect","🦅 Liberté","🛡️ Sécurité","🔑 Confiance","🎓 Réussite","👨‍👩‍👧 Famille","👥 Amitié","🗣️ Honnêteté","🤲 Solidarité","🎉 Plaisir"],x:"valsT",ph:"Une valeur qui explique souvent mes réactions…"},{t:"chips",k:"common",q:"Ce qu’on aime partager",items:["😄 L’humour","🎧 La musique","🍽️ Les repas","🎬 Les films, séries","🚗 Les trajets","🎮 Les jeux","🐾 Un animal","🌳 Les balades"]}]},
+{e:"👟",n:"6. Me mettre à sa place",c:"var(--c4)",i:"Décris une scène du point de vue de l’autre, sans l’excuser ni te juger.",secs:[{t:"text",x:"s1",q:"Une situation récente qui a créé une tension",ph:"Ce qui s’est passé…"},{t:"text",x:"s2",q:"Comment je l’ai vécue (émotions, besoins)",ph:"Ce que j’ai ressenti…"},{t:"text",x:"s3",q:"Comment l’autre l’a peut-être vécue",ph:"Je me mets à sa place…"},{t:"text",x:"s4",q:"Ce que je comprends mieux maintenant",ph:"Ce qui change dans mon regard…"}]},
+{id:"final",e:"🗺️",n:"7. Ce que je veux que l’autre sache",c:"var(--c2)"}],
+final:{fields:[{x:"e1",q:"Ce que je veux que l’autre sache sur moi",ph:"Ma phrase pour être mieux compris…"},{x:"e2",q:"La question que je veux lui poser",ph:"Une vraie question, sans piège…"},{x:"e3",q:"Ce que je fais cette semaine pour mieux le ou la comprendre",ph:"Un geste concret…"}],share:"Comparez vos deux versions ensemble : qu’est-ce qui vous surprend ? Qu’est-ce qui vous touche ?",note:"Comprendre ne veut pas dire être d’accord sur tout. Si la tension est très forte depuis longtemps, une médiation familiale ou un psychologue peut aider. Si une personne a peur, est menacée ou frappée, appelle le 119."},
+j:{intro:"Une minute par jour pour voir si vous vous comprenez mieux, et ce qui aide.",q:"Je me suis senti compris aujourd’hui",lo:"pas du tout",hi:"vraiment",helpKey:"tried",
+singles:[{k:"disc",q:"J’ai compris quelque chose de l’autre",items:["💡 Oui","🤔 Un peu","❌ Non"]}],
+multis:[{k:"tried",q:"Ce qui m’a aidé à comprendre",items:["👂 J’ai écouté","❓ J’ai posé une question","🙏 J’ai remercié","🤝 On a passé du temps ensemble","📝 J’ai lu son récap","⏸️ J’ai fait une pause"]}],
+texts:[{k:"found",q:"Ce que j’ai découvert sur l’autre aujourd’hui",ph:"Même un petit détail…"}]},
+e:{up:"Sur la période, tu te sens plutôt de mieux en mieux compris 🌤️ Repère ce qui a aidé.",down:"Sur la période, tu te sens plutôt moins compris. Ce n’est pas un échec : un tiers peut aider.",flat:"Sur la période, ton sentiment d’être compris est plutôt stable."},
+flag:e=>(e.disc||"")[0]==="💡",flagTxt:"Points colorés = jours où tu as compris quelque chose de l’autre.",
+warn:(es,avg)=>es.length>=5&&avg(es.slice(-5))<=3?"<b>Se sentir peu compris plusieurs jours de suite est pesant.</b> Un tiers peut aider : médiation familiale, psychologue, ligne d’écoute. Parents : Allô, parents en crise, 0 805 382 300. Ados : Fil Santé Jeunes, 0 800 235 236.":""};
+
+const W=C.W,wi=v=>Math.min(4,Math.floor(v/2.2));
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const ld=k=>new Date(k+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}),sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,step=0,tab="c",jd=iso(new Date()),cur;const idx={},qz={i:0};
+try{S=JSON.parse(localStorage.getItem(C.key)||"null")}catch(e){}
+S=S||{};S.role=S.role||"ado";S.P=S.P||{};S.J=S.J||{};
+const pk=v=>Array.isArray(v)?v.map(pk):(v&&typeof v==="object")?(("ado" in v&&"parent" in v)?pk(v[S.role]):Object.fromEntries(Object.entries(v).map(([a,b])=>[a,pk(b)]))):v;
+const KA=[],KT=["mj1","mj2","mj3","e1","e2","e3"];
+C.steps.forEach(s=>(s.secs||[]).forEach(c=>{if(c.t==="chips"){KA.push(c.k);if(c.x)KT.push(c.x)}if(c.t==="text")KT.push(c.x)}));
+const mk=r=>{const o=S.P[r]=S.P[r]||{};KA.forEach(k=>o[k]=o[k]||[]);KT.forEach(k=>o[k]=o[k]||"");S.J[r]=S.J[r]||{}};mk("ado");mk("parent");
+const D=()=>S.P[S.role],JJ=()=>S.J[S.role];
+const save=()=>{try{localStorage.setItem(C.key,JSON.stringify(S))}catch(e){}};
+const blank=()=>{const j=C.j,o={lvl:5};j.singles.forEach(s=>o[s.k]="");j.multis.forEach(s=>o[s.k]=[]);j.texts.forEach(s=>o[s.k]="");return o};
+const load=()=>{cur=Object.assign(blank(),JSON.parse(JSON.stringify(JJ()[jd]||{})))};load();
+const calls=()=>`<div class="calls"><a class="call" href="tel:119"><b>📞 119</b><span>Enfance en danger · gratuit · 24h/24 · pour un ado comme pour un parent</span></a><a class="call" href="tel:0805382300"><b>📞 0 805 382 300</b><span>Allô, parents en crise · écoute gratuite pour les parents · en semaine</span></a><a class="call" href="tel:0800235236"><b>📞 0 800 235 236</b><span>Fil Santé Jeunes · anonyme · gratuit</span></a><a class="call" href="tel:3114"><b>📞 3114</b><span>Idées noires, envie de se faire du mal · gratuit · 24h/24</span></a></div>`;
+const head=()=>`<div class="bar2">Violence ou danger : <a href="tel:119">119</a> · <a href="tel:112">112</a> · Parents : <a href="tel:0805382300">0 805 382 300</a></div><div class="seg" role="group" aria-label="Mon rôle">${[["ado","👦 Je suis l’ado"],["parent","🧑 Je suis le parent"]].map(([k,l])=>`<button data-role="${k}" aria-pressed="${S.role===k}">${l}</button>`).join("")}</div><div class="tabs" role="tablist">${["c","p","j","e"].map((k,i)=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${C.tabs[i]}</button>`).join("")}</div>`;
+const ta=(x,ph,m)=>`<textarea data-x="${x}" placeholder="${esc(ph)}"${m?` style="min-height:${m}px"`:""}>${esc(D()[x])}</textarea>`;
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+const car=k=>{const a=C.car[k][S.role];idx[k]=idx[k]||0;return `<p class="big" id="car_${k}">${a[idx[k]%a.length]}</p><button class="chip" data-car="${k}">Une autre idée</button>`};
+const quizH=()=>{const q=C.quiz[qz.i%C.quiz.length];return `<div id="quizbox"><p class="big" style="min-height:0">« ${q.s} »</p><div class="chips"><button class="chip" data-qa="1">🧠 Réalité</button><button class="chip" data-qa="0">❌ Mythe</button></div><div id="qres"></div></div>`};
+const mjp=()=>{const d=D();return `Quand ${d.mj1||"…"}, ${d.mj2?"":"je ressens "}${d.mj2||"…"}. ${d.mj3?"":"J’ai besoin de "}${d.mj3||"…"}`};
+function sec(s){
+ if(s.t==="info")return `<section class="card"><h2>${s.h}</h2>${s.b}</section>`;
+ if(s.t==="je")return `<section class="card"><h2>Mon message en « je »</h2><p class="sub">Quand… (un fait) · je ressens… · j’ai besoin de…</p>${["mj1","mj2","mj3"].map((k,i)=>`<p style="margin:10px 0 6px"><b>${["Quand… (un fait, sans jugement)","Je ressens…","J’ai besoin de / Est-ce qu’on pourrait…"][i]}</b></p>${ta(k,s.ph[i],56)}`).join("")}<div class="quote" id="mjp">${mjp()}</div><p class="sub" style="margin:0">À éviter : « toujours », « jamais », les étiquettes, les reproches sur la personne.</p></section>`;
+ if(s.t==="text")return `<section class="card"><h2>${s.q}</h2>${ta(s.x,s.ph,60)}</section>`;
+ return `<section class="card"><h2>${s.q}</h2><div class="chips">${s.items.map(c=>`<button class="chip" data-k="${s.k}" data-c="${esc(c)}" aria-pressed="${D()[s.k].includes(c)}">${c}</button>`).join("")}</div>${s.x?ta(s.x,s.ph):""}</section>`;
+}
+function recap(){
+ const d=D(),j=(a,t)=>[...a,t].filter(x=>x&&String(x).trim()).join(" / ");
+ let o=`${C.name.toUpperCase()} (${S.role==="ado"?"côté ado":"côté parent"})`;
+ C.steps.map(pk).forEach(s=>(s.secs||[]).forEach(c=>{
+  if(c.t==="chips")o+=`\n${c.q} : ${j(d[c.k],c.x?d[c.x]:"")}`;
+  else if(c.t==="text")o+=`\n${c.q} : ${d[c.x]}`;
+  else if(c.t==="je")o+=`\nMon message en « je » : ${mjp()}`}));
+ pk(C.final).fields.forEach(f=>o+=`\n\n${f.q} : ${d[f.x]}`);
+ return o;
+}
+function P(){
+ const ST=C.steps,s=pk(ST[step]);let h=`<div class="dots">${ST.map((_,i)=>`<i class="${i<=step?"on":""}"></i>`).join("")}</div>`;
+ const nav=l=>`<div class="nav">${step?`<button class="btn ghost" data-go="-1">Retour</button>`:""}<button class="btn" data-go="1">${l}</button></div>`;
+ if(step===0){const t=pk(C.intro);return h+`<div class="pop"><div class="hero">${t.hero}</div><h1>${t.h}</h1><p style="margin-top:12px">${t.p1}</p><p class="sub">${t.p2}</p></div>${nav("Commencer")}`}
+ if(s.id==="final"){const f=pk(C.final);
+  return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.7rem;margin-bottom:12px">${s.n}</h1>${f.fields.map(x=>`<section class="card"><h2>${x.q}</h2>${ta(x.x,x.ph,60)}</section>`).join("")}
+ <section class="card"><h2>Mon récap</h2><textarea id="recap" readonly style="min-height:260px">${esc(recap())}</textarea><div class="nav"><button class="btn" id="copy" data-src="recap">Copier mon récap</button></div><p class="sub" id="msg" style="margin:8px 0 0">${f.share}</p></section>
+ <p class="note">${f.note}</p>${calls()}
+ <div class="nav"><button class="btn" data-tab="j">📓 Ouvrir mon journal</button></div>
+ <div class="nav"><button class="btn ghost" data-go="-1">Retour</button><button class="btn ghost" id="reset">Effacer mon parcours</button></div></div>`}
+ return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.7rem;margin-bottom:8px">${s.n}</h1><p class="sub">${s.i}</p>${s.secs.map(sec).join("")}</div>${nav("Suite")}`;
+}
+const cj=(k,items)=>items.map(c=>`<button class="chip" data-j="${k}" data-c="${esc(c)}" aria-pressed="${cur[k].includes(c)}">${c}</button>`).join("");
+const cs=(k,items)=>items.map(c=>`<button class="chip" data-s="${k}" data-c="${esc(c)}" aria-pressed="${cur[k]===c}">${c}</button>`).join("");
+function J(){
+ const j=pk(C.j),t=iso(new Date());
+ const list=Object.keys(JJ()).sort().reverse().slice(0,7).map(k=>{const x=JJ()[k];return `<div class="row"><span class="e">${W[wi(x.lvl)][0]}</span><div class="t"><b>${ld(k)}</b> · ${x.lvl}/10<br><span class="sub">${esc(j.singles.map(s=>x[s.k]||"").filter(Boolean).join(" · "))}${x[j.texts[0].k]?" — "+esc(x[j.texts[0].k].slice(0,60)):""}</span></div><button class="x" data-del="${k}" aria-label="Supprimer le ${ld(k)}">✕</button></div>`}).join("")||`<p class="sub" style="margin:0">Pas encore de jour noté.</p>`;
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">${j.intro}</p>
+ <section class="card"><h2>Quel jour ?</h2><input type="date" id="jdate" value="${jd}" max="${t}" aria-label="Date"><p class="sub" style="margin:8px 0 0">${ld(jd)}</p></section>
+ <section class="card slider"><h2>${j.q}</h2>${wxs("ja",cur.lvl)}<input type="range" id="ja" min="0" max="10" value="${cur.lvl}" aria-label="${esc(j.q)}"><p class="sub" style="margin:0">0 = ${j.lo} · 10 = ${j.hi}</p></section>
+ ${j.singles.map(s=>`<section class="card"><h2>${s.q}</h2><div class="chips">${cs(s.k,s.items)}</div></section>`).join("")}
+ ${j.multis.map(s=>`<section class="card"><h2>${s.q}</h2><div class="chips">${cj(s.k,s.items)}</div></section>`).join("")}
+ <section class="card">${j.texts.map(s=>`<h2>${s.q}</h2><textarea data-jt="${s.k}" placeholder="${esc(s.ph)}">${esc(cur[s.k])}</textarea>`).join("")}</section>
+ <div class="nav"><button class="btn" id="jsave">Enregistrer cette journée</button></div><p class="sub" id="jm" style="margin:8px 0 16px"></p>
+ <section class="card"><h2>Mes derniers jours</h2>${list}</section></div>`;
+}
+function E(){
+ const j=pk(C.j),es=Object.keys(JJ()).sort().slice(-14).map(k=>({d:k,...blank(),...JJ()[k]})),n=es.length;
+ const h=`<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📈 Mon suivi</h1>`;
+ if(n<2)return h+`<section class="card"><p>Note au moins 2 jours dans ton journal pour voir ta courbe. Tu en as ${n} pour l’instant.</p><div class="nav"><button class="btn" data-tab="j">Aller au journal</button></div></section></div>`;
+ const avg=a=>a.reduce((s,x)=>s+x.lvl,0)/a.length,m=Math.floor(n/2);
+ const tr=n<4?"":(d=>d>=1?C.e.up:d<=-1?C.e.down:C.e.flat)(avg(es.slice(m))-avg(es.slice(0,m)));
+ const cnt=a=>{const o={};a.forEach(c=>o[c]=(o[c]||0)+1);return Object.entries(o).sort((a,b)=>b[1]-a[1])};
+ const bars=(a,tot)=>a.length?a.map(([c,v])=>`<div class="bar"><span>${c}</span><div class="bt"><i style="width:${Math.round(v/Math.max(tot,1)*100)}%"></i></div><b>${v}</b></div>`).join(""):`<p class="sub" style="margin:0">Rien noté pour l’instant.</p>`;
+ const good=es.filter(e=>e.lvl>=6),hk=j.helpKey,top=cnt((good.length?good:es).flatMap(e=>e[hk])).slice(0,3);
+ const Wd=360,H=170,p=28,x=i=>p+i*(Wd-2*p)/(n-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Courbe">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ sv+=`<polyline fill="none" stroke="var(--z)" stroke-width="3" stroke-linejoin="round" points="${es.map((e,i)=>x(i)+","+y(e.lvl)).join(" ")}"/>`;
+ es.forEach((e,i)=>sv+=`<circle cx="${x(i)}" cy="${y(e.lvl)}" r="5" fill="${C.flag(e)?"var(--c2)":"var(--z)"}"/>`);
+ sv+=`<text x="${p}" y="${H-6}" font-size="11" fill="var(--mut)">${sd(es[0].d)}</text><text x="${Wd-p}" y="${H-6}" font-size="11" fill="var(--mut)" text-anchor="end">${sd(es[n-1].d)}</text></svg>`;
+ const dist=j.singles.map(s=>({q:s.q,a:cnt(es.map(e=>e[s.k]).filter(Boolean))}));
+ const warn=C.warn(es,avg);
+ const txt=`${C.name} · bilan sur ${n} jours (${S.role==="ado"?"côté ado":"côté parent"})\n${j.q} : ${avg(es).toFixed(1)}/10 en moyenne\n${tr}\n${dist.map(d=>d.q+" : "+d.a.map(a=>a[0]+" ("+a[1]+")").join(", ")).join("\n")}\nCe qui aide : ${top.map(a=>a[0]+" ("+a[1]+")").join(", ")}`;
+ return h+(warn?`<div class="alert">${warn}</div>`:"")+`<section class="card"><h2>${j.q}</h2>${sv}<p class="sub" style="margin:8px 0 0">${C.flagTxt}</p>${tr?`<p style="margin:10px 0 0"><b>${tr}</b></p>`:""}<p class="sub" style="margin:8px 0 0">Moyenne : ${avg(es).toFixed(1)}/10 sur ${n} jours.</p></section>
+ ${dist.map(d=>`<section class="card"><h2>${d.q}</h2>${bars(d.a,n)}</section>`).join("")}
+ <section class="card"><h2>Ce qui aide dans les bons jours</h2>${bars(top,(good.length?good:es).length)}</section>
+ <section class="card"><h2>Mon bilan à partager</h2><textarea id="bilan" readonly style="min-height:150px">${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy" data-src="bilan">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">À partager si tu le souhaites, par exemple pour en discuter ensemble ou avec un professionnel.</p></section>
+ <div class="nav"><button class="btn" data-tab="j">📓 Ajouter un jour</button><button class="btn ghost" id="jreset">Effacer le journal</button></div></div>`;
+}
+function render(keep){
+ $("#app").style.setProperty("--z",tab==="p"?(C.steps[step].c||"var(--c1)"):"var(--c1)");
+ $("#app").innerHTML=head()+(tab==="c"?C.quick():tab==="p"?P():tab==="j"?J():E());if(!keep)window.scrollTo(0,0);
+}
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ const d=t.dataset;
+ if(d.role){S.role=d.role;save();load();render(true);return}
+ if(d.tab){tab=d.tab;render();return}
+ if(d.go){step=Math.max(0,Math.min(C.steps.length-1,step+ +d.go));render();return}
+ if(d.k){const a=D()[d.k],i=a.indexOf(d.c);if(i>=0)a.splice(i,1);else a.push(d.c);t.setAttribute("aria-pressed",i<0);save();return}
+ if(d.j){const a=cur[d.j],i=a.indexOf(d.c);if(i>=0)a.splice(i,1);else a.push(d.c);t.setAttribute("aria-pressed",i<0);return}
+ if(d.s){const was=cur[d.s]===d.c;cur[d.s]=was?"":d.c;document.querySelectorAll(`[data-s="${d.s}"]`).forEach(b=>b.setAttribute("aria-pressed",cur[d.s]===b.dataset.c));return}
+ if(d.car){const a=C.car[d.car][S.role];idx[d.car]++;$("#car_"+d.car).textContent=a[idx[d.car]%a.length];return}
+ if(d.qa!==undefined){const q=C.quiz[qz.i%C.quiz.length];$("#qres").innerHTML=`<div class="alert" style="border-color:var(--c1)"><b>${q.a?"Réalité.":"Mythe."}</b> ${q.e}</div><button class="chip" data-qn="1">Une autre affirmation</button>`;return}
+ if(d.qn){qz.i++;$("#quizbox").outerHTML=quizH();return}
+ if(d.del){delete JJ()[d.del];save();load();render(true);return}
+ if(t.id==="jsave"){JJ()[jd]=JSON.parse(JSON.stringify(cur));save();render(true);$("#jm").textContent="Enregistré ✅ Merci d’avoir pris ce temps.";return}
+ if(t.id==="copy"){const r=$("#"+d.src),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};
+  try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer ton parcours (le journal est conservé) ?")){const o=D();KA.forEach(k=>o[k]=[]);KT.forEach(k=>o[k]="");save();step=0;render()}
+ if(t.id==="jreset"&&confirm("Effacer tout ton journal ?")){S.J[S.role]={};save();load();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset&&t.dataset.x){D()[t.dataset.x]=t.value;save();const r=$("#recap");if(r)r.value=recap();const q=$("#mjp");if(q)q.textContent=mjp()}
+ if(t.dataset&&t.dataset.jt)cur[t.dataset.jt]=t.value;
+ if(t.id==="ja"){cur.lvl=+t.value;const w=W[wi(cur.lvl)];$("#jaX").textContent=w[0];$("#jaL").textContent=w[1]+" · "+cur.lvl+"/10"}
+ if(t.id==="jdate"){jd=t.value||iso(new Date());load();render(true)}
+});
+render();
+</script>
+</body>
+</html>
