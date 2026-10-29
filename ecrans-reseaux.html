@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Écrans et réseaux</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F7FF;--ink:#1B2740;--card:#FFFFFF;--mut:#566486;--line:#D3DDF3;--c1:#2B5CB8;--c2:#B83A2A;--c3:#8F6200;--c4:#17707F;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1526;--ink:#E8EEFF;--card:#172139;--mut:#A3B3D9;--line:#2A3A60;--c1:#8FB0FF;--c2:#FF9A83;--c3:#FFC83D;--c4:#5ED6E6;--on:#0E1526}}
+:root[data-theme="dark"]{--bg:#0E1526;--ink:#E8EEFF;--card:#172139;--mut:#A3B3D9;--line:#2A3A60;--c1:#8FB0FF;--c2:#FF9A83;--c3:#FFC83D;--c4:#5ED6E6;--on:#0E1526}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-weight:500;font-size:16.5px;line-height:1.55}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-weight:800;line-height:1.2;margin:0}
+h1{font-size:2.05rem}
+h2{font-size:1.1rem;margin-bottom:10px}
+p{margin:0 0 12px}
+b{font-weight:800}
+.sub{color:var(--mut)}
+.bar2{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.8rem;margin-bottom:12px;text-align:center}
+.bar2 a{color:var(--c2);font-weight:800;text-decoration:none}
+.tabs,.seg{display:flex;gap:3px;margin:2px 0 14px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button,.seg button{flex:1;font:inherit;font-weight:700;font-size:.78rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 2px;cursor:pointer}
+.tabs button[aria-selected="true"],.seg button[aria-pressed="true"]{background:var(--z);color:var(--on)}
+.seg button{font-size:.9rem}
+.dots{display:flex;gap:4px;margin:6px 0 22px}
+.dots i{flex:1;height:7px;border-radius:8px;background:var(--line)}
+.dots i.on{background:var(--z)}
+.hero{font-size:3rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-weight:700;font-size:.9rem;text-align:left;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:18px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on)}
+textarea,input[type=date]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical}
+textarea{min-height:70px}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.seg button:focus-visible,.x:focus-visible,.call:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:12px;margin-top:8px}
+.btn{font:inherit;font-weight:800;font-size:1rem;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;background:var(--z);color:var(--on);flex:1}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);flex:0 0 auto}
+.slider{text-align:center}
+.wx{font-size:2.8rem;line-height:1.1}
+.lab{font-weight:800;font-size:1.05rem}
+input[type=range]{width:100%;accent-color:var(--z);margin:10px 0 4px}
+.alert{background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0 16px;text-align:left;font-size:.93rem}
+.calls{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.call{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:10px 14px}
+.call b{font-size:1.1rem;color:var(--c2)}
+.call span{display:block;font-size:.84rem;color:var(--mut);font-weight:500}
+.big{font-size:1.12rem;font-weight:800;line-height:1.4;min-height:3.4em}
+.note{font-size:.88rem;color:var(--mut);border-left:4px solid var(--c3);padding-left:12px;margin:18px 0}
+.steps{margin:0;padding-left:1.2em}
+.steps li{margin-bottom:8px}
+.pair{border-top:2px solid var(--line);padding:10px 0}
+.pair:first-of-type{border-top:0}
+.no{color:var(--c2);font-weight:700}
+.yes{color:var(--c1);font-weight:700}
+.quote{background:var(--bg);border-left:4px solid var(--z);border-radius:12px;padding:10px 14px;font-weight:700;margin:8px 0 12px}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.8rem}
+.row .t{flex:1;font-size:.92rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.88rem}
+.bar span{flex:0 0 52%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const C={"key": "ado_ecrans_reseaux", "name": "Écrans et réseaux", "hero": "📱", "tabs": ["📱 Repères", "🧭 Mon côté", "📓 Journal", "📈 Suivi"], "intro": {"hero": "📱", "h": "Écrans et réseaux", "p1": {"ado": "Ton téléphone, c’est ta vie sociale, ta musique, tes amis. Mais parfois, tu perds le fil du temps, ou ça crée des tensions à la maison. Ici, tu fais le point sans te juger.", "parent": "Les écrans sont souvent le premier sujet de dispute. Ici, vous cherchez à comprendre la place qu’ils ont pour votre ado et à poser un cadre ensemble, sans guerre."}, "p2": "Choisissez votre rôle en haut. Chacun a sa version et ses propres réponses. Rien n’est envoyé : tout reste sur cet appareil."}, "qd": {"cards": [{"h": "Ce qu’il faut savoir", "ul": {"ado": ["Les applis sont conçues pour te retenir : notifications, défilement infini, likes. Ce n’est pas qu’un manque de volonté.", "Sur les réseaux, on voit les meilleurs moments des autres : se comparer donne une image trompeuse.", "Les écrans le soir retardent l’endormissement.", "Tu as le droit de te déconnecter, de bloquer, de signaler."], "parent": ["Pour votre ado, les écrans sont aussi sa vie sociale : tout couper, c’est le couper de ses amis.", "Les applis sont conçues pour retenir l’attention : ce n’est pas qu’une question de volonté.", "Ce qui compte : le sommeil, l’école, les relations réelles et les contenus vus.", "Un cadre négocié est mieux suivi qu’un cadre imposé."]}}, {"h": "Pour ouvrir la discussion", "car": "open"}, {"h": "Mythe ou réalité ?", "quiz": true}]}, "steps": [{"id": "intro"}, {"e": "📲", "n": "1. Ma place des écrans", "i": {"ado": "À quoi te servent tes écrans ? Aucun jugement : c’est pour comprendre.", "parent": "À quoi servent les écrans pour votre ado ? Comprendre avant de limiter."}, "secs": [{"t": "chips", "k": "use", "q": "Ce qu’on y fait", "items": {"ado": ["🎵 Musique", "💬 Discuter avec mes amis", "🎮 Jouer", "📹 Vidéos, séries", "📸 Réseaux sociaux", "📚 Utile pour l’école", "😴 Pour m’endormir", "🕳️ M’occuper quand je m’ennuie"], "parent": ["🎵 Musique", "💬 Rester en lien avec ses amis", "🎮 Jouer", "📹 Vidéos, séries", "📸 Réseaux sociaux", "📚 École", "😴 Avant de dormir"]}, "x": "useT", "ph": "Dans mes mots…"}], "c": "var(--c1)"}, {"e": "⚠️", "n": "2. Ce qui coince", "i": {"ado": "Repère ce qui te pèse, toi.", "parent": "Repérez ce qui pèse, sans vous juger."}, "secs": [{"t": "chips", "k": "blk", "q": "Ce qui coince", "items": {"ado": ["⏰ Je perds la notion du temps", "😴 Je me couche tard à cause de l’écran", "🪞 Je me compare aux autres", "📈 Je cours après les likes", "😤 Les disputes à la maison", "📵 Peur de rater quelque chose", "🔔 Les notifications me stressent"], "parent": ["🌙 Il ou elle se couche tard", "🍽️ Écran à table", "🎓 Les devoirs passent après", "🔒 Je ne sais pas ce qu’il ou elle voit", "😤 Dispute quand je demande de lâcher", "🚪 Il ou elle s’isole"]}, "x": "blkT", "ph": "Dans mes mots…"}], "c": "var(--c2)"}, {"e": "🛡️", "n": "3. Contenus et sécurité", "i": {"ado": "Sur Internet, personne ne devrait te forcer, te menacer, ni te demander des photos intimes. Tu peux bloquer, signaler, et en parler sans honte.", "parent": "Parlez des contenus choquants, du harcèlement et des photos intimes avant qu’un problème arrive. Dites clairement qu’il ou elle pourra venir vous voir sans être puni."}, "secs": [{"t": "chips", "k": "sec", "q": "Ce que je veux faire", "items": {"ado": ["🚫 Bloquer et signaler", "🔒 Régler mes paramètres de confidentialité", "📸 Ne jamais envoyer de photo intime sous pression", "🗣️ En parler à un adulte si je suis mal"], "parent": ["📣 Ouvrir la discussion sur les contenus", "🔒 Voir ensemble les paramètres", "🤝 Dire « tu peux tout me dire, je ne te punirai pas »", "🔎 Savoir où signaler (3018)"]}, "x": "secT", "ph": "Dans mes mots…"}], "c": "var(--c3)"}, {"e": "🤝", "n": "4. Un cadre qui nous convient", "i": "Un cadre négocié est mieux tenu qu’un cadre imposé.", "secs": [{"t": "chips", "k": "rule", "q": "Ce qu’on pourrait mettre en place", "items": ["📵 Pas d’écran pendant les repas", "🌙 Téléphone hors de la chambre la nuit", "⏳ Un temps d’écran convenu pour les devoirs", "📅 Un jour par semaine plus calme", "🔄 Faire le point toutes les 2 semaines"], "x": "ruleT", "ph": "Dans mes mots…"}], "c": "var(--c4)"}, {"id": "final", "e": "🗺️", "n": "5. Mon engagement", "c": "var(--c2)"}], "final": {"fields": [{"x": "e1", "q": "Ce que je m’engage à essayer cette semaine", "ph": "Un geste concret, petit et réaliste…"}, {"x": "e2", "q": "La phrase que je veux dire", "ph": "Ex : « J’aimerais qu’on en parle calmement. »"}, {"x": "e3", "q": {"ado": "Ce que je demande à mes parents (une seule chose)", "parent": "Ce que je demande à mon ado (une seule chose)"}, "ph": "Une chose précise, faisable…"}], "share": "Tu peux le montrer à l’autre, en proposant de comparer vos deux versions.", "note": "Si un contenu te met mal à l’aise ou si tu es harcelé en ligne, appelle le 3018 (gratuit, anonyme). Si tu te sens très mal, parles-en à un adulte ou appelle le 3114."}, "j": {"intro": "Une minute par jour pour suivre l’évolution et repérer ce qui aide.", "q": "Mon rapport aux écrans aujourd’hui", "lo": "débordé par les écrans", "hi": "bien maîtrisé", "helpKey": "tried", "singles": [{"k": "sg", "q": "Temps d’écran ressenti", "items": ["🟢 Raisonnable", "🟡 Un peu trop", "🔴 Beaucoup trop"]}], "multis": [{"k": "tried", "q": "Ce que j’ai essayé", "items": ["📵 Pause sans écran", "🌙 Téléphone hors de la chambre", "🚶 Sortie ou activité", "💬 Parler en vrai avec quelqu’un", "🔕 Notifications coupées"]}], "texts": [{"k": "good", "q": "Un moment sans écran qui m’a fait du bien", "ph": "Même tout petit…"}]}, "e": {"up": "Sur la période, ça va plutôt mieux 🌤️ Repère ce qui a aidé.", "down": "Sur la période, c’est plutôt devenu plus difficile. Ce n’est pas un échec : en parler à quelqu’un peut aider.", "flat": "Sur la période, la situation est plutôt stable."}, "flagSpec": {"k": "sg", "ch": "🔴"}, "flagTxt": "Points colorés = jours avec beaucoup trop d’écran.", "warnSpec": {"t": "flag", "n": 3, "of": 5, "msg": "Les écrans prennent beaucoup de place ces derniers jours. Parlez-en ensemble, et si ça pèse sur le sommeil ou l’humeur, un médecin peut aider."}, "xcalls": [["3018", "Cyberharcèlement, contenus choquants · gratuit"]], "car": {"open": {"ado": ["Je voudrais qu’on parle de mon téléphone sans que ça finisse en dispute.", "Je peux te montrer ce que je fais en ligne, si tu veux.", "Qu’est-ce qui t’inquiète exactement ?", "Je te propose un essai d’une semaine avec un cadre, puis on refait le point."], "parent": ["Qu’est-ce que tu aimes le plus sur ton téléphone en ce moment ?", "Tu peux me montrer ce qui te plaît ?", "Y a-t-il des contenus ou des personnes qui te mettent mal à l’aise ?", "À ton avis, quel cadre serait juste ?"]}}, "quiz": [{"s": "Couper d’un coup le téléphone règle le problème.", "a": false, "e": "Une coupure brutale crée surtout du conflit. Un cadre négocié et progressif fonctionne mieux."}, {"s": "Ce qu’on voit sur les réseaux peut influencer l’image qu’on a de soi.", "a": true, "e": "On y voit surtout des moments choisis, ce qui nourrit la comparaison. En parler aide à prendre du recul."}, {"s": "Un ado qui passe du temps en ligne n’a pas de vraie vie sociale.", "a": false, "e": "Pour beaucoup, les écrans sont un lieu de vie sociale. Ce qui compte, c’est l’équilibre."}]};
+C.W=C.W||[["⛈️","Très difficile"],["🌧️","Difficile"],["⛅","Moyen"],["🌤️","Plutôt bien"],["☀️","Très bien"]];const W=C.W,wi=v=>Math.min(4,Math.floor(v/2.2));
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const ld=k=>new Date(k+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}),sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,step=0,tab="c",jd=iso(new Date()),cur;const idx={},qz={i:0};
+try{S=JSON.parse(localStorage.getItem(C.key)||"null")}catch(e){}
+S=S||{};S.role=S.role||"ado";S.P=S.P||{};S.J=S.J||{};
+const pk=v=>Array.isArray(v)?v.map(pk):(v&&typeof v==="object")?(("ado" in v&&"parent" in v)?pk(v[S.role]):Object.fromEntries(Object.entries(v).map(([a,b])=>[a,pk(b)]))):v;
+const KA=[],KT=["mj1","mj2","mj3","e1","e2","e3"];
+C.steps.forEach(s=>(s.secs||[]).forEach(c=>{if(c.t==="chips"){KA.push(c.k);if(c.x)KT.push(c.x)}if(c.t==="text")KT.push(c.x)}));
+const mk=r=>{const o=S.P[r]=S.P[r]||{};KA.forEach(k=>o[k]=o[k]||[]);KT.forEach(k=>o[k]=o[k]||"");S.J[r]=S.J[r]||{}};mk("ado");mk("parent");
+const D=()=>S.P[S.role],JJ=()=>S.J[S.role];
+const save=()=>{try{localStorage.setItem(C.key,JSON.stringify(S))}catch(e){}};
+const blank=()=>{const j=C.j,o={lvl:5};j.singles.forEach(s=>o[s.k]="");j.multis.forEach(s=>o[s.k]=[]);j.texts.forEach(s=>o[s.k]="");return o};
+const load=()=>{cur=Object.assign(blank(),JSON.parse(JSON.stringify(JJ()[jd]||{})))};load();
+const xc=()=>(C.xcalls||[]).map(c=>`<a class="call" href="tel:${c[0].replace(/ /g,"")}"><b>📞 ${c[0]}</b><span>${c[1]}</span></a>`).join("");
+const calls=()=>`<div class="calls">${xc()}<a class="call" href="tel:119"><b>📞 119</b><span>Enfance en danger · gratuit · 24h/24 · pour un ado comme pour un parent</span></a><a class="call" href="tel:0805382300"><b>📞 0 805 382 300</b><span>Allô, parents en crise · écoute gratuite pour les parents · en semaine</span></a><a class="call" href="tel:0800235236"><b>📞 0 800 235 236</b><span>Fil Santé Jeunes · anonyme · gratuit</span></a><a class="call" href="tel:3114"><b>📞 3114</b><span>Idées noires, envie de se faire du mal · gratuit · 24h/24</span></a></div>`;
+const head=()=>`<div class="bar2">Violence ou danger : <a href="tel:119">119</a> · <a href="tel:112">112</a> · Parents : <a href="tel:0805382300">0 805 382 300</a></div><div class="seg" role="group" aria-label="Mon rôle">${[["ado","👦 Je suis l’ado"],["parent","🧑 Je suis le parent"]].map(([k,l])=>`<button data-role="${k}" aria-pressed="${S.role===k}">${l}</button>`).join("")}</div><div class="tabs" role="tablist">${["c","p","j","e"].map((k,i)=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${C.tabs[i]}</button>`).join("")}</div>`;
+const ta=(x,ph,m)=>`<textarea data-x="${x}" placeholder="${esc(ph)}"${m?` style="min-height:${m}px"`:""}>${esc(D()[x])}</textarea>`;
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+const car=k=>{const a=C.car[k][S.role];idx[k]=idx[k]||0;return `<p class="big" id="car_${k}">${a[idx[k]%a.length]}</p><button class="chip" data-car="${k}">Une autre idée</button>`};
+const quizH=()=>{const q=C.quiz[qz.i%C.quiz.length];return `<div id="quizbox"><p class="big" style="min-height:0">« ${q.s} »</p><div class="chips"><button class="chip" data-qa="1">🧠 Réalité</button><button class="chip" data-qa="0">❌ Mythe</button></div><div id="qres"></div></div>`};
+const mjp=()=>{const d=D();return `Quand ${d.mj1||"…"}, ${d.mj2?"":"je ressens "}${d.mj2||"…"}. ${d.mj3?"":"J’ai besoin de "}${d.mj3||"…"}`};
+function sec(s){
+ if(s.t==="info")return `<section class="card"><h2>${s.h}</h2>${s.b}</section>`;
+ if(s.t==="je")return `<section class="card"><h2>Mon message en « je »</h2><p class="sub">Quand… (un fait) · je ressens… · j’ai besoin de…</p>${["mj1","mj2","mj3"].map((k,i)=>`<p style="margin:10px 0 6px"><b>${["Quand… (un fait, sans jugement)","Je ressens…","J’ai besoin de / Est-ce qu’on pourrait…"][i]}</b></p>${ta(k,s.ph[i],56)}`).join("")}<div class="quote" id="mjp">${mjp()}</div><p class="sub" style="margin:0">À éviter : « toujours », « jamais », les étiquettes, les reproches sur la personne.</p></section>`;
+ if(s.t==="text")return `<section class="card"><h2>${s.q}</h2>${ta(s.x,s.ph,60)}</section>`;
+ return `<section class="card"><h2>${s.q}</h2><div class="chips">${s.items.map(c=>`<button class="chip" data-k="${s.k}" data-c="${esc(c)}" aria-pressed="${D()[s.k].includes(c)}">${c}</button>`).join("")}</div>${s.x?ta(s.x,s.ph):""}</section>`;
+}
+function recap(){
+ const d=D(),j=(a,t)=>[...a,t].filter(x=>x&&String(x).trim()).join(" / ");
+ let o=`${C.name.toUpperCase()} (${S.role==="ado"?"côté ado":"côté parent"})`;
+ C.steps.map(pk).forEach(s=>(s.secs||[]).forEach(c=>{
+  if(c.t==="chips")o+=`\n${c.q} : ${j(d[c.k],c.x?d[c.x]:"")}`;
+  else if(c.t==="text")o+=`\n${c.q} : ${d[c.x]}`;
+  else if(c.t==="je")o+=`\nMon message en « je » : ${mjp()}`}));
+ pk(C.final).fields.forEach(f=>o+=`\n\n${f.q} : ${d[f.x]}`);
+ return o;
+}
+function P(){
+ const ST=C.steps,s=pk(ST[step]);let h=`<div class="dots">${ST.map((_,i)=>`<i class="${i<=step?"on":""}"></i>`).join("")}</div>`;
+ const nav=l=>`<div class="nav">${step?`<button class="btn ghost" data-go="-1">Retour</button>`:""}<button class="btn" data-go="1">${l}</button></div>`;
+ if(step===0){const t=pk(C.intro);return h+`<div class="pop"><div class="hero">${t.hero}</div><h1>${t.h}</h1><p style="margin-top:12px">${t.p1}</p><p class="sub">${t.p2}</p></div>${nav("Commencer")}`}
+ if(s.id==="final"){const f=pk(C.final);
+  return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.7rem;margin-bottom:12px">${s.n}</h1>${f.fields.map(x=>`<section class="card"><h2>${x.q}</h2>${ta(x.x,x.ph,60)}</section>`).join("")}
+ <section class="card"><h2>Mon récap</h2><textarea id="recap" readonly style="min-height:260px">${esc(recap())}</textarea><div class="nav"><button class="btn" id="copy" data-src="recap">Copier mon récap</button></div><p class="sub" id="msg" style="margin:8px 0 0">${f.share}</p></section>
+ <p class="note">${f.note}</p>${calls()}
+ <div class="nav"><button class="btn" data-tab="j">📓 Ouvrir mon journal</button></div>
+ <div class="nav"><button class="btn ghost" data-go="-1">Retour</button><button class="btn ghost" id="reset">Effacer mon parcours</button></div></div>`}
+ return h+`<div class="pop"><div class="hero">${s.e}</div><h1 style="font-size:1.7rem;margin-bottom:8px">${s.n}</h1><p class="sub">${s.i}</p>${s.secs.map(sec).join("")}</div>${nav("Suite")}`;
+}
+const cj=(k,items)=>items.map(c=>`<button class="chip" data-j="${k}" data-c="${esc(c)}" aria-pressed="${cur[k].includes(c)}">${c}</button>`).join("");
+const cs=(k,items)=>items.map(c=>`<button class="chip" data-s="${k}" data-c="${esc(c)}" aria-pressed="${cur[k]===c}">${c}</button>`).join("");
+function J(){
+ const j=pk(C.j),t=iso(new Date());
+ const list=Object.keys(JJ()).sort().reverse().slice(0,7).map(k=>{const x=JJ()[k];return `<div class="row"><span class="e">${W[wi(x.lvl)][0]}</span><div class="t"><b>${ld(k)}</b> · ${x.lvl}/10<br><span class="sub">${esc(j.singles.map(s=>x[s.k]||"").filter(Boolean).join(" · "))}${x[j.texts[0].k]?" — "+esc(x[j.texts[0].k].slice(0,60)):""}</span></div><button class="x" data-del="${k}" aria-label="Supprimer le ${ld(k)}">✕</button></div>`}).join("")||`<p class="sub" style="margin:0">Pas encore de jour noté.</p>`;
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">${j.intro}</p>
+ <section class="card"><h2>Quel jour ?</h2><input type="date" id="jdate" value="${jd}" max="${t}" aria-label="Date"><p class="sub" style="margin:8px 0 0">${ld(jd)}</p></section>
+ <section class="card slider"><h2>${j.q}</h2>${wxs("ja",cur.lvl)}<input type="range" id="ja" min="0" max="10" value="${cur.lvl}" aria-label="${esc(j.q)}"><p class="sub" style="margin:0">0 = ${j.lo} · 10 = ${j.hi}</p></section>
+ ${j.singles.map(s=>`<section class="card"><h2>${s.q}</h2><div class="chips">${cs(s.k,s.items)}</div></section>`).join("")}
+ ${j.multis.map(s=>`<section class="card"><h2>${s.q}</h2><div class="chips">${cj(s.k,s.items)}</div></section>`).join("")}
+ <section class="card">${j.texts.map(s=>`<h2>${s.q}</h2><textarea data-jt="${s.k}" placeholder="${esc(s.ph)}">${esc(cur[s.k])}</textarea>`).join("")}</section>
+ <div class="nav"><button class="btn" id="jsave">Enregistrer cette journée</button></div><p class="sub" id="jm" style="margin:8px 0 16px"></p>
+ <section class="card"><h2>Mes derniers jours</h2>${list}</section></div>`;
+}
+function E(){
+ const j=pk(C.j),es=Object.keys(JJ()).sort().slice(-14).map(k=>({d:k,...blank(),...JJ()[k]})),n=es.length;
+ const h=`<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📈 Mon suivi</h1>`;
+ if(n<2)return h+`<section class="card"><p>Note au moins 2 jours dans ton journal pour voir ta courbe. Tu en as ${n} pour l’instant.</p><div class="nav"><button class="btn" data-tab="j">Aller au journal</button></div></section></div>`;
+ const avg=a=>a.reduce((s,x)=>s+x.lvl,0)/a.length,m=Math.floor(n/2);
+ const tr=n<4?"":(d=>d>=1?C.e.up:d<=-1?C.e.down:C.e.flat)(avg(es.slice(m))-avg(es.slice(0,m)));
+ const cnt=a=>{const o={};a.forEach(c=>o[c]=(o[c]||0)+1);return Object.entries(o).sort((a,b)=>b[1]-a[1])};
+ const bars=(a,tot)=>a.length?a.map(([c,v])=>`<div class="bar"><span>${c}</span><div class="bt"><i style="width:${Math.round(v/Math.max(tot,1)*100)}%"></i></div><b>${v}</b></div>`).join(""):`<p class="sub" style="margin:0">Rien noté pour l’instant.</p>`;
+ const good=es.filter(e=>e.lvl>=6),hk=j.helpKey,top=cnt((good.length?good:es).flatMap(e=>e[hk])).slice(0,3);
+ const Wd=360,H=170,p=28,x=i=>p+i*(Wd-2*p)/(n-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Courbe">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ sv+=`<polyline fill="none" stroke="var(--z)" stroke-width="3" stroke-linejoin="round" points="${es.map((e,i)=>x(i)+","+y(e.lvl)).join(" ")}"/>`;
+ es.forEach((e,i)=>sv+=`<circle cx="${x(i)}" cy="${y(e.lvl)}" r="5" fill="${C.flag(e)?"var(--c2)":"var(--z)"}"/>`);
+ sv+=`<text x="${p}" y="${H-6}" font-size="11" fill="var(--mut)">${sd(es[0].d)}</text><text x="${Wd-p}" y="${H-6}" font-size="11" fill="var(--mut)" text-anchor="end">${sd(es[n-1].d)}</text></svg>`;
+ const dist=j.singles.map(s=>({q:s.q,a:cnt(es.map(e=>e[s.k]).filter(Boolean))}));
+ const warn=C.warn(es,avg);
+ const txt=`${C.name} · bilan sur ${n} jours (${S.role==="ado"?"côté ado":"côté parent"})\n${j.q} : ${avg(es).toFixed(1)}/10 en moyenne\n${tr}\n${dist.map(d=>d.q+" : "+d.a.map(a=>a[0]+" ("+a[1]+")").join(", ")).join("\n")}\nCe qui aide : ${top.map(a=>a[0]+" ("+a[1]+")").join(", ")}`;
+ return h+(warn?`<div class="alert">${warn}</div>`:"")+`<section class="card"><h2>${j.q}</h2>${sv}<p class="sub" style="margin:8px 0 0">${C.flagTxt}</p>${tr?`<p style="margin:10px 0 0"><b>${tr}</b></p>`:""}<p class="sub" style="margin:8px 0 0">Moyenne : ${avg(es).toFixed(1)}/10 sur ${n} jours.</p></section>
+ ${dist.map(d=>`<section class="card"><h2>${d.q}</h2>${bars(d.a,n)}</section>`).join("")}
+ <section class="card"><h2>Ce qui aide dans les bons jours</h2>${bars(top,(good.length?good:es).length)}</section>
+ <section class="card"><h2>Mon bilan à partager</h2><textarea id="bilan" readonly style="min-height:150px">${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy" data-src="bilan">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">À partager si tu le souhaites, par exemple pour en discuter ensemble ou avec un professionnel.</p></section>
+ <div class="nav"><button class="btn" data-tab="j">📓 Ajouter un jour</button><button class="btn ghost" id="jreset">Effacer le journal</button></div></div>`;
+}
+const qk=q=>{const r=pk(q);return `<div class="pop"><div class="hero">${C.hero}</div><h1>${C.name}</h1>${r.cards.map((c,i)=>`<section class="card"${i?"":' style="margin-top:14px"'}><h2>${c.h}</h2>${c.ul?`<ul class="steps">${c.ul.map(x=>`<li>${x}</li>`).join("")}</ul>`:c.car?car(c.car):c.quiz?quizH():c.html||""}</section>`).join("")}<div class="nav"><button class="btn" data-tab="p">🧭 Faire mon parcours</button></div></div>`};
+if(!C.quick)C.quick=()=>qk(C.qd);
+if(!C.flag)C.flag=e=>C.flagSpec?(e[C.flagSpec.k]||"")[0]===C.flagSpec.ch:false;
+if(!C.warn)C.warn=(es,avg)=>{const w=C.warnSpec;if(!w)return "";if(w.t==="flag")return es.slice(-w.of).filter(C.flag).length>=w.n?w.msg:"";return es.length>=w.n&&avg(es.slice(-w.n))<=w.thr?w.msg:""};
+function render(keep){
+ $("#app").style.setProperty("--z",tab==="p"?(C.steps[step].c||"var(--c1)"):"var(--c1)");
+ $("#app").innerHTML=head()+(tab==="c"?C.quick():tab==="p"?P():tab==="j"?J():E());if(!keep)window.scrollTo(0,0);
+}
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ const d=t.dataset;
+ if(d.role){S.role=d.role;save();load();render(true);return}
+ if(d.tab){tab=d.tab;render();return}
+ if(d.go){step=Math.max(0,Math.min(C.steps.length-1,step+ +d.go));render();return}
+ if(d.k){const a=D()[d.k],i=a.indexOf(d.c);if(i>=0)a.splice(i,1);else a.push(d.c);t.setAttribute("aria-pressed",i<0);save();return}
+ if(d.j){const a=cur[d.j],i=a.indexOf(d.c);if(i>=0)a.splice(i,1);else a.push(d.c);t.setAttribute("aria-pressed",i<0);return}
+ if(d.s){const was=cur[d.s]===d.c;cur[d.s]=was?"":d.c;document.querySelectorAll(`[data-s="${d.s}"]`).forEach(b=>b.setAttribute("aria-pressed",cur[d.s]===b.dataset.c));return}
+ if(d.car){const a=C.car[d.car][S.role];idx[d.car]++;$("#car_"+d.car).textContent=a[idx[d.car]%a.length];return}
+ if(d.qa!==undefined){const q=C.quiz[qz.i%C.quiz.length];$("#qres").innerHTML=`<div class="alert" style="border-color:var(--c1)"><b>${q.a?"Réalité.":"Mythe."}</b> ${q.e}</div><button class="chip" data-qn="1">Une autre affirmation</button>`;return}
+ if(d.qn){qz.i++;$("#quizbox").outerHTML=quizH();return}
+ if(d.del){delete JJ()[d.del];save();load();render(true);return}
+ if(t.id==="jsave"){JJ()[jd]=JSON.parse(JSON.stringify(cur));save();render(true);$("#jm").textContent="Enregistré ✅ Merci d’avoir pris ce temps.";return}
+ if(t.id==="copy"){const r=$("#"+d.src),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};
+  try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer ton parcours (le journal est conservé) ?")){const o=D();KA.forEach(k=>o[k]=[]);KT.forEach(k=>o[k]="");save();step=0;render()}
+ if(t.id==="jreset"&&confirm("Effacer tout ton journal ?")){S.J[S.role]={};save();load();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset&&t.dataset.x){D()[t.dataset.x]=t.value;save();const r=$("#recap");if(r)r.value=recap();const q=$("#mjp");if(q)q.textContent=mjp()}
+ if(t.dataset&&t.dataset.jt)cur[t.dataset.jt]=t.value;
+ if(t.id==="ja"){cur.lvl=+t.value;const w=W[wi(cur.lvl)];$("#jaX").textContent=w[0];$("#jaL").textContent=w[1]+" · "+cur.lvl+"/10"}
+ if(t.id==="jdate"){jd=t.value||iso(new Date());load();render(true)}
+});
+render();
+</script>
+</body>
+</html>

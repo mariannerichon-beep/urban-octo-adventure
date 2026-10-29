@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ma boîte à idées</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFBEB;--ink:#2B2110;--card:#FFFFFF;--mut:#7A6A4A;--line:#F1E3B8;--c1:#0F766E;--c2:#BE123C;--c3:#A04A00;--c4:#6D28D9;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130A;--ink:#FFF6DC;--card:#241E10;--mut:#CDBE96;--line:#4A3F22;--c1:#5EEAD4;--c2:#FF8FA8;--c3:#FFB86B;--c4:#C4A8FF;--on:#17130A}}
+:root[data-theme="dark"]{--bg:#17130A;--ink:#FFF6DC;--card:#241E10;--mut:#CDBE96;--line:#4A3F22;--c1:#5EEAD4;--c2:#FF8FA8;--c3:#FFB86B;--c4:#C4A8FF;--on:#17130A}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-weight:500;font-size:16.5px;line-height:1.5}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-weight:800;line-height:1.2;margin:0}
+h1{font-size:2.05rem}
+h2{font-size:1.08rem;margin-bottom:10px}
+p{margin:0 0 12px}
+b{font-weight:800}
+.sub{color:var(--mut)}
+.bar2{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.8rem;margin-bottom:12px;text-align:center}
+.bar2 a{color:var(--c2);font-weight:800;text-decoration:none}
+.tabs{display:flex;gap:3px;margin:2px 0 16px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{flex:1;font:inherit;font-weight:700;font-size:.78rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 2px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--z);color:var(--on)}
+.hero{font-size:3rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.chip{font:inherit;font-weight:700;font-size:.9rem;text-align:left;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:18px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on)}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+textarea{min-height:100px;resize:vertical}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.x:focus-visible,.call:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:800;font-size:1rem;border:0;border-radius:999px;padding:12px 18px;cursor:pointer;background:var(--z);color:var(--on);flex:1;min-width:120px}
+.btn.big{font-size:1.15rem;padding:15px 22px;width:100%}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.idea{text-align:center;border-color:var(--z)}
+.idea .em{font-size:3.4rem;line-height:1.1}
+.idea .tx{font-size:1.2rem;font-weight:800;line-height:1.35;margin:8px 0 14px}
+.slider{text-align:center}
+.wx{font-size:2.6rem;line-height:1.1}
+.lab{font-weight:800}
+input[type=range]{width:100%;accent-color:var(--z);margin:8px 0 2px}
+.alert{background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0 16px;text-align:left;font-size:.93rem}
+.calls{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.call{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:10px 14px}
+.call b{font-size:1.1rem;color:var(--c2)}
+.call span{display:block;font-size:.84rem;color:var(--mut);font-weight:500}
+.note{font-size:.88rem;color:var(--mut);border-left:4px solid var(--c3);padding-left:12px;margin:18px 0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.7rem}
+.row .t{flex:1;font-size:.92rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.88rem}
+.bar span{flex:0 0 55%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .3s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const CAT={c:"🌬️ Se calmer",b:"🏃 Bouger",k:"🎨 Créer",r:"😄 Rire et se distraire",s:"🤝 Se connecter",d:"🌳 Dehors",f:"🧹 Petits défis",p:"💛 Prendre soin de moi",u:"✨ Mes idées"};
+const ID=[
+["🌬️","Respire 5 fois lentement : 4 secondes pour inspirer, 6 pour souffler","c",1,1,"x"],["🖐️","Fais le 5-4-3-2-1 : 5 choses que tu vois, 4 que tu touches, 3 sons, 2 odeurs, 1 goût","c",1,1,"x"],["🚿","Prends une douche ou un bain chaud","c",1,2,"i"],["🧸","Enroule-toi dans une couverture avec une musique douce","c",1,2,"i"],["✍️","Écris 3 lignes sur ce que tu ressens, sans te relire","c",1,1,"i"],["🎨","Colorie un mandala ou gribouille sans but","c",1,2,"i"],["🐾","Câline ton animal, ou regarde des vidéos d’animaux","c",1,2,"x"],["🫖","Prépare une boisson chaude et bois-la tranquillement, sans écran","c",1,2,"i"],["☁️","Regarde le ciel ou les nuages pendant 5 minutes","c",1,1,"x"],["🎧","Fais-toi une playlist douce et écoute-la en fermant les yeux","c",1,2,"x"],["💆","Masse doucement tes mains ou tes épaules","c",1,1,"x"],["🪄","Plie un origami, même simple","c",1,2,"i"],["🧘","Étire doucement ta nuque, tes épaules et ton dos","c",1,1,"i"],["📖","Lis quelques pages d’un livre ou d’une BD que tu aimes","c",1,2,"x"],
+["🕺","Mets une chanson et danse comme si personne ne te voyait","b",2,1,"i"],["🚶","Marche 10 minutes sans destination","b",2,2,"o"],["🏀","Joue au ballon : shoote ou fais quelques paniers","b",3,2,"o"],["🧹","Range ta chambre en musique","b",2,2,"i"],["🚲","Fais un tour de vélo, de trottinette ou de roller","b",3,2,"o"],["🪢","Saute à la corde ou fais quelques sauts sur place","b",3,1,"x"],["🐕","Propose de promener un chien","b",2,2,"o"],["🏊","Fais une activité que tu aimes (sport, piscine, danse), juste pour le plaisir","b",3,3,"x"],["🧘‍♀️","Fais quelques postures de yoga faciles","b",2,2,"i"],["🏓","Joue à un jeu actif avec quelqu’un : ping-pong, badminton, frisbee","b",3,2,"w"],
+["✏️","Dessine ce que tu vois autour de toi","k",1,2,"x"],["📝","Écris un petit poème ou le début d’une histoire","k",1,2,"i"],["📸","Prends 5 photos de choses que tu trouves belles ou drôles","k",2,1,"x"],["🎸","Joue ou chante un morceau que tu aimes","k",2,2,"i"],["🍪","Cuisine une recette simple","k",2,3,"i"],["🧱","Construis quelque chose : Lego, maquette, bricolage","k",2,3,"i"],["✂️","Fais un collage avec de vieux magazines ou des photos","k",1,3,"i"],["🎵","Écris les paroles d’une chanson, même nulle","k",1,2,"i"],["🧶","Essaie le tricot, le crochet ou les bracelets brésiliens","k",1,3,"i"],["🎬","Fais un petit montage vidéo avec tes photos","k",2,3,"i"],
+["😂","Regarde des vidéos drôles ou ta série réconfort","r",1,2,"i"],["🎮","Fais une partie à un jeu vidéo qui te détend","r",1,2,"i"],["🎲","Sors un jeu de société, ou joue seul à un solitaire","r",1,3,"x"],["🧩","Fais un puzzle, un sudoku ou des mots fléchés","r",1,3,"i"],["🎙️","Écoute un podcast ou un livre audio","r",1,2,"x"],["📷","Regarde de vieilles photos qui te font sourire","r",1,1,"x"],["🍿","Regarde un film que tu connais par cœur","r",1,3,"i"],["🤪","Invente un personnage idiot, ou fais des grimaces dans le miroir","r",2,1,"i"],
+["💬","Envoie un message à un ami pour prendre de ses nouvelles","s",1,1,"x"],["📞","Appelle un grand-parent, un cousin, quelqu’un que tu aimes","s",1,2,"x"],["🗣️","Dis à un adulte de confiance : « Ça ne va pas trop, je peux te parler ? »","s",1,2,"w"],["🤗","Demande un câlin à quelqu’un qui t’aime","s",1,1,"w"],["🎲","Joue à un jeu avec un frère, une sœur ou un parent","s",2,3,"w"],["🙏","Remercie quelqu’un pour quelque chose, même petit","s",1,1,"x"],["🍽️","Propose de préparer un repas avec quelqu’un","s",2,3,"w"],["🤝","Rends un petit service à quelqu’un","s",2,2,"w"],["👥","Propose un petit plan à un ami : balade, jeu, café","s",2,3,"w"],
+["🌳","Va dans un parc ou un coin de nature, même 10 minutes","d",2,2,"o"],["🌅","Regarde le coucher ou le lever du soleil","d",1,2,"o"],["🐦","Observe 5 oiseaux, arbres ou fleurs différents","d",1,2,"o"],["☀️","Assieds-toi au soleil et ferme les yeux quelques minutes","d",1,1,"o"],["🎧","Marche sans écouteurs, juste à l’écoute des sons","d",2,2,"o"],["🍂","Ramasse des feuilles, des cailloux ou des coquillages qui te plaisent","d",1,2,"o"],["🏞️","Prends un chemin que tu ne connais pas","d",2,3,"o"],["🪟","Ouvre la fenêtre et respire l’air frais","d",1,1,"i"],
+["🗂️","Range un seul tiroir ou une seule étagère","f",2,1,"i"],["🛏️","Fais ton lit et change la place d’un objet dans ta chambre","f",2,2,"i"],["📋","Écris 10 petites choses qui vont bien dans ta vie","f",1,2,"i"],["🌍","Apprends 5 mots dans une autre langue","f",1,2,"x"],["🎒","Prépare ton sac pour demain","f",1,1,"i"],["📅","Planifie une petite sortie ou un projet pour ce week-end","f",1,2,"i"],["🎩","Apprends un tour de magie ou de jonglage","f",2,3,"x"],["🏆","Fixe-toi un défi de 10 minutes et chronomètre-toi","f",2,1,"x"],["🧺","Trie tes vêtements : ceux que tu portes, ceux que tu donnes","f",2,3,"i"],
+["💧","Bois un grand verre d’eau","p",1,1,"x"],["👕","Mets des vêtements très confortables","p",1,1,"i"],["😴","Fais une sieste courte de 20 minutes si tu es fatigué","p",1,2,"i"],["📵","Fais une pause d’écran de 30 minutes","p",1,2,"x"],["🙌","Note 3 choses pour lesquelles tu es reconnaissant aujourd’hui","p",1,1,"x"],["🪞","Dis-toi une phrase gentille, comme à un ami","p",1,1,"x"],["🎁","Fais une petite chose rien que pour toi : une musique, un livre, un moment au calme","p",1,2,"x"],["🌱","Arrose une plante ou prends soin d’un petit coin vert","p",1,1,"i"],["🍫","Prends un goûter ou une boisson qui te fait plaisir, tranquillement","p",1,1,"i"]
+].map((a,i)=>({k:"i"+i,e:a[0],t:a[1],c:a[2],en:a[3],tm:a[4],pl:a[5]}));
+const MOOD={tri:["s","c","k","d"],ene:["b","k","c","r"],str:["c","b","d"],vid:["k","f","r","d"],fat:["p","c","r"],dec:["f","s","d","k"]};
+const FM=[["tri","😢 Triste"],["ene","😠 Énervé"],["str","😰 Stressé"],["vid","😶 Vide ou ennui"],["fat","😴 Fatigué"],["dec","😞 Découragé"]];
+const FE=[[1,"🔋 Peu d’énergie"],[2,"🔋🔋 Moyenne"],[3,"⚡ Beaucoup"]],FT=[[1,"⏱️ 5 minutes"],[2,"⏳ 15 minutes"],[3,"🕐 30 min ou plus"]],FP=[["i","🏠 Chez moi"],["o","🌳 Dehors"],["w","👥 Avec quelqu’un"],["any","🤷 Peu importe"]];
+const W=[["⛈️","Très mal"],["🌧️","Mal"],["⛅","Moyen"],["🌤️","Plutôt bien"],["☀️","Très bien"]],wi=v=>Math.min(4,Math.floor(v/2.2));
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10),sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,tab="i",F={md:"",en:3,tm:3,pl:"any"},cur=null,tr=null;
+try{S=JSON.parse(localStorage.getItem("ado_idees")||"null")}catch(e){}
+S=S||{};S.fav=S.fav||[];S.custom=S.custom||[];S.log=S.log||[];
+const save=()=>{try{localStorage.setItem("ado_idees",JSON.stringify(S))}catch(e){}};
+const all=()=>ID.concat(S.custom.map((t,i)=>({k:"u"+i,e:"✨",t,c:"u",en:1,tm:1,pl:"x"})));
+const byKey=k=>all().find(i=>i.k===k);
+const calls=()=>`<div class="calls"><a class="call" href="tel:3114"><b>📞 3114</b><span>Idées noires, envie de se faire du mal · gratuit · 24h/24</span></a><a class="call" href="tel:0800235236"><b>📞 0 800 235 236</b><span>Fil Santé Jeunes · anonyme · gratuit</span></a><a class="call" href="tel:119"><b>📞 119</b><span>Si tu es en danger ou victime de violences · 24h/24</span></a></div>`;
+const head=()=>`<div class="bar2">Ça ne va vraiment pas ? <a href="tel:3114">3114</a> (24h/24) · <a href="tel:0800235236">0 800 235 236</a> · Danger : <a href="tel:112">112</a></div><div class="tabs" role="tablist">${[["i","🎲 Une idée"],["l","⭐ Ma liste"],["j","📓 Journal"],["e","📈 Ce qui marche"]].map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div>`;
+const sel=(key,list,cur)=>`<div class="chips">${list.map(([v,l])=>`<button class="chip" data-f="${key}" data-v="${v}" aria-pressed="${String(cur)===String(v)}">${l}</button>`).join("")}</div>`;
+function pool(){
+ const ok=(i,p)=>i.en<=F.en&&i.tm<=F.tm&&(F.pl==="any"||i.pl==="x"||i.pl===F.pl);
+ let p=all().filter(ok);
+ const cs=MOOD[F.md];if(cs){const q=p.filter(i=>cs.includes(i.c));if(q.length>=3)p=q}
+ if(p.length<2)p=all();return p;
+}
+function pick(){const p=pool().filter(i=>!cur||i.k!==cur.k);cur=p[Math.floor(Math.random()*p.length)];tr=null}
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+function ideaCard(){
+ if(!cur)return "";const fav=S.fav.includes(cur.k);
+ let h=`<section class="card idea pop"><div class="em">${cur.e}</div><div class="tx">${esc(cur.t)}</div><div class="nav"><button class="btn" data-try="1">✅ Je l’essaie</button><button class="btn ghost" data-next="1">➡️ Une autre</button><button class="btn ghost" data-fav="${cur.k}">${fav?"★ Dans ma liste":"⭐ Garder"}</button></div></section>`;
+ if(tr)h+=`<section class="card slider"><h2>Avant, je me sens…</h2>${wxs("tb",tr.b)}<input type="range" id="tb" min="0" max="10" value="${tr.b}" aria-label="Comment je me sens avant"><div id="tbal">${tr.b<=2?`<div class="alert"><b>Ça a l’air très dur.</b> Tu n’as pas à rester seul : parles-en à un adulte de confiance, ou appelle :${calls()}</div>`:""}</div><h2 style="margin-top:14px">Après, je me sens…</h2>${wxs("ta",tr.a)}<input type="range" id="ta" min="0" max="10" value="${tr.a}" aria-label="Comment je me sens après"><p class="sub" style="margin:8px 0">Fais l’idée, puis règle « après ».</p><div class="nav"><button class="btn" id="trsave">Enregistrer</button></div><p id="trm" class="sub" style="margin:8px 0 0"></p></section>`;
+ return h;
+}
+function I(){
+ const favs=S.fav.map(byKey).filter(Boolean).slice(0,4);
+ return `<div class="pop"><div class="hero">🎁</div><h1>Ma boîte à idées</h1><p class="sub" style="margin-top:8px">Quand ça ne va pas, parfois il suffit de changer d’air. Dis-moi comment tu te sens et je te propose un petit truc à faire.</p>
+ <section class="card"><h2>Comment je me sens ?</h2>${sel("md",FM,F.md)}<h2 style="margin-top:12px">Mon énergie</h2>${sel("en",FE,F.en)}<h2 style="margin-top:12px">Mon temps</h2>${sel("tm",FT,F.tm)}<h2 style="margin-top:12px">Où je suis</h2>${sel("pl",FP,F.pl)}<div class="nav" style="margin-top:14px"><button class="btn big" data-next="1">🎲 Une idée !</button></div></section>
+ <div id="ic">${ideaCard()}</div>
+ ${favs.length?`<section class="card"><h2>Mes valeurs sûres</h2><div class="chips">${favs.map(f=>`<button class="chip" data-fv="${f.k}">${f.e} ${esc(f.t.length>38?f.t.slice(0,36)+"…":f.t)}</button>`).join("")}</div></section>`:""}
+ <p class="note">Se changer les idées aide à traverser un moment difficile, mais ne remplace pas d’en parler. Si ça dure, ou si tu as des idées noires, parle à un adulte de confiance ou appelle le 3114.</p></div>`;
+}
+function L(){
+ const favs=S.fav.map(byKey).filter(Boolean);
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">⭐ Ma liste</h1><p class="sub">Tes idées préférées, à portée de main quand ça ne va pas.</p>
+ <section class="card"><h2>Mes idées gardées</h2>${favs.map(f=>`<div class="row"><span class="e">${f.e}</span><div class="t">${esc(f.t)}<br><span class="sub">${CAT[f.c]}</span></div><button class="x" data-fav="${f.k}" aria-label="Retirer">✕</button></div>`).join("")||`<p class="sub" style="margin:0">Rien pour l’instant. Touche « ⭐ Garder » sur une idée qui te plaît.</p>`}${favs.length?`<div class="nav"><button class="btn" data-fr="1">🎲 Une idée de ma liste</button></div>`:""}</section>
+ <section class="card"><h2>Ajouter mon idée à moi</h2><input type="text" id="cu" maxlength="120" placeholder="Ex : appeler ma meilleure amie, faire du skate…"><div class="nav"><button class="btn" id="cuadd">Ajouter</button></div></section></div>`;
+}
+const mini=(k,e)=>`<div class="row"><span class="e">${e.e}</span><div class="t"><b>${sd(k)}</b> · ${esc(e.t.length>60?e.t.slice(0,58)+"…":e.t)}<br><span class="sub">${W[wi(e.b)][0]} ${e.b} → ${W[wi(e.a)][0]} ${e.a}</span></div></div>`;
+function J(){
+ const l=S.log.slice().reverse().slice(0,20);
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">Les idées que tu as essayées, et comment tu t’es senti avant et après.</p><section class="card">${l.map(e=>`<div class="row"><span class="e">${e.e}</span><div class="t"><b>${sd(e.d)}</b> · ${esc(e.t.length>60?e.t.slice(0,58)+"…":e.t)}<br><span class="sub">${W[wi(e.b)][0]} ${e.b} → ${W[wi(e.a)][0]} ${e.a} ${e.a>e.b?"· 👍":""}</span></div><button class="x" data-del="${S.log.indexOf(e)}" aria-label="Supprimer">✕</button></div>`).join("")||`<p class="sub" style="margin:0">Pas encore d’essai. Va dans « Une idée », essaie-en une, puis enregistre.</p>`}</section></div>`;
+}
+function E(){
+ const lg=S.log,n=lg.length,h=`<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📈 Ce qui marche pour moi</h1>`;
+ if(n<2)return h+`<section class="card"><p>Essaie au moins 2 idées et enregistre-les pour voir ce qui t’aide. Tu en as ${n} pour l’instant.</p><div class="nav"><button class="btn" data-tab="i">🎲 Une idée</button></div></section></div>`;
+ const d=e=>e.a-e.b,avg=lg.reduce((s,e)=>s+d(e),0)/n,ok=lg.filter(e=>d(e)>0).length;
+ const grp=f=>{const o={};lg.forEach(e=>{const k=f(e);(o[k]=o[k]||[]).push(d(e))});return Object.entries(o).map(([k,a])=>[k,a.reduce((x,y)=>x+y,0)/a.length,a.length]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,3)};
+ const bars=(a,lab)=>a.length?a.map(([k,v,c])=>`<div class="bar"><span>${lab(k)}</span><div class="bt"><i style="width:${Math.min(100,Math.round(v*14))}%"></i></div><b>+${v.toFixed(1)}</b></div>`).join(""):`<p class="sub" style="margin:0">Pas encore assez d’essais qui aident.</p>`;
+ const rec=lg.slice(-12),m=rec.length,Wd=360,H=170,p=28,x=i=>m<2?Wd/2:p+i*(Wd-2*p)/(m-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Avant et après chaque idée">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ rec.forEach((e,i)=>sv+=`<line x1="${x(i)}" x2="${x(i)}" y1="${y(e.b)}" y2="${y(e.a)}" stroke="var(--line)" stroke-width="4" stroke-linecap="round"/><circle cx="${x(i)}" cy="${y(e.b)}" r="5" fill="var(--c2)"/><circle cx="${x(i)}" cy="${y(e.a)}" r="5" fill="var(--c1)"/>`);
+ sv+=`</svg>`;
+ const low=n>=3&&lg.slice(-3).every(e=>e.a<=3);
+ const tI=grp(e=>e.t),tC=grp(e=>e.c);
+ const txt=`Ma boîte à idées · bilan sur ${n} essais\nÇa m’a fait du bien dans ${ok} essais sur ${n}\nGain moyen : ${avg>=0?"+":""}${avg.toFixed(1)} point\nIdées qui m’aident : ${tI.map(a=>a[0]).join(" / ")||"—"}\nCatégories : ${tC.map(a=>CAT[a[0]]).join(" / ")||"—"}`;
+ return h+(low?`<div class="alert"><b>Ces derniers jours, ça reste difficile, même après les idées.</b> C’est normal que ça ne suffise pas toujours. Parles-en à un adulte de confiance ou à un professionnel :${calls()}</div>`:"")+`<section class="card"><h2>Avant et après chaque idée</h2>${sv}<p class="sub" style="margin:8px 0 0"><b style="color:var(--c2)">●</b> avant · <b style="color:var(--c1)">●</b> après</p><p style="margin:10px 0 0"><b>${avg>0?`En moyenne, tu te sens ${avg.toFixed(1)} point${avg>=2?"s":""} mieux après.`:"En moyenne, ça change peu. Essaie d’autres idées."}</b> Ça t’a fait du bien dans ${ok} essai${ok>1?"s":""} sur ${n}.</p></section>
+ <section class="card"><h2>Les idées qui t’aident le plus</h2>${bars(tI,k=>esc(k.length>34?k.slice(0,32)+"…":k))}</section>
+ <section class="card"><h2>Les types d’idées qui marchent pour toi</h2>${bars(tC,k=>CAT[k])}</section>
+ <section class="card"><h2>Mon bilan à partager</h2><textarea id="bilan" readonly>${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">À montrer à un proche ou à un professionnel si tu le souhaites.</p></section>
+ <div class="nav"><button class="btn" data-tab="i">🎲 Une idée</button><button class="btn ghost" id="reset">Effacer mon journal</button></div></div>`;
+}
+function render(keep){$("#app").innerHTML=head()+(tab==="i"?I():tab==="l"?L():tab==="j"?J():E());if(!keep)window.scrollTo(0,0)}
+const upd=(id,v)=>{const w=W[wi(v)];$("#"+id+"X").textContent=w[0];$("#"+id+"L").textContent=w[1]+" · "+v+"/10"};
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;const d=t.dataset;
+ if(d.tab){tab=d.tab;render();return}
+ if(d.f){F[d.f]=d.f==="en"||d.f==="tm"?+d.v:d.v;if(d.f==="md"&&F.md===d.v&&t.getAttribute("aria-pressed")==="true"){}document.querySelectorAll(`[data-f="${d.f}"]`).forEach(b=>b.setAttribute("aria-pressed",String(F[d.f])===b.dataset.v));return}
+ if(d.next){pick();render(true);const c=$("#ic");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});return}
+ if(d.try){tr={b:4,a:5};render(true);const c=$("#ic");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});return}
+ if(d.fav){const i=S.fav.indexOf(d.fav);if(i>=0)S.fav.splice(i,1);else S.fav.push(d.fav);save();render(true);return}
+ if(d.fv){cur=byKey(d.fv);tr=null;render(true);return}
+ if(d.fr){const f=S.fav.map(byKey).filter(Boolean);cur=f[Math.floor(Math.random()*f.length)];tr=null;tab="i";render();return}
+ if(d.del!==undefined){S.log.splice(+d.del,1);save();render(true);return}
+ if(t.id==="trsave"){S.log.push({d:iso(new Date()),k:cur.k,e:cur.e,t:cur.t,c:cur.c,b:tr.b,a:tr.a});save();const dl=tr.a-tr.b;const m=dl>0?`Bien joué 🎉 Tu te sens ${dl} point${dl>1?"s":""} mieux.`:"Ça n’a pas suffi cette fois, et c’est OK. Essaie une autre idée, ou parles-en à quelqu’un.";tr=null;render(true);const c=$("#ic");if(c)c.insertAdjacentHTML("beforeend",`<section class="card"><p style="margin:0"><b>${m}</b></p></section>`);return}
+ if(t.id==="cuadd"){const v=$("#cu").value.trim();if(v){S.custom.push(v);S.fav.push("u"+(S.custom.length-1));save();render(true)}return}
+ if(t.id==="copy"){const r=$("#bilan"),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer tout ton journal ?")){S.log=[];save();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.id==="tb"&&tr){tr.b=+t.value;upd("tb",tr.b);$("#tbal").innerHTML=tr.b<=2?`<div class="alert"><b>Ça a l’air très dur.</b> Tu n’as pas à rester seul : parles-en à un adulte de confiance, ou appelle :${calls()}</div>`:""}
+ if(t.id==="ta"&&tr){tr.a=+t.value;upd("ta",tr.a)}
+});
+render();
+</script>
+</body>
+</html>
