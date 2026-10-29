@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Des idées à faire avec mon ado</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFBEB;--ink:#2B2110;--card:#FFFFFF;--mut:#7A6A4A;--line:#F1E3B8;--c1:#0F766E;--c2:#BE123C;--c3:#A04A00;--c4:#6D28D9;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130A;--ink:#FFF6DC;--card:#241E10;--mut:#CDBE96;--line:#4A3F22;--c1:#5EEAD4;--c2:#FF8FA8;--c3:#FFB86B;--c4:#C4A8FF;--on:#17130A}}
+:root[data-theme="dark"]{--bg:#17130A;--ink:#FFF6DC;--card:#241E10;--mut:#CDBE96;--line:#4A3F22;--c1:#5EEAD4;--c2:#FF8FA8;--c3:#FFB86B;--c4:#C4A8FF;--on:#17130A}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-weight:500;font-size:16.5px;line-height:1.5}
+main{max-width:560px;margin:0 auto;padding:14px 18px 40px;--z:var(--c1)}
+h1,h2{font-weight:800;line-height:1.2;margin:0}
+h1{font-size:2.05rem}
+h2{font-size:1.08rem;margin-bottom:10px}
+p{margin:0 0 12px}
+b{font-weight:800}
+.sub{color:var(--mut)}
+.bar2{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.8rem;margin-bottom:12px;text-align:center}
+.bar2 a{color:var(--c2);font-weight:800;text-decoration:none}
+.tabs{display:flex;gap:3px;margin:2px 0 16px;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{flex:1;font:inherit;font-weight:700;font-size:.78rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:9px 2px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--z);color:var(--on)}
+.hero{font-size:3rem;line-height:1;margin:4px 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.chip{font:inherit;font-weight:700;font-size:.9rem;text-align:left;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:18px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--z);border-color:var(--z);color:var(--on)}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+textarea{min-height:100px;resize:vertical}
+textarea:focus,input:focus-visible,.chip:focus-visible,.btn:focus-visible,.tabs button:focus-visible,.x:focus-visible,.call:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+.nav{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:800;font-size:1rem;border:0;border-radius:999px;padding:12px 18px;cursor:pointer;background:var(--z);color:var(--on);flex:1;min-width:120px}
+.btn.big{font-size:1.15rem;padding:15px 22px;width:100%}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.idea{text-align:center;border-color:var(--z)}
+.idea .em{font-size:3.4rem;line-height:1.1}
+.idea .tx{font-size:1.2rem;font-weight:800;line-height:1.35;margin:8px 0 14px}
+.slider{text-align:center}
+.wx{font-size:2.6rem;line-height:1.1}
+.lab{font-weight:800}
+input[type=range]{width:100%;accent-color:var(--z);margin:8px 0 2px}
+.alert{background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:12px 14px;margin:10px 0 16px;text-align:left;font-size:.93rem}
+.calls{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.call{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--c2);border-radius:16px;padding:10px 14px}
+.call b{font-size:1.1rem;color:var(--c2)}
+.call span{display:block;font-size:.84rem;color:var(--mut);font-weight:500}
+.note{font-size:.88rem;color:var(--mut);border-left:4px solid var(--c3);padding-left:12px;margin:18px 0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:2px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .e{font-size:1.7rem}
+.row .t{flex:1;font-size:.92rem;min-width:0}
+.x{font:inherit;border:0;background:transparent;color:var(--mut);font-size:1.1rem;cursor:pointer;padding:8px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:.88rem}
+.bar span{flex:0 0 55%}
+.bar .bt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--z);border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .3s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const CAT={c:"🌬️ Se poser ensemble",b:"🏃 Bouger ensemble",k:"🎨 Créer ensemble",r:"😄 Rire ensemble",s:"💬 Se parler",d:"🌳 Dehors",f:"🧹 Faire ensemble",p:"💛 Prendre soin de lui ou d’elle",u:"✨ Nos idées"};
+const ID=[
+["🫖","Préparer deux boissons chaudes et les boire ensemble, sans écran","c",1,1,"i"],["🛋️","Se mettre côte à côte devant une série ou un film qu’il ou elle aime","c",1,3,"i"],["🎧","Écouter ensemble une playlist choisie par votre ado, sans la commenter","c",1,2,"x"],["🌬️","Proposer 5 respirations lentes ensemble, juste pour souffler","c",1,1,"x"],["🧩","Faire un puzzle ou un jeu calme ensemble","c",1,3,"i"],["📖","Lire côte à côte, chacun son livre, dans la même pièce","c",1,2,"i"],["🐾","Câliner ou promener l’animal ensemble","c",1,2,"x"],
+["🚶","Marcher 15 minutes côte à côte, sans but et sans sujet imposé","b",2,2,"o"],["🏓","Jouer au ping-pong, au badminton ou au frisbee","b",3,2,"o"],["🚲","Faire un tour à vélo ou en trottinette","b",3,2,"o"],["🕺","Danser sur une chanson de son choix","b",2,1,"i"],["🏀","Faire quelques paniers ou shooter dans un ballon","b",3,1,"o"],["🧘","Faire quelques étirements ou postures de yoga ensemble","b",1,1,"i"],
+["🍪","Cuisiner une recette choisie par votre ado","k",2,3,"i"],["🎨","Dessiner, colorier ou peindre ensemble","k",1,2,"i"],["📸","Faire une balade photo : chacun prend 5 photos, puis on compare","k",2,2,"o"],["🎸","Jouer ou chanter ensemble, même mal","k",2,2,"i"],["🧱","Construire ou bricoler quelque chose ensemble","k",2,3,"i"],["🎬","Faire un petit montage vidéo ou un album de photos","k",1,3,"i"],["🧶","Apprendre ensemble quelque chose de nouveau : un tuto, du tricot, de la magie","k",1,3,"i"],
+["😂","Regarder des vidéos drôles choisies par votre ado","r",1,1,"x"],["🎮","Faire une partie de son jeu préféré en apprenant ses règles","r",2,2,"i"],["🎲","Sortir un jeu de société","r",1,3,"i"],["📷","Regarder de vieilles photos de famille qui font rire","r",1,1,"x"],["🤣","Raconter chacun une anecdote embarrassante de son âge","r",1,1,"x"],["🍿","Organiser une soirée film avec ses choix à lui ou à elle","r",1,3,"i"],
+["💬","Envoyer un petit message gentil, sans question ni demande","s",1,1,"x"],["🚗","Parler côte à côte en voiture : un trajet, une question ouverte","s",1,2,"x"],["🙏","Remercier votre ado pour une chose précise de la journée","s",1,1,"x"],["❓","Poser une question ouverte : « Qu’est-ce qui t’a fait plaisir cette semaine ? »","s",1,1,"x"],["👂","Proposer : « Tu veux que je t’écoute ou que je t’aide ? »","s",1,1,"x"],["✍️","Glisser un mot gentil dans son sac ou sur son bureau","s",1,1,"i"],["🤗","Proposer un câlin, s’il ou elle est d’accord, sans forcer","s",1,1,"i"],["🎙️","Lui demander de vous apprendre quelque chose qu’il ou elle connaît bien","s",1,2,"x"],
+["🌳","Aller dans un parc ou un coin de nature","d",2,2,"o"],["🌅","Regarder le coucher du soleil ensemble","d",1,2,"o"],["🍦","Prendre un goûter ou une glace en terrasse","d",1,2,"o"],["🏞️","Découvrir un chemin ou un lieu que vous ne connaissez pas","d",2,3,"o"],["🧺","Faire un pique-nique, même simple","d",2,3,"o"],["🛍️","Faire une course ensemble et le ou la laisser choisir un petit truc","d",2,2,"o"],
+["🌱","Planter ou arroser des plantes ensemble","f",1,1,"i"],["🧹","Ranger un coin ensemble en musique, sans critiquer","f",2,2,"i"],["🎯","Se lancer un petit défi : 10 minutes pour…","f",2,1,"i"],["📅","Planifier ensemble un petit projet pour le week-end","f",1,2,"i"],["🍽️","Préparer un repas ensemble : votre ado choisit le menu","f",2,3,"i"],["🖼️","Décorer sa chambre ou un coin de la maison à son goût","f",2,3,"i"],
+["🥤","Préparer sa boisson ou son en-cas préféré, sans rien demander en échange","p",1,1,"i"],["😴","Proposer une soirée calme et un coucher tôt, sans sermon","p",1,2,"i"],["📵","Proposer une pause d’écran pour tout le monde, vous compris","p",1,2,"x"],["🛁","Respecter un moment seul à lui ou à elle : musique, bain, calme","p",1,2,"i"],["🙌","Lui dire trois choses que vous appréciez chez lui ou elle","p",1,1,"x"],["🎁","Faire une petite attention : un mot, une surprise, son plat préféré","p",1,2,"i"],["🤫","Lui laisser du temps seul sans vous vexer, puis revenir avec un sourire","p",1,2,"x"]
+].map((a,i)=>({k:"i"+i,e:a[0],t:a[1],c:a[2],en:a[3],tm:a[4],pl:a[5]}));
+const MOOD={dis:["d","k","r","f"],ten:["c","d","b","p"],tri:["s","p","c","d"],str:["c","b","d","p"],vid:["k","r","f","b"],fat:["p","c","r"]};
+const FM=[["ten","⚡ Ça vient de chauffer"],["dis","😶 On s’éloigne"],["tri","😢 Mon ado est triste"],["str","😰 Mon ado est stressé"],["vid","🥱 C’est morne, on s’ennuie"],["fat","😴 Mon ado est fatigué"]];
+const FE=[[1,"🔋 Peu d’énergie"],[2,"🔋🔋 Moyenne"],[3,"⚡ Plein d’énergie"]],FT=[[1,"⏱️ 10 minutes"],[2,"⏳ Une heure"],[3,"🕐 Une demi-journée"]],FP=[["i","🏠 À la maison"],["o","🌳 Dehors"],["any","🤷 Peu importe"]];
+const W=[["⛈️","Très tendue"],["🌧️","Tendue"],["⛅","Mitigée"],["🌤️","Plutôt bonne"],["☀️","Très bonne"]],wi=v=>Math.min(4,Math.floor(v/2.2));
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const iso=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10),sd=k=>k.slice(8)+"/"+k.slice(5,7);
+let S=null,tab="i",F={md:"",en:3,tm:3,pl:"any"},cur=null,tr=null;
+try{S=JSON.parse(localStorage.getItem("ado_idees_parents")||"null")}catch(e){}
+S=S||{};S.fav=S.fav||[];S.custom=S.custom||[];S.log=S.log||[];
+const save=()=>{try{localStorage.setItem("ado_idees_parents",JSON.stringify(S))}catch(e){}};
+const all=()=>ID.concat(S.custom.map((t,i)=>({k:"u"+i,e:"✨",t,c:"u",en:1,tm:1,pl:"x"})));
+const byKey=k=>all().find(i=>i.k===k);
+const calls=()=>`<div class="calls"><a class="call" href="tel:3114"><b>📞 3114</b><span>Idées noires, envie de se faire du mal · aussi pour l’entourage · 24h/24</span></a><a class="call" href="tel:0805382300"><b>📞 0 805 382 300</b><span>Allô, parents en crise · écoute gratuite · en semaine</span></a><a class="call" href="tel:119"><b>📞 119</b><span>Enfance en danger · 24h/24</span></a></div>`;
+const head=()=>`<div class="bar2">Votre ado va très mal ? <a href="tel:3114">3114</a> (24h/24, aussi pour l’entourage) · Parents : <a href="tel:0805382300">0 805 382 300</a> · Danger : <a href="tel:112">112</a></div><div class="tabs" role="tablist">${[["i","🎲 Une idée"],["l","⭐ Ma liste"],["j","📓 Journal"],["e","📈 Ce qui marche"]].map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div>`;
+const sel=(key,list,cur)=>`<div class="chips">${list.map(([v,l])=>`<button class="chip" data-f="${key}" data-v="${v}" aria-pressed="${String(cur)===String(v)}">${l}</button>`).join("")}</div>`;
+function pool(){
+ const ok=(i,p)=>i.en<=F.en&&i.tm<=F.tm&&(F.pl==="any"||i.pl==="x"||i.pl===F.pl);
+ let p=all().filter(ok);
+ const cs=MOOD[F.md];if(cs){const q=p.filter(i=>cs.includes(i.c));if(q.length>=3)p=q}
+ if(p.length<2)p=all();return p;
+}
+function pick(){const p=pool().filter(i=>!cur||i.k!==cur.k);cur=p[Math.floor(Math.random()*p.length)];tr=null}
+const wxs=(id,v)=>{const w=W[wi(v)];return `<div class="wx" id="${id}X">${w[0]}</div><div class="lab" id="${id}L">${w[1]} · ${v}/10</div>`};
+function ideaCard(){
+ if(!cur)return "";const fav=S.fav.includes(cur.k);
+ let h=`<section class="card idea pop"><div class="em">${cur.e}</div><div class="tx">${esc(cur.t)}</div><div class="nav"><button class="btn" data-try="1">✅ On l’essaie</button><button class="btn ghost" data-next="1">➡️ Une autre</button><button class="btn ghost" data-fav="${cur.k}">${fav?"★ Dans ma liste":"⭐ Garder"}</button></div></section>`;
+ if(tr)h+=`<section class="card slider"><h2>Avant, l’ambiance entre nous…</h2>${wxs("tb",tr.b)}<input type="range" id="tb" min="0" max="10" value="${tr.b}" aria-label="Ambiance avant"><div id="tbal">${tr.b<=2?`<div class="alert"><b>L’ambiance est très tendue.</b> Vous n’êtes pas seul : parlez-en à un proche ou à un professionnel, ou appelez :${calls()}</div>`:""}</div><h2 style="margin-top:14px">Après, l’ambiance…</h2>${wxs("ta",tr.a)}<input type="range" id="ta" min="0" max="10" value="${tr.a}" aria-label="Ambiance après"><p class="sub" style="margin:8px 0">Faites l’idée ensemble, puis réglez « après ».</p><div class="nav"><button class="btn" id="trsave">Enregistrer</button></div><p id="trm" class="sub" style="margin:8px 0 0"></p></section>`;
+ return h;
+}
+function I(){
+ const favs=S.fav.map(byKey).filter(Boolean).slice(0,4);
+ return `<div class="pop"><div class="hero">🎁</div><h1>Des idées à faire avec mon ado</h1><p class="sub" style="margin-top:8px">Quand l’ambiance se tend ou que votre ado va moins bien, un petit moment partagé aide plus qu’un grand discours. Dites où vous en êtes, et je vous propose une idée simple à faire ensemble.</p>
+ <section class="card"><h2>Où en est l’ambiance ?</h2>${sel("md",FM,F.md)}<h2 style="margin-top:12px">L’énergie de votre ado</h2>${sel("en",FE,F.en)}<h2 style="margin-top:12px">Notre temps</h2>${sel("tm",FT,F.tm)}<h2 style="margin-top:12px">Où</h2>${sel("pl",FP,F.pl)}<div class="nav" style="margin-top:14px"><button class="btn big" data-next="1">🎲 Une idée !</button></div></section>
+ <div id="ic">${ideaCard()}</div>
+ ${favs.length?`<section class="card"><h2>Mes valeurs sûres</h2><div class="chips">${favs.map(f=>`<button class="chip" data-fv="${f.k}">${f.e} ${esc(f.t.length>38?f.t.slice(0,36)+"…":f.t)}</button>`).join("")}</div></section>`:""}
+ <p class="note">Proposez, ne forcez pas : si votre ado refuse, essayez un autre jour ou une autre idée. Si votre ado va mal longtemps, parle de ne plus vouloir vivre ou se met en danger, consultez un médecin ou appelez le 3114.</p></div>`;
+}
+function L(){
+ const favs=S.fav.map(byKey).filter(Boolean);
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">⭐ Ma liste</h1><p class="sub">Vos idées préférées, à portée de main quand l’ambiance se tend.</p>
+ <section class="card"><h2>Idées gardées</h2>${favs.map(f=>`<div class="row"><span class="e">${f.e}</span><div class="t">${esc(f.t)}<br><span class="sub">${CAT[f.c]}</span></div><button class="x" data-fav="${f.k}" aria-label="Retirer">✕</button></div>`).join("")||`<p class="sub" style="margin:0">Rien pour l’instant. Touchez « ⭐ Garder » sur une idée qui vous plaît.</p>`}${favs.length?`<div class="nav"><button class="btn" data-fr="1">🎲 Une idée de ma liste</button></div>`:""}</section>
+ <section class="card"><h2>Ajouter notre idée</h2><input type="text" id="cu" maxlength="120" placeholder="Ex : une balade avec le chien, un jeu de société…"><div class="nav"><button class="btn" id="cuadd">Ajouter</button></div></section></div>`;
+}
+const mini=(k,e)=>`<div class="row"><span class="e">${e.e}</span><div class="t"><b>${sd(k)}</b> · ${esc(e.t.length>60?e.t.slice(0,58)+"…":e.t)}<br><span class="sub">${W[wi(e.b)][0]} ${e.b} → ${W[wi(e.a)][0]} ${e.a}</span></div></div>`;
+function J(){
+ const l=S.log.slice().reverse().slice(0,20);
+ return `<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📓 Mon journal</h1><p class="sub">Les idées essayées ensemble, et l’ambiance avant et après.</p><section class="card">${l.map(e=>`<div class="row"><span class="e">${e.e}</span><div class="t"><b>${sd(e.d)}</b> · ${esc(e.t.length>60?e.t.slice(0,58)+"…":e.t)}<br><span class="sub">${W[wi(e.b)][0]} ${e.b} → ${W[wi(e.a)][0]} ${e.a} ${e.a>e.b?"· 👍":""}</span></div><button class="x" data-del="${S.log.indexOf(e)}" aria-label="Supprimer">✕</button></div>`).join("")||`<p class="sub" style="margin:0">Pas encore d’essai. Allez dans « Une idée », essayez-en une, puis enregistrez.</p>`}</section></div>`;
+}
+function E(){
+ const lg=S.log,n=lg.length,h=`<div class="pop"><h1 style="font-size:1.7rem;margin-bottom:6px">📈 Ce qui marche pour nous</h1>`;
+ if(n<2)return h+`<section class="card"><p>Essayez au moins 2 idées et enregistrez-les pour voir ce qui aide. Vous en avez ${n} pour l’instant.</p><div class="nav"><button class="btn" data-tab="i">🎲 Une idée</button></div></section></div>`;
+ const d=e=>e.a-e.b,avg=lg.reduce((s,e)=>s+d(e),0)/n,ok=lg.filter(e=>d(e)>0).length;
+ const grp=f=>{const o={};lg.forEach(e=>{const k=f(e);(o[k]=o[k]||[]).push(d(e))});return Object.entries(o).map(([k,a])=>[k,a.reduce((x,y)=>x+y,0)/a.length,a.length]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,3)};
+ const bars=(a,lab)=>a.length?a.map(([k,v,c])=>`<div class="bar"><span>${lab(k)}</span><div class="bt"><i style="width:${Math.min(100,Math.round(v*14))}%"></i></div><b>+${v.toFixed(1)}</b></div>`).join(""):`<p class="sub" style="margin:0">Pas encore assez d’essais qui aident.</p>`;
+ const rec=lg.slice(-12),m=rec.length,Wd=360,H=170,p=28,x=i=>m<2?Wd/2:p+i*(Wd-2*p)/(m-1),y=v=>H-26-v*(H-50)/10;
+ let sv=`<svg viewBox="0 0 ${Wd} ${H}" style="width:100%;height:auto" role="img" aria-label="Avant et après chaque idée">`;
+ [0,5,10].forEach(v=>sv+=`<line x1="${p}" x2="${Wd-p}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-dasharray="3 5"/><text x="2" y="${y(v)+4}" font-size="11" fill="var(--mut)">${v}</text>`);
+ rec.forEach((e,i)=>sv+=`<line x1="${x(i)}" x2="${x(i)}" y1="${y(e.b)}" y2="${y(e.a)}" stroke="var(--line)" stroke-width="4" stroke-linecap="round"/><circle cx="${x(i)}" cy="${y(e.b)}" r="5" fill="var(--c2)"/><circle cx="${x(i)}" cy="${y(e.a)}" r="5" fill="var(--c1)"/>`);
+ sv+=`</svg>`;
+ const low=n>=3&&lg.slice(-3).every(e=>e.a<=3);
+ const tI=grp(e=>e.t),tC=grp(e=>e.c);
+ const txt=`Idées avec mon ado · bilan sur ${n} essais\nÇa a aidé dans ${ok} essais sur ${n}\nGain moyen : ${avg>=0?"+":""}${avg.toFixed(1)} point\nIdées qui aident : ${tI.map(a=>a[0]).join(" / ")||"—"}\nCatégories : ${tC.map(a=>CAT[a[0]]).join(" / ")||"—"}`;
+ return h+(low?`<div class="alert"><b>L’ambiance reste tendue ces derniers jours, même après les idées.</b> C’est normal que ça ne suffise pas toujours. Parlez-en à un professionnel (médiation familiale, psychologue) ou appelez :${calls()}</div>`:"")+`<section class="card"><h2>Avant et après chaque idée</h2>${sv}<p class="sub" style="margin:8px 0 0"><b style="color:var(--c2)">●</b> avant · <b style="color:var(--c1)">●</b> après</p><p style="margin:10px 0 0"><b>${avg>0?`En moyenne, l’ambiance est meilleure de ${avg.toFixed(1)} point${avg>=2?"s":""} après.`:"En moyenne, ça change peu. Essayez d’autres idées."}</b> Ça a aidé dans ${ok} essai${ok>1?"s":""} sur ${n}.</p></section>
+ <section class="card"><h2>Les idées qui aident le plus</h2>${bars(tI,k=>esc(k.length>34?k.slice(0,32)+"…":k))}</section>
+ <section class="card"><h2>Les types d’idées qui marchent pour vous</h2>${bars(tC,k=>CAT[k])}</section>
+ <section class="card"><h2>Mon bilan à partager</h2><textarea id="bilan" readonly>${esc(txt)}</textarea><div class="nav"><button class="btn" id="copy">Copier mon bilan</button></div><p class="sub" id="msg" style="margin:8px 0 0">À partager avec votre ado ou un professionnel si vous le souhaitez.</p></section>
+ <div class="nav"><button class="btn" data-tab="i">🎲 Une idée</button><button class="btn ghost" id="reset">Effacer mon journal</button></div></div>`;
+}
+function render(keep){$("#app").innerHTML=head()+(tab==="i"?I():tab==="l"?L():tab==="j"?J():E());if(!keep)window.scrollTo(0,0)}
+const upd=(id,v)=>{const w=W[wi(v)];$("#"+id+"X").textContent=w[0];$("#"+id+"L").textContent=w[1]+" · "+v+"/10"};
+document.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;const d=t.dataset;
+ if(d.tab){tab=d.tab;render();return}
+ if(d.f){F[d.f]=d.f==="en"||d.f==="tm"?+d.v:d.v;if(d.f==="md"&&F.md===d.v&&t.getAttribute("aria-pressed")==="true"){}document.querySelectorAll(`[data-f="${d.f}"]`).forEach(b=>b.setAttribute("aria-pressed",String(F[d.f])===b.dataset.v));return}
+ if(d.next){pick();render(true);const c=$("#ic");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});return}
+ if(d.try){tr={b:4,a:5};render(true);const c=$("#ic");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});return}
+ if(d.fav){const i=S.fav.indexOf(d.fav);if(i>=0)S.fav.splice(i,1);else S.fav.push(d.fav);save();render(true);return}
+ if(d.fv){cur=byKey(d.fv);tr=null;render(true);return}
+ if(d.fr){const f=S.fav.map(byKey).filter(Boolean);cur=f[Math.floor(Math.random()*f.length)];tr=null;tab="i";render();return}
+ if(d.del!==undefined){S.log.splice(+d.del,1);save();render(true);return}
+ if(t.id==="trsave"){S.log.push({d:iso(new Date()),k:cur.k,e:cur.e,t:cur.t,c:cur.c,b:tr.b,a:tr.a});save();const dl=tr.a-tr.b;const m=dl>0?`Bien joué 🎉 L’ambiance est meilleure de ${dl} point${dl>1?"s":""}.`:"Ça n’a pas pris cette fois, et c’est normal. Essayez autre chose, ou parlez-en à quelqu’un.";tr=null;render(true);const c=$("#ic");if(c)c.insertAdjacentHTML("beforeend",`<section class="card"><p style="margin:0"><b>${m}</b></p></section>`);return}
+ if(t.id==="cuadd"){const v=$("#cu").value.trim();if(v){S.custom.push(v);S.fav.push("u"+(S.custom.length-1));save();render(true)}return}
+ if(t.id==="copy"){const r=$("#bilan"),m=$("#msg"),f=()=>{r.select();m.textContent="Sélectionné : copie-le à la main."};try{navigator.clipboard.writeText(r.value).then(()=>m.textContent="Copié ✅",f)}catch(x){f()}return}
+ if(t.id==="reset"&&confirm("Effacer tout ton journal ?")){S.log=[];save();render()}
+});
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.id==="tb"&&tr){tr.b=+t.value;upd("tb",tr.b);$("#tbal").innerHTML=tr.b<=2?`<div class="alert"><b>L’ambiance est très tendue.</b> Vous n’êtes pas seul : parlez-en à un proche ou à un professionnel, ou appelez :${calls()}</div>`:""}
+ if(t.id==="ta"&&tr){tr.a=+t.value;upd("ta",tr.a)}
+});
+render();
+</script>
+</body>
+</html>
